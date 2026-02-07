@@ -67,7 +67,7 @@ function App() {
   return (
     <div className="app">
       <div className="info-panel">
-        <h2>AfterHours AI</h2>
+        <h2>HerRoute</h2>
         <p>McMaster Safety Map</p>
         {loading ? (
           <div className="stats">Loading...</div>

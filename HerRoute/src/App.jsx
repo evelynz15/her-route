@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { MapContainer, TileLayer, Polyline, Popup, Marker } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
 import './App.css'
@@ -9,12 +9,12 @@ import { Sidebar } from './components/Sidebar'
 import L from 'leaflet'
 
 function App() {
-  // Map data state (from original App.jsx)
+  // Map data state
   const [roads, setRoads] = useState([])
   const [stats, setStats] = useState({ safe: 0, moderate: 0, unsafe: 0 })
   const [loading, setLoading] = useState(true)
 
-  // UI state (from App.tsx)
+  // UI state
   const [nightMode, setNightMode] = useState(false)
   const [showSettings, setShowSettings] = useState(false)
   const [sidebarView, setSidebarView] = useState('overview')
@@ -25,16 +25,19 @@ function App() {
 
   const macPosition = [43.2609, -79.9192]
 
+  // Leaflet map ref (for invalidateSize)
+  const mapRef = useRef(null)
+
   // Custom pink pin icon from public folder
   const customPinIcon = L.icon({
     iconUrl: '/custom-pin.svg',
-    iconSize: [40, 60],        // Adjust size as needed
-    iconAnchor: [20, 60],      // Bottom center of pin
-    popupAnchor: [0, -60],     // Popup opens above pin
+    iconSize: [40, 60],
+    iconAnchor: [20, 60],
+    popupAnchor: [0, -60],
     className: 'custom-pin-marker'
   })
 
-  // Load road data (from original App.jsx)
+  // Load road data
   useEffect(() => {
     fetch('/roads_simplified.json')
       .then(res => res.json())
@@ -43,21 +46,19 @@ function App() {
 
         const roadsWithScores = data.map(road => {
           let baseScore
-          // More realistic scoring based on road type
           if (road.type === 'primary' || road.type === 'secondary') {
-            baseScore = 70 + Math.random() * 25  // 70-95 (main roads safer)
+            baseScore = 70 + Math.random() * 25
           } else if (road.type === 'residential') {
-            baseScore = 50 + Math.random() * 30  // 50-80
+            baseScore = 50 + Math.random() * 30
           } else if (road.type === 'footway' || road.type === 'path') {
-            baseScore = 30 + Math.random() * 40  // 30-70 (paths less safe)
+            baseScore = 30 + Math.random() * 40
           } else {
-            baseScore = 40 + Math.random() * 40  // 40-80
+            baseScore = 40 + Math.random() * 40
           }
 
           return {
             ...road,
             safetyScore: Math.floor(baseScore),
-            // Add mock component scores for sidebar display
             components: {
               lighting: Math.floor(baseScore + Math.random() * 10),
               cameras: Math.random() > 0.5,
@@ -81,13 +82,24 @@ function App() {
       })
   }, [])
 
+  // Fix Leaflet not redrawing until scroll/interaction after layout changes
+  useEffect(() => {
+    const t = setTimeout(() => {
+      if (mapRef.current) {
+        mapRef.current.invalidateSize(true)
+      }
+    }, 150)
+
+    return () => clearTimeout(t)
+  }, [routeGenerated, sidebarCollapsed])
+
   const getSafetyColor = (score) => {
-    if (score >= 80) return '#ec4899'  // Hot pink - very safe
-    if (score >= 70) return '#f472b6'  // Pink - safe
-    if (score >= 60) return '#f9a8d4'  // Light pink - mostly safe
-    if (score >= 50) return '#fbcfe8'  // Pale pink - moderate
-    if (score >= 40) return '#d1d5db'  // Light grey - caution
-    return '#9ca3af'                    // Medium grey - unsafe
+    if (score >= 80) return '#ec4899'
+    if (score >= 70) return '#f472b6'
+    if (score >= 60) return '#f9a8d4'
+    if (score >= 50) return '#fbcfe8'
+    if (score >= 40) return '#d1d5db'
+    return '#9ca3af'
   }
 
   const getWeight = (type) => {
@@ -96,7 +108,6 @@ function App() {
     return 3
   }
 
-  // Handle destination search
   const handleDestinationSelect = (dest) => {
     setDestination(dest)
     setRouteGenerated(true)
@@ -104,7 +115,6 @@ function App() {
     setSidebarCollapsed(false)
   }
 
-  // Handle route clearing
   const handleClearRoute = () => {
     setDestination('')
     setRouteGenerated(false)
@@ -113,7 +123,6 @@ function App() {
     setSidebarCollapsed(false)
   }
 
-  // Handle road click to show segment details
   const handleRoadClick = (road, idx) => {
     setSelectedSegment(idx)
     setSidebarView('segment')
@@ -122,7 +131,7 @@ function App() {
 
   return (
     <div className={`h-screen flex flex-col ${nightMode ? 'bg-gray-900' : 'bg-white'}`}>
-      {/* Header with logo and controls */}
+      {/* Header */}
       <Header
         nightMode={nightMode}
         onToggleNightMode={() => setNightMode(!nightMode)}
@@ -131,9 +140,15 @@ function App() {
 
       <div className="flex-1 flex overflow-hidden relative">
         {/* Map Section */}
-        <div className={`flex-1 relative ${routeGenerated && !sidebarCollapsed ? 'w-[70%]' : 'w-full'}`}>
+        <div
+          className={`relative ${
+            routeGenerated && !sidebarCollapsed
+              ? 'flex-none w-[70%]'
+              : 'flex-1 w-full'
+          }`}
+        >
           {/* Search Bar */}
-          <div className="absolute top-4 left-4 right-4 z-[1000]">
+          <div className="absolute top-4 left-4 right-4 z-[5000]">
             <div className="relative max-w-2xl">
               <input
                 type="text"
@@ -168,6 +183,7 @@ function App() {
           <MapContainer
             center={macPosition}
             zoom={14}
+            whenCreated={(map) => { mapRef.current = map }}
             style={{ height: '100%', width: '100%' }}
             className={nightMode ? 'grayscale' : ''}
           >
@@ -176,7 +192,7 @@ function App() {
               attribution='&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>'
             />
 
-            {/* User location marker with YOUR custom pin! 💗 */}
+            {/* User location marker */}
             <Marker position={macPosition} icon={customPinIcon}>
               <Popup>
                 <div className="text-center">
@@ -186,7 +202,7 @@ function App() {
               </Popup>
             </Marker>
 
-            {/* Road segments with safety colors */}
+            {/* Road segments */}
             {roads.map((road, idx) => (
               <Polyline
                 key={idx}
@@ -221,11 +237,87 @@ function App() {
             ))}
           </MapContainer>
 
-          {/* Legend (bottom right) */}
-          {!routeGenerated && (
-            <div className={`absolute bottom-8 right-8 z-[1000] rounded-xl shadow-lg p-4
-              ${nightMode ? 'bg-gray-800 text-white' : 'bg-white text-gray-900'}
-            `}>
+          {/* Loading overlay */}
+          {loading && (
+            <div className="absolute inset-0 bg-white/90 flex items-center justify-center z-[2000]">
+              <div className="bg-white rounded-xl shadow-2xl p-8 text-center">
+                <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-pink-500 mx-auto mb-4"></div>
+                <p className="text-gray-600 text-lg">Loading map data...</p>
+              </div>
+            </div>
+          )}
+        </div>
+
+        {/* Sidebar */}
+        {routeGenerated && (
+          <div className={`${sidebarCollapsed ? 'w-[64px]' : 'w-[30%]'} flex-none`}>
+            <Sidebar
+              nightMode={nightMode}
+              view={sidebarView}
+              selectedSegment={selectedSegment}
+              selectedRoad={selectedSegment !== null ? roads[selectedSegment] : null}
+              collapsed={sidebarCollapsed}
+              stats={stats}
+              totalSegments={roads.length}
+              onToggleCollapse={() => setSidebarCollapsed(!sidebarCollapsed)}
+              onBackToOverview={() => {
+                setSidebarView('overview')
+                setSelectedSegment(null)
+              }}
+            />
+          </div>
+        )}
+
+        {/* Floating BOX overlays that ALWAYS stay on top */}
+        {!routeGenerated && (
+          <>
+            {/* Top-right stats BOX (hard constrained so it never becomes a panel) */}
+            {!loading && (
+              <div className="fixed top-24 right-6 z-[9999] pointer-events-auto">
+                <div
+                  className={`rounded-2xl shadow-xl border p-5 w-[320px] max-w-[90vw]
+                    max-h-[40vh] overflow-auto
+                    ${nightMode
+                      ? 'bg-gray-800 text-white border-gray-700'
+                      : 'bg-white text-gray-900 border-gray-200'
+                    }
+                  `}
+                >
+                  <h2 className="text-xl font-bold mb-1">HerRoute</h2>
+                  <p className={`text-sm mb-4 ${nightMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                    McMaster Safety Map
+                  </p>
+
+                  <div className={`rounded-lg p-3 ${nightMode ? 'bg-gray-700' : 'bg-gray-50'}`}>
+                    <div className="text-sm">
+                      <strong className="text-lg">{roads.length}</strong> road segments analyzed
+                    </div>
+
+                    <div className="mt-3 pt-3 border-t border-gray-600 space-y-2">
+                      <div className="flex items-center gap-2 text-sm">
+                        <span className="w-3 h-3 rounded-full" style={{ backgroundColor: '#ec4899' }}></span>
+                        <span>{stats.safe} safe routes</span>
+                      </div>
+                      <div className="flex items-center gap-2 text-sm">
+                        <span className="w-3 h-3 rounded-full" style={{ backgroundColor: '#fbcfe8' }}></span>
+                        <span>{stats.moderate} caution areas</span>
+                      </div>
+                      <div className="flex items-center gap-2 text-sm">
+                        <span className="w-3 h-3 rounded-full" style={{ backgroundColor: '#9ca3af' }}></span>
+                        <span>{stats.unsafe} avoid at night</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* Bottom-right legend BOX */}
+            <div
+              className={`fixed bottom-6 right-6 z-[9999] w-[260px] max-w-[90vw] rounded-2xl shadow-xl border p-4
+                ${nightMode ? 'bg-gray-800 text-white border-gray-700' : 'bg-white text-gray-900 border-gray-200'}
+              `}
+            >
               <strong className="block mb-3 text-sm">Safety Level</strong>
               <div className="space-y-2">
                 <div className="flex items-center gap-3 text-sm">
@@ -242,66 +334,7 @@ function App() {
                 </div>
               </div>
             </div>
-          )}
-
-          {/* Stats panel (top right) - only show when no route */}
-          {!routeGenerated && !loading && (
-            <div className={`absolute top-20 right-4 z-[1000] rounded-xl shadow-lg p-5 max-w-xs
-              ${nightMode ? 'bg-gray-800 text-white' : 'bg-white text-gray-900'}
-            `}>
-              <h2 className="text-xl font-bold mb-1">HerRoute</h2>
-              <p className={`text-sm mb-4 ${nightMode ? 'text-gray-400' : 'text-gray-600'}`}>
-                McMaster Safety Map
-              </p>
-              <div className={`rounded-lg p-3 ${nightMode ? 'bg-gray-700' : 'bg-gray-50'}`}>
-                <div className="text-sm">
-                  <strong className="text-lg">{roads.length}</strong> road segments analyzed
-                </div>
-                <div className="mt-3 pt-3 border-t border-gray-600 space-y-2">
-                  <div className="flex items-center gap-2 text-sm">
-                    <span className="w-3 h-3 rounded-full" style={{ backgroundColor: '#ec4899' }}></span>
-                    <span>{stats.safe} safe routes</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-sm">
-                    <span className="w-3 h-3 rounded-full" style={{ backgroundColor: '#fbcfe8' }}></span>
-                    <span>{stats.moderate} caution areas</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-sm">
-                    <span className="w-3 h-3 rounded-full" style={{ backgroundColor: '#9ca3af' }}></span>
-                    <span>{stats.unsafe} avoid at night</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          )}
-
-          {/* Loading overlay */}
-          {loading && (
-            <div className="absolute inset-0 bg-white/90 flex items-center justify-center z-[2000]">
-              <div className="bg-white rounded-xl shadow-2xl p-8 text-center">
-                <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-pink-500 mx-auto mb-4"></div>
-                <p className="text-gray-600 text-lg">Loading map data...</p>
-              </div>
-            </div>
-          )}
-        </div>
-
-        {/* Sidebar - only show when route is generated */}
-        {routeGenerated && (
-          <Sidebar
-            nightMode={nightMode}
-            view={sidebarView}
-            selectedSegment={selectedSegment}
-            selectedRoad={selectedSegment !== null ? roads[selectedSegment] : null}
-            collapsed={sidebarCollapsed}
-            stats={stats}
-            totalSegments={roads.length}
-            onToggleCollapse={() => setSidebarCollapsed(!sidebarCollapsed)}
-            onBackToOverview={() => {
-              setSidebarView('overview')
-              setSelectedSegment(null)
-            }}
-          />
+          </>
         )}
       </div>
     </div>

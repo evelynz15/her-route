@@ -1,151 +1,22 @@
-/* ========== 💗 PINK/GREY/WHITE THEME 💗 ========== */
+/* App.css - keep this file PURE CSS */
 
-/* Pink tint on base map tiles */
-.leaflet-tile-pane {
-  filter: saturate(0.5) hue-rotate(315deg) brightness(1.1);
-}
-
-/* White/light background */
-.leaflet-container {
-  background: #ffffff !important;
-}
-
-/* Make roads pop more with pink */
-.leaflet-interactive {
-  filter: saturate(1.1);
-  transition: all 0.2s ease;
-}
-
-.leaflet-interactive:hover {
-  filter: saturate(1.3) brightness(1.1);
-  cursor: pointer;
-}
-
-/* ========== END PINK THEME ========== */
-
-* {
+html, body, #root {
+  height: 100%;
   margin: 0;
-  padding: 0;
-  box-sizing: border-box;
 }
 
-.app {
-  position: relative;
+/* Leaflet needs an explicit height somewhere */
+.leaflet-container {
+  height: 100%;
+  width: 100%;
 }
 
-.info-panel {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background: white;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-  z-index: 1000;
-  max-width: 280px;
+/* Optional: make the custom pin look nicer */
+.custom-pin-marker {
+  filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.25));
 }
 
-.info-panel h2 {
-  margin: 0 0 5px 0;
-  font-size: 20px;
-  color: #ec4899;
-  font-weight: 700;
-}
-
-.info-panel p {
-  margin: 0 0 15px 0;
-  font-size: 14px;
-  color: #6b7280;
-}
-
-.stats {
-  font-size: 13px;
-  color: #4b5563;
-  background: #fce7f3;
-  padding: 12px;
-  border-radius: 8px;
-}
-
-.stats-breakdown {
-  margin-top: 10px;
-  padding-top: 10px;
-  border-top: 2px solid #f9a8d4;
-}
-
-.stats-breakdown div {
-  display: flex;
-  align-items: center;
-  margin: 4px 0;
-}
-
-.dot {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  margin-right: 8px;
-}
-
-.dot.safe { background: #ec4899; }
-.dot.moderate { background: #fbcfe8; }
-.dot.unsafe { background: #9ca3af; }
-
-.legend {
-  position: absolute;
-  bottom: 30px;
-  right: 10px;
-  background: white;
-  padding: 15px;
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-  z-index: 1000;
-}
-
-.legend strong {
-  display: block;
-  margin-bottom: 10px;
-  font-size: 14px;
-  color: #ec4899;
-  font-weight: 700;
-}
-
-.legend-item {
-  display: flex;
-  align-items: center;
-  margin: 8px 0;
-  font-size: 13px;
-}
-
-.legend-color {
-  width: 40px;
-  height: 4px;
-  margin-right: 10px;
-  border-radius: 2px;
-}
-
-.legend-color.safe { background: #ec4899; }
-.legend-color.moderate { background: #fbcfe8; }
-.legend-color.unsafe { background: #9ca3af; }
-
-.loading-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(255,255,255,0.9);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 2000;
-}
-
-.loading-box {
-  background: white;
-  padding: 30px 50px;
-  border-radius: 12px;
-  box-shadow: 0 8px 32px rgba(236, 72, 153, 0.2);
-  border: 2px solid #fce7f3;
-  font-size: 16px;
-  color: #ec4899;
-  font-weight: 600;
+/* Optional: when you add className="grayscale" to MapContainer */
+.grayscale {
+  filter: grayscale(1) contrast(1.05);
 }

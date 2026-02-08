@@ -1,5 +1,6 @@
 // Load environment variables (Directions API Key)
 require("dotenv").config();
+const BACKEND_URL = process.env.BACKEND_URL;
 
 // Set up entering, rules and log book
 const { onRequest } = require("firebase-functions/v2/https");
@@ -87,6 +88,23 @@ exports.getRoutes = onRequest(async (req, res) => {
         coords: decoded.map(([lat, lng]) => ({ lat, lng })),
       };
     });
+
+    for (const route of routes) {
+  const resp = await axios.post(
+    "${BACKEND_URL}/internal/safety/score-route",
+    { coords: route.coords }
+  );
+
+  route.safetyScore = resp.data.safetyScore;
+}
+
+console.log(
+  routes.map(r => ({
+    route_id: r.route_id,
+    duration: r.duration_s,
+    safety: r.safetyScore
+  }))
+);
 
     // PLACEHOLDER choose which route to send
     routes.sort((a, b) => a.duration_s - b.duration_s);

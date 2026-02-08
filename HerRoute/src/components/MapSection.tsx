@@ -34,11 +34,11 @@ export function MapSection({
       className="flex-1 relative h-full"
       style={{ position: 'relative', width: '100%', height: '100%' }}
     >
-      {/* Search Bar - CRITICAL: Must be AFTER map in DOM but with higher z-index */}
+      {/* Search Bar - Lower position with 75% opacity */}
       <div
         style={{
           position: 'absolute',
-          top: '1.5rem',
+          top: '3rem',
           left: '50%',
           transform: 'translateX(-50%)',
           zIndex: 1000,
@@ -48,9 +48,12 @@ export function MapSection({
         }}
       >
         <div
-          className={`rounded-xl shadow-2xl border ${nightMode ? 'bg-gray-800 border-gray-700' : 'bg-white border-gray-200'
+          className={`rounded-xl shadow-2xl border backdrop-blur-md ${nightMode ? 'border-gray-700' : 'border-gray-200'
             }`}
-          style={{ pointerEvents: 'auto' }} // Re-enable clicks on actual search bar
+          style={{ 
+            pointerEvents: 'auto',
+            backgroundColor: nightMode ? 'rgba(31, 41, 55, 0.75)' : 'rgba(255, 255, 255, 0.75)'
+          }}
         >
           {/* Search Input */}
           <div className="flex items-center gap-2 sm:gap-3 px-3 sm:px-4 py-2 sm:py-3">
@@ -80,10 +83,10 @@ export function MapSection({
                   setSearchValue('');
                   setShowSuggestions(false);
                 }}
-                className={`p-1 rounded hover:bg-opacity-80 flex-shrink-0 ${nightMode ? 'hover:bg-gray-700' : 'hover:bg-gray-100'
+                className={`p-1 rounded-full hover:bg-opacity-80 flex-shrink-0 transition-colors ${nightMode ? 'hover:bg-gray-600' : 'hover:bg-gray-200'
                   }`}
               >
-                <X className="w-4 h-4 text-gray-400" />
+                <X className={`w-4 h-4 ${nightMode ? 'text-gray-400' : 'text-gray-500'}`} />
               </button>
             )}
           </div>

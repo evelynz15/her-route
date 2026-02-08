@@ -221,11 +221,11 @@ export default function HerRouteMap({
                             hue-rotate(120deg)
                         `
                         : `
-                            saturate(2.5) 
+                            saturate(2.3) 
                             brightness(1.05)
                             hue-rotate(5deg)
                             saturate(2.1)
-                            brightness(1.1)
+                            brightness(1.0)
                             contrast(1.05)
                         `
                     };

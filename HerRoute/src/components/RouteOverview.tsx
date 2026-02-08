@@ -12,16 +12,6 @@ interface RouteOverviewProps {
 
 const routeNodes = [
   { id: 1, x: 15, y: 20, safety: 85, color: '#22C55E' },
-  { id: 2, x: 18, y: 25, safety: 82, color: '#22C55E' },
-  { id: 3, x: 22, y: 32, safety: 78, color: '#84CC16' },
-  { id: 4, x: 28, y: 38, safety: 75, color: '#84CC16' },
-  { id: 5, x: 35, y: 42, safety: 68, color: '#FACC15' },
-  { id: 6, x: 42, y: 45, safety: 65, color: '#FACC15' },
-  { id: 7, x: 48, y: 50, safety: 58, color: '#FB923C' },
-  { id: 8, x: 52, y: 56, safety: 72, color: '#FACC15' },
-  { id: 9, x: 58, y: 62, safety: 80, color: '#22C55E' },
-  { id: 10, x: 65, y: 68, safety: 85, color: '#22C55E' },
-  { id: 11, x: 72, y: 72, safety: 88, color: '#22C55E' },
   { id: 12, x: 78, y: 78, safety: 90, color: '#16A34A' },
 ];
 
@@ -45,12 +35,11 @@ export function RouteOverview({ nightMode }: RouteOverviewProps) {
   const handleReportIssue = (issue: string) => {
     console.log('Reported issue:', issue);
     setShowReportModal(false);
-    // You can add toast notification here
   };
 
   return (
     <>
-      <div className="px-4 sm:px-6 py-4 sm:py-6 space-y-4 sm:space-y-6">
+      <div className="px-4 sm:px-6 py-4 sm:py-6 space-y-4 sm:space-y-6 relative">
         {/* Route Title */}
         <div>
           <h2 className={`text-xs sm:text-sm font-semibold ${nightMode ? 'text-gray-400' : 'text-gray-500'} uppercase tracking-wide mb-2`}>
@@ -91,6 +80,32 @@ export function RouteOverview({ nightMode }: RouteOverviewProps) {
           </div>
         </div>
 
+        {/* ACTION BUTTONS - SOLID AND STABLE */}
+        <div className="flex flex-col gap-3 pt-2">
+          {navigationStatus === 'idle' ? (
+            <button 
+              className="w-full bg-[#ec4899] text-black font-bold py-4 px-4 rounded-xl flex items-center justify-center gap-2 shadow-md" 
+              onClick={handleStartNavigation}
+            >
+              <Navigation className="w-5 h-5 fill-black stroke-black" />
+              <span className="uppercase tracking-wider">Start Navigation</span>
+            </button>
+          ) : (
+            <button 
+              className="w-full bg-rose-600 text-white font-bold py-4 px-4 rounded-xl flex items-center justify-center gap-2 shadow-md" 
+              onClick={handleEndNavigation}
+            >
+              <Navigation className="w-5 h-5 fill-white" />
+              <span className="uppercase tracking-wider">End Navigation</span>
+            </button>
+          )}
+
+          <button className={`w-full bg-white border-2 border-[#ec4899] text-[#ec4899] font-bold py-3 px-4 rounded-xl flex items-center justify-center gap-2 shadow-sm ${nightMode ? 'bg-gray-800' : ''}`}>
+            <RefreshCw className="w-5 h-5" />
+            <span className="uppercase tracking-tight">Find Safer Route</span>
+          </button>
+        </div>
+
         {/* Safety Breakdown */}
         <div>
           <h3 className={`font-semibold ${nightMode ? 'text-white' : 'text-gray-900'} mb-4`}>Safety Breakdown</h3>
@@ -106,59 +121,7 @@ export function RouteOverview({ nightMode }: RouteOverviewProps) {
           <ul className={`space-y-1 text-sm ${nightMode ? 'text-yellow-200' : 'text-yellow-800'} ml-7`}>
             <li>• One darker section between nodes 6-8</li>
             <li>• Main St has limited visibility at night</li>
-            <li>• Construction zone near node 7 (temporary)</li>
           </ul>
-        </div>
-
-        {/* Route Highlights */}
-        <div className={`${nightMode ? 'bg-green-900/30 border-green-700' : 'bg-green-50 border-green-200'} border rounded-lg p-4`}>
-          <div className="flex items-start gap-2 mb-2">
-            <Sparkles className={`w-5 h-5 ${nightMode ? 'text-green-400' : 'text-green-600'} mt-0.5`} />
-            <h4 className={`font-semibold ${nightMode ? 'text-green-300' : 'text-green-900'}`}>Route Highlights</h4>
-          </div>
-          <ul className={`space-y-1 text-sm ${nightMode ? 'text-green-200' : 'text-green-800'} ml-7`}>
-            <li>✓ Well-lit residential streets</li>
-            <li>✓ Multiple security cameras on route</li>
-            <li>✓ Two 24/7 businesses nearby</li>
-            <li>✓ Popular walking path with regular foot traffic</li>
-          </ul>
-        </div>
-
-        {/* Action Buttons */}
-        {navigationStatus === 'idle' ? (
-          <button 
-            className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-4 rounded-lg flex items-center justify-center gap-2 transition-colors" 
-            onClick={handleStartNavigation}
-          >
-            <Navigation className="w-5 h-5" />
-            Start Navigation
-          </button>
-        ) : (
-          <button 
-            className="w-full bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-4 rounded-lg flex items-center justify-center gap-2 transition-colors animate-pulse" 
-            onClick={handleEndNavigation}
-          >
-            <Navigation className="w-5 h-5" />
-            End Navigation
-          </button>
-        )}
-
-        <button className="w-full border-2 border-indigo-600 text-indigo-600 hover:bg-indigo-50 font-semibold py-3 px-4 rounded-lg flex items-center justify-center gap-2 transition-colors">
-          <RefreshCw className="w-5 h-5" />
-          Find Safer Route
-        </button>
-
-        {/* Additional Links */}
-        <div className={`space-y-2 pt-2 ${nightMode ? 'border-gray-700' : 'border-gray-200'} border-t`}>
-          <button className="w-full text-left text-sm text-indigo-600 hover:text-indigo-700 font-medium py-2">
-            📍 View Segment Details
-          </button>
-          <button className="w-full text-left text-sm text-indigo-600 hover:text-indigo-700 font-medium py-2">
-            💬 Read Reviews (47)
-          </button>
-          <button className="w-full text-left text-sm text-red-600 hover:text-red-700 font-medium py-2" onClick={() => setShowReportModal(true)}>
-            ⚠️ Report Issue on Route
-          </button>
         </div>
       </div>
 

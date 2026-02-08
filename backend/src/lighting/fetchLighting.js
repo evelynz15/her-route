@@ -4,7 +4,7 @@ export async function fetchStreetLights() {
   const query = `
     [out:json];
     node["highway"="street_lamp"]
-      (43.648,-79.395,43.660,-79.375);
+      (43.258,-79.923,43.266,-79.912);
     out;
   `;
 

@@ -1,30 +1,44 @@
-import { pool } from "../db.js";
+import mongoose, { mongo } from "mongoose";
+import dotenv from "dotenv";
+import SafetyNode from "../safetyNode.js";
 import { fetchStreetLights } from "./fetchLighting.js";
 import { generateSafetyNodes } from "./generateSafetyNodes.js";
 
+dotenv.config();
+
 function generateGrid() {
   const points = [];
-  for (let lat = 43.648; lat <= 43.660; lat += 0.0005) {
-    for (let lng = -79.395; lng <= -79.375; lng += 0.0005) {
+  for (let lat = 43.258; lat <= 43.266; lat += 0.0005) {
+    for (let lng = -79.923; lng <= -79.912; lng += 0.0005) {
       points.push({ lat, lng });
     }
   }
   return points;
 }
 
-export async function seedDatabase() {
+async function seedDatabase() {
+
+    console.log("Seed script running");
+
+    await mongoose.connect(process.env.MONGO_URI);
+    console.log("MongoDB connected");
+
+console.log("Connected DB:", mongoose.connection.name);
+console.log("Connected Collection:", SafetyNode.collection.name);
+
+    await SafetyNode.deleteMany({});
+
   const lamps = await fetchStreetLights();
+    console.log("Lamp count fetched:", lamps.length);
+    console.log("Lamp sample:", lamps.slice(0, 3));
+
   const grid = generateGrid();
   const nodes = generateSafetyNodes(grid, lamps);
 
-  for (const n of nodes) {
-    await pool.query(
-      `INSERT INTO safety_nodes
-       (lat, lng, lamp_count, lighting_score, safety_score)
-       VALUES ($1, $2, $3, $4, $5)`,
-      [n.lat, n.lng, n.lampCount, n.lightingScore, n.safetyScore]
-    );
-  }
+  await SafetyNode.insertMany(nodes);
 
   console.log("Database seeded:", nodes.length);
+  process.exit();
 }
+
+seedDatabase();

@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { MapContainer, TileLayer, Polyline, Marker, Popup, useMap } from 'react-leaflet';
+import type { Map as LeafletMap } from 'leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 
@@ -111,14 +112,14 @@ const MCMASTER_ROADS = [
     },
 ];
 
-// Safety color mapping
+// Safety color mapping - ALL PINK SHADES
 const getSafetyColor = (score: number): string => {
     if (score >= 80) return '#ec4899'; // Deep pink - very safe
     if (score >= 70) return '#f472b6'; // Pink - safe
     if (score >= 60) return '#f9a8d4'; // Light pink
     if (score >= 50) return '#fbcfe8'; // Very light pink
-    if (score >= 40) return '#d1d5db'; // Light gray - caution
-    return '#9ca3af'; // Gray - unsafe
+    if (score >= 40) return '#fce7f3'; // Very very light pink
+    return '#fdf2f8'; // Palest pink - unsafe
 };
 
 // Custom pink marker for start/end
@@ -150,6 +151,14 @@ const createPinkMarker = () => {
     });
 };
 
+// Custom pin icon for current location
+const customLocationIcon = L.icon({
+    iconUrl: '/custom-pin.svg',
+    iconSize: [40, 60],
+    iconAnchor: [20, 60],
+    className: 'custom-pin-marker'
+});
+
 // Component to handle map reset
 function MapController({ onMapReady }: { onMapReady: (resetFn: () => void) => void }) {
     const map = useMap();
@@ -170,8 +179,26 @@ export default function HerRouteMap({
     onSegmentClick,
     onMapReady,
 }: HerRouteMapProps) {
-    const mapRef = useRef<L.Map | null>(null);
+    const mapRef = useRef<LeafletMap | null>(null);
     const [mapReady, setMapReady] = useState(false);
+    const [allRoads, setAllRoads] = useState<any[]>([]);
+    const [showAllRoads, setShowAllRoads] = useState(true);
+    const [loading, setLoading] = useState(true);
+
+    // Load all roads from JSON
+    useEffect(() => {
+        fetch('/roads_simplified.json')
+            .then(res => res.json())
+            .then(data => {
+                const roadsWithScores = data.map((road: any) => ({
+                    ...road,
+                    safetyScore: Math.floor(40 + Math.random() * 55),
+                }));
+                setAllRoads(roadsWithScores);
+                setLoading(false);
+            })
+            .catch(() => setLoading(false));
+    }, []);
 
     useEffect(() => {
         if (mapRef.current) {
@@ -182,111 +209,161 @@ export default function HerRouteMap({
     }, [routeGenerated]);
 
     return (
-        <MapContainer
-            center={MCMASTER_CENTER}
-            zoom={15}
-            ref={mapRef}
-            style={{ height: '100%', width: '100%', zIndex: 1 }}
-            className={nightMode ? 'grayscale' : ''}
-            zoomControl={true}
-            whenReady={() => setMapReady(true)}
-        >
-            <TileLayer
-                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-            />
-
-            <MapController onMapReady={onMapReady} />
-
-            {/* Background roads - always visible */}
-            {MCMASTER_ROADS.map((road) => (
-                <Polyline
-                    key={road.id}
-                    positions={road.coordinates}
-                    pathOptions={{
-                        color: getSafetyColor(road.safetyScore),
-                        weight: road.type === 'primary' ? 5 : 3,
-                        opacity: 0.6,
-                    }}
+        <>
+            <style>{`
+                /* Day/Night Mode - Apply filters ONLY to tile layers, not markers */
+                .leaflet-tile-pane {
+                    filter: ${nightMode 
+                        ? `
+                            brightness(0.3)
+                            contrast(1.1)
+                            saturate(3.8)
+                            hue-rotate(120deg)
+                        `
+                        : `
+                            saturate(2.5) 
+                            brightness(1.05)
+                            hue-rotate(5deg)
+                            saturate(2.1)
+                            brightness(1.1)
+                            contrast(1.05)
+                        `
+                    };
+                    transition: filter 0.3s ease;
+                }
+                
+                /* Ensure markers are NOT affected by any filters */
+                .leaflet-marker-pane,
+                .leaflet-popup-pane,
+                .custom-pin-marker,
+                .custom-pink-marker {
+                    filter: none !important;
+                }
+                
+                /* Ensure polylines (routes) are NOT affected by tile filters */
+                .leaflet-overlay-pane svg {
+                    filter: none !important;
+                }
+            `}</style>
+            
+            {/* Toggle Button - Bottom Left */}
+            <button
+                onClick={() => setShowAllRoads(!showAllRoads)}
+                className={`fixed bottom-6 left-6 z-[9999] px-4 py-2 rounded-lg shadow-lg font-semibold text-sm transition-all ${
+                    showAllRoads 
+                        ? 'bg-pink-500 text-white hover:bg-pink-600' 
+                        : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+                }`}
+                style={{ zIndex: 9999 }}
+            >
+                {showAllRoads ? '🗺️ Hide All Roads' : '🗺️ Show All Roads'}
+            </button>
+            
+            <div style={{ height: '100%', width: '100%' }}>
+                <MapContainer
+                    center={MCMASTER_CENTER}
+                    zoom={15}
+                    ref={mapRef}
+                    style={{ height: '100%', width: '100%', zIndex: 1 }}
+                    zoomControl={true}
+                    whenReady={() => setMapReady(true)}
                 >
-                    <Popup>
-                        <div className="text-sm">
-                            <strong>{road.name}</strong><br />
-                            <span className="text-gray-600">{road.type}</span><br />
-                            <div className="mt-1" style={{ color: getSafetyColor(road.safetyScore) }}>
-                                Safety: {road.safetyScore}/100
-                            </div>
-                        </div>
-                    </Popup>
-                </Polyline>
-            ))}
+                    <TileLayer
+                        url="https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png"
+                    />
 
-            {/* Generated route - shows when routeGenerated is true */}
-            {routeGenerated && (
-                <>
-                    {/* Route segments */}
-                    {ROUTE_SEGMENTS.map((segment, idx) => (
-                        <Polyline
-                            key={segment.id}
-                            positions={segment.coordinates}
-                            pathOptions={{
-                                color: getSafetyColor(segment.safetyScore),
-                                weight: 8,
-                                opacity: 1,
-                            }}
-                            eventHandlers={{
-                                click: () => onSegmentClick(segment.id),
-                            }}
-                        >
-                            <Popup>
-                                <div className="text-sm">
-                                    <strong>Segment {idx + 1}: {segment.name}</strong><br />
-                                    <span className="text-gray-600">{segment.type}</span><br />
-                                    <div className="mt-2" style={{ color: getSafetyColor(segment.safetyScore) }}>
-                                        <strong>Safety: {segment.safetyScore}/100</strong>
+                <MapController onMapReady={onMapReady} />
+
+                {/* All roads from JSON - toggleable - ALL PINK */}
+                {showAllRoads && allRoads.map((road, idx) => (
+                    <Polyline
+                        key={`road-${idx}`}
+                        positions={road.coordinates}
+                        pathOptions={{
+                            color: getSafetyColor(road.safetyScore),
+                            weight: 3,
+                            opacity: 0.5,
+                        }}
+                    >
+                        <Popup>
+                            <div className="text-sm">
+                                <strong>Road Segment {idx + 1}</strong><br />
+                                <div className="mt-1" style={{ color: getSafetyColor(road.safetyScore) }}>
+                                    Safety: {road.safetyScore}/100
+                                </div>
+                            </div>
+                        </Popup>
+                    </Polyline>
+                ))}
+
+                {/* Generated route - shows when routeGenerated is true - ALL PINK */}
+                {routeGenerated && (
+                    <>
+                        {/* Route segments */}
+                        {ROUTE_SEGMENTS.map((segment, idx) => (
+                            <Polyline
+                                key={segment.id}
+                                positions={segment.coordinates}
+                                pathOptions={{
+                                    color: getSafetyColor(segment.safetyScore),
+                                    weight: 8,
+                                    opacity: 1,
+                                }}
+                                eventHandlers={{
+                                    click: () => onSegmentClick(segment.id),
+                                }}
+                            >
+                                <Popup>
+                                    <div className="text-sm">
+                                        <strong>Segment {idx + 1}: {segment.name}</strong><br />
+                                        <span className="text-gray-600">{segment.type}</span><br />
+                                        <div className="mt-2" style={{ color: getSafetyColor(segment.safetyScore) }}>
+                                            <strong>Safety: {segment.safetyScore}/100</strong>
+                                        </div>
+                                        <button
+                                            onClick={() => onSegmentClick(segment.id)}
+                                            className="mt-2 px-3 py-1 bg-pink-500 text-white text-xs rounded hover:bg-pink-600"
+                                        >
+                                            View Details
+                                        </button>
                                     </div>
-                                    <button
-                                        onClick={() => onSegmentClick(segment.id)}
-                                        className="mt-2 px-3 py-1 bg-pink-500 text-white text-xs rounded hover:bg-pink-600"
-                                    >
-                                        View Details
-                                    </button>
+                                </Popup>
+                            </Polyline>
+                        ))}
+
+                        {/* Start marker - Wilson Hall */}
+                        <Marker position={WILSON_HALL} icon={createPinkMarker()}>
+                            <Popup>
+                                <div className="text-center">
+                                    <strong className="text-pink-500">🏛️ Start</strong><br />
+                                    <small className="text-gray-600">Wilson Hall</small>
                                 </div>
                             </Popup>
-                        </Polyline>
-                    ))}
+                        </Marker>
 
-                    {/* Start marker - Wilson Hall */}
-                    <Marker position={WILSON_HALL} icon={createPinkMarker()}>
-                        <Popup>
-                            <div className="text-center">
-                                <strong className="text-pink-500">🏛️ Start</strong><br />
-                                <small className="text-gray-600">Wilson Hall</small>
-                            </div>
-                        </Popup>
-                    </Marker>
+                        {/* End marker - Ron Joyce Stadium */}
+                        <Marker position={RON_JOYCE_STADIUM} icon={createPinkMarker()}>
+                            <Popup>
+                                <div className="text-center">
+                                    <strong className="text-pink-500">🏟️ Destination</strong><br />
+                                    <small className="text-gray-600">Ron Joyce Stadium</small>
+                                </div>
+                            </Popup>
+                        </Marker>
+                    </>
+                )}
 
-                    {/* End marker - Ron Joyce Stadium */}
-                    <Marker position={RON_JOYCE_STADIUM} icon={createPinkMarker()}>
-                        <Popup>
-                            <div className="text-center">
-                                <strong className="text-pink-500">🏟️ Destination</strong><br />
-                                <small className="text-gray-600">Ron Joyce Stadium</small>
-                            </div>
-                        </Popup>
-                    </Marker>
-                </>
-            )}
-
-            {/* Current location marker - always visible */}
-            <Marker position={MCMASTER_CENTER}>
-                <Popup>
-                    <div className="text-center">
-                        <strong className="text-pink-500">📍 Your Location</strong><br />
-                        <small className="text-gray-600">McMaster University</small>
-                    </div>
-                </Popup>
-            </Marker>
-        </MapContainer>
+                {/* Current location marker - always visible */}
+                <Marker position={MCMASTER_CENTER} icon={customLocationIcon}>
+                    <Popup>
+                        <div className="text-center">
+                            <strong className="text-pink-500">📍 Your Location</strong><br />
+                            <small className="text-gray-600">McMaster University</small>
+                        </div>
+                    </Popup>
+                </Marker>
+            </MapContainer>
+            </div>
+        </>
     );
 }

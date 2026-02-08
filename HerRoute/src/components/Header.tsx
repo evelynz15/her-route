@@ -1,5 +1,4 @@
 import { Moon, Sun, Settings } from 'lucide-react';
-// Update the path to your actual logo image file location
 
 interface HeaderProps {
   nightMode: boolean;
@@ -17,10 +16,13 @@ export function Header({ nightMode, onToggleNightMode, onSettings }: HeaderProps
             <img src="/favicon-herroute.ico" alt="HerRoute" className="w-full h-full object-contain rounded-lg" />
           </div>
         </div>
-        
         <div>
           <div className="flex items-center gap-1.5">
-            <h1 className={`font-bold text-lg sm:text-xl bg-gradient-to-r from-pink-600 to-orange-500 bg-clip-text text-transparent`}>
+            <h1 className={`font-bold text-lg sm:text-xl ${
+              nightMode 
+                ? 'text-white' 
+                : 'bg-gradient-to-r from-pink-600 to-orange-500 bg-clip-text text-transparent'
+            } transition-all`}>
               HerRoute
             </h1>
           </div>
@@ -29,7 +31,6 @@ export function Header({ nightMode, onToggleNightMode, onSettings }: HeaderProps
           </p>
         </div>
       </div>
-      
       <div className="flex items-center gap-1 sm:gap-2">
         {/* Night Mode Toggle - More visual */}
         <button
@@ -52,7 +53,6 @@ export function Header({ nightMode, onToggleNightMode, onSettings }: HeaderProps
             </>
           )}
         </button>
-        
         {/* Settings Button */}
         <button
           onClick={onSettings}

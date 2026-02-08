@@ -23,18 +23,24 @@ const mapsKey = process.env.GOOGLE_MAPS_KEY;
 // Names the site and allows interactivity
 // Indepdantly (doesn't disrupt) request and response
 exports.getRoutes = onRequest(async (req, res) => {
-
   // Normal Flow
   try {
-
     // If Directions API is missing, stop and tell
-    if (!mapsKey) return res.status(500).json({ ok: false, error: "Missing GOOGLE_MAPS_KEY" });
+    if (!mapsKey)
+      return res
+        .status(500)
+        .json({ ok: false, error: "Missing GOOGLE_MAPS_KEY" });
 
     // Pulls request (user tells to go from HERE to THERE)
     const { origin, destination } = req.body || {};
 
     // Reject something if it is wrong
-    if (!origin?.lat || !origin?.lng || !destination?.lat || !destination?.lng) {
+    if (
+      !origin?.lat ||
+      !origin?.lng ||
+      !destination?.lat ||
+      !destination?.lng
+    ) {
       return res.status(400).json({
         ok: false,
         error: "Send origin and destination as {lat, lng}",
@@ -52,7 +58,7 @@ exports.getRoutes = onRequest(async (req, res) => {
           alternatives: true,
           key: mapsKey,
         },
-      }
+      },
     );
 
     // Checking if getting info failed
@@ -66,7 +72,6 @@ exports.getRoutes = onRequest(async (req, res) => {
 
     // Unpacking Google's data
     const routes = r.data.routes.map((route, i) => {
-    
       // Grabbing journey
       const leg = route.legs?.[0];
 
@@ -96,12 +101,9 @@ exports.getRoutes = onRequest(async (req, res) => {
         selection: "fastest_duration_placeholder",
       },
     });
-  }
-  
-  // If there is an error
-  catch (e) {
+  } catch (e) {
+    // If there is an error
     logger.error(e);
     res.status(500).json({ ok: false, error: String(e.message || e) });
   }
-
 });

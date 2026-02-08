@@ -1,3 +1,6 @@
+const SAFETY_WEIGHT = 0.7;
+const TIME_WEIGHT = 0.3;
+
 // Load environment variables (Directions API Key)
 require("dotenv").config();
 const BACKEND_URL = process.env.BACKEND_URL;
@@ -91,7 +94,7 @@ exports.getRoutes = onRequest(async (req, res) => {
 
     for (const route of routes) {
   const resp = await axios.post(
-    "${BACKEND_URL}/internal/safety/score-route",
+    `${BACKEND_URL}/internal/safety/score-route`,
     { coords: route.coords }
   );
 
@@ -106,9 +109,26 @@ console.log(
   }))
 );
 
-    // PLACEHOLDER choose which route to send
-    routes.sort((a, b) => a.duration_s - b.duration_s);
-    const bestRoute = routes[0];
+const maxDuration = Math.max(...routes.map(r => r.duration_s));
+const minDuration = Math.min(...routes.map(r => r.duration_s));
+
+function normalizeDuration(d) {
+  if (maxDuration === minDuration) return 1;
+  return 1 - (d - minDuration) / (maxDuration - minDuration);
+}
+
+for (const route of routes) {
+  const normDuration = normalizeDuration(route.duration_s);
+
+  route.combinedScore =
+    0.7 * route.safetyScore +
+    0.3 * normDuration;
+}
+
+    // choose which route to send
+    routes.sort((a, b) => b.combinedScore - a.combinedScore);
+
+const bestRoute = routes[0];
 
     // Sends everything to client
     res.json({
@@ -116,7 +136,7 @@ console.log(
       bestRoute,
       meta: {
         candidateCount: routes.length,
-        selection: "fastest_duration_placeholder",
+        selection: "safety_first_then_speef",
       },
     });
   } catch (e) {

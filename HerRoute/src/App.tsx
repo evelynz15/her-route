@@ -25,8 +25,8 @@ export default function App() {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        origin: { lat: 43.2609, lng: -79.9192 },
-        destination: { lat: 43.2629, lng: -79.9215 },
+        origin: "Waterloo Park, Waterloo, ON, Canada",
+        destination: "University of Waterloo, Waterloo, ON, Canada",
       }),
     }
   );

@@ -24,6 +24,27 @@ setGlobalOptions({ maxInstances: 10 });
 // Storing the Directions in mapsKey
 const mapsKey = process.env.GOOGLE_MAPS_KEY;
 
+exports.getCoordinates = async (address) => {
+
+  const response = await axios.get(
+    "https://maps.googleapis.com/maps/api/geocode/json",
+    {
+      params: {
+        address: address,
+        key: mapsKey
+      }
+    }
+  );
+
+  const location = response.data.results[0].geometry.location;
+  console.log(location);
+
+  return {
+    latitude: location.lat,
+    longitude: location.lng
+  };
+}
+
 // Names the site and allows interactivity
 // Indepdantly (doesn't disrupt) request and response
 exports.getRoutes = onRequest(async (req, res) => {
@@ -37,7 +58,15 @@ exports.getRoutes = onRequest(async (req, res) => {
 
     console.log(req.body);
     // Pulls request (user tells to go from HERE to THERE)
-    const { origin, destination } = req.body || {};
+    let { origin, destination } = req.body || {};
+
+    if (typeof origin === "string") {
+      origin = await exports.getCoordinates(origin);
+    }
+
+    if (typeof destination === "string") {
+      destination = await exports.getCoordinates(destination);
+    }
 
     // Reject something if it is wrong
     if (
@@ -94,42 +123,42 @@ exports.getRoutes = onRequest(async (req, res) => {
     });
 
     for (const route of routes) {
-  const resp = await axios.post(
-    `${BACKEND_URL}/internal/safety/score-route`,
-    { coords: route.coords }
-  );
+      const resp = await axios.post(
+        `${BACKEND_URL}/internal/safety/score-route`,
+        { coords: route.coords }
+      );
 
-  route.safetyScore = resp.data.safetyScore;
-}
+      route.safetyScore = resp.data.safetyScore;
+    }
 
-console.log(
-  routes.map(r => ({
-    route_id: r.route_id,
-    duration: r.duration_s,
-    safety: r.safetyScore
-  }))
-);
+    console.log(
+      routes.map(r => ({
+        route_id: r.route_id,
+        duration: r.duration_s,
+        safety: r.safetyScore
+      }))
+    );
 
-const maxDuration = Math.max(...routes.map(r => r.duration_s));
-const minDuration = Math.min(...routes.map(r => r.duration_s));
+    const maxDuration = Math.max(...routes.map(r => r.duration_s));
+    const minDuration = Math.min(...routes.map(r => r.duration_s));
 
-function normalizeDuration(d) {
-  if (maxDuration === minDuration) return 1;
-  return 1 - (d - minDuration) / (maxDuration - minDuration);
-}
+    function normalizeDuration(d) {
+      if (maxDuration === minDuration) return 1;
+      return 1 - (d - minDuration) / (maxDuration - minDuration);
+    }
 
-for (const route of routes) {
-  const normDuration = normalizeDuration(route.duration_s);
+    for (const route of routes) {
+      const normDuration = normalizeDuration(route.duration_s);
 
-  route.combinedScore =
-    0.7 * route.safetyScore +
-    0.3 * normDuration;
-}
+      route.combinedScore =
+        0.7 * route.safetyScore +
+        0.3 * normDuration;
+    }
 
     // choose which route to send
     routes.sort((a, b) => b.combinedScore - a.combinedScore);
 
-const bestRoute = routes[0];
+    const bestRoute = routes[0];
 
     // Sends everything to client
     res.json({

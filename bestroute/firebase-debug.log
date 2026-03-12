@@ -1,53 +1,53 @@
-[debug] [2026-03-06T04:54:13.965Z] ----------------------------------------------------------------------
-[debug] [2026-03-06T04:54:13.967Z] Command:       /usr/local/bin/node /usr/local/bin/firebase emulators:start
-[debug] [2026-03-06T04:54:13.967Z] CLI Version:   15.9.0
-[debug] [2026-03-06T04:54:13.967Z] Platform:      darwin
-[debug] [2026-03-06T04:54:13.967Z] Node Version:  v24.12.0
-[debug] [2026-03-06T04:54:13.967Z] Time:          Thu Mar 05 2026 23:54:13 GMT-0500 (Eastern Standard Time)
-[debug] [2026-03-06T04:54:13.968Z] ----------------------------------------------------------------------
+[debug] [2026-03-12T03:28:22.911Z] ----------------------------------------------------------------------
+[debug] [2026-03-12T03:28:22.917Z] Command:       /usr/local/bin/node /usr/local/bin/firebase emulators:start
+[debug] [2026-03-12T03:28:22.918Z] CLI Version:   15.9.0
+[debug] [2026-03-12T03:28:22.918Z] Platform:      darwin
+[debug] [2026-03-12T03:28:22.918Z] Node Version:  v24.12.0
+[debug] [2026-03-12T03:28:22.918Z] Time:          Wed Mar 11 2026 23:28:22 GMT-0400 (Eastern Daylight Time)
+[debug] [2026-03-12T03:28:22.918Z] ----------------------------------------------------------------------
 [debug] 
-[debug] [2026-03-06T04:54:14.730Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
-[debug] [2026-03-06T04:54:14.731Z] > authorizing via signed-in user (evelynzhuca@gmail.com)
-[debug] [2026-03-06T04:54:14.832Z] openjdk version "23" 2024-09-17
+[debug] [2026-03-12T03:28:23.744Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-03-12T03:28:23.744Z] > authorizing via signed-in user (evelynzhuca@gmail.com)
+[debug] [2026-03-12T03:28:23.842Z] openjdk version "23" 2024-09-17
 
-[debug] [2026-03-06T04:54:14.832Z] OpenJDK Runtime Environment Homebrew (build 23)
+[debug] [2026-03-12T03:28:23.843Z] OpenJDK Runtime Environment Homebrew (build 23)
 OpenJDK 64-Bit Server VM Homebrew (build 23, mixed mode, sharing)
 
-[debug] [2026-03-06T04:54:14.835Z] Parsed Java major version: 23
+[debug] [2026-03-12T03:28:23.846Z] Parsed Java major version: 23
 [info] i  emulators: Starting emulators: functions, firestore, extensions {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: functions, firestore, extensions"}}
-[debug] [2026-03-06T04:54:14.836Z] Checked if tokens are valid: true, expires at: 1772776277379
-[debug] [2026-03-06T04:54:14.836Z] Checked if tokens are valid: true, expires at: 1772776277379
-[debug] [2026-03-06T04:54:14.837Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/her-route [none]
-[debug] [2026-03-06T04:54:15.172Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/projects/her-route 200
-[debug] [2026-03-06T04:54:15.172Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/projects/her-route {"projectNumber":"529711778315","projectId":"her-route","lifecycleState":"ACTIVE","name":"her-route","labels":{"firebase":"enabled","firebase-core":"disabled"},"createTime":"2026-03-06T03:55:12.337422Z"}
-[debug] [2026-03-06T04:54:15.376Z] [logging] Logging Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
-[debug] [2026-03-06T04:54:15.376Z] [firestore] Firestore Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
-[debug] [2026-03-06T04:54:15.376Z] [firestore.websocket] websocket server for firestore only supports listening on one address (127.0.0.1). Not listening on ::1
-[debug] [2026-03-06T04:54:15.376Z] assigned listening specs for emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"firestore":[{"address":"127.0.0.1","family":"IPv4","port":8080}],"firestore.websocket":[{"address":"127.0.0.1","family":"IPv4","port":9150}]},"metadata":{"message":"assigned listening specs for emulators"}}
-[debug] [2026-03-06T04:54:15.378Z] Write emulator hub locator at /var/folders/w0/4v2l2pwd40b111whw64s24vr0000gn/T/hub-her-route.json
-[debug] [2026-03-06T04:54:15.380Z] [Extensions] Started Extensions emulator, this is a noop.
-[debug] [2026-03-06T04:54:15.540Z] [functions] Functions Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
-[debug] [2026-03-06T04:54:15.540Z] [eventarc] Eventarc Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
-[debug] [2026-03-06T04:54:15.540Z] [tasks] Cloud Tasks Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
-[debug] [2026-03-06T04:54:15.540Z] late-assigned ports for functions and eventarc emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"firestore":[{"address":"127.0.0.1","family":"IPv4","port":8080}],"firestore.websocket":[{"address":"127.0.0.1","family":"IPv4","port":9150}],"functions":[{"address":"127.0.0.1","family":"IPv4","port":5001}],"eventarc":[{"address":"127.0.0.1","family":"IPv4","port":9299}],"tasks":[{"address":"127.0.0.1","family":"IPv4","port":9499}]},"metadata":{"message":"late-assigned ports for functions and eventarc emulators"}}
+[debug] [2026-03-12T03:28:23.848Z] Checked if tokens are valid: true, expires at: 1773288587540
+[debug] [2026-03-12T03:28:23.848Z] Checked if tokens are valid: true, expires at: 1773288587540
+[debug] [2026-03-12T03:28:23.848Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/her-route [none]
+[debug] [2026-03-12T03:28:24.235Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/projects/her-route 200
+[debug] [2026-03-12T03:28:24.235Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/projects/her-route {"projectNumber":"529711778315","projectId":"her-route","lifecycleState":"ACTIVE","name":"her-route","labels":{"firebase":"enabled","firebase-core":"disabled"},"createTime":"2026-03-06T03:55:12.337422Z"}
+[debug] [2026-03-12T03:28:24.443Z] [logging] Logging Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2026-03-12T03:28:24.443Z] [firestore] Firestore Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2026-03-12T03:28:24.443Z] [firestore.websocket] websocket server for firestore only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2026-03-12T03:28:24.443Z] assigned listening specs for emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"firestore":[{"address":"127.0.0.1","family":"IPv4","port":8080}],"firestore.websocket":[{"address":"127.0.0.1","family":"IPv4","port":9150}]},"metadata":{"message":"assigned listening specs for emulators"}}
+[debug] [2026-03-12T03:28:24.445Z] Write emulator hub locator at /var/folders/w0/4v2l2pwd40b111whw64s24vr0000gn/T/hub-her-route.json
+[debug] [2026-03-12T03:28:24.447Z] [Extensions] Started Extensions emulator, this is a noop.
+[debug] [2026-03-12T03:28:24.592Z] [functions] Functions Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2026-03-12T03:28:24.592Z] [eventarc] Eventarc Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2026-03-12T03:28:24.592Z] [tasks] Cloud Tasks Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2026-03-12T03:28:24.592Z] late-assigned ports for functions and eventarc emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"firestore":[{"address":"127.0.0.1","family":"IPv4","port":8080}],"firestore.websocket":[{"address":"127.0.0.1","family":"IPv4","port":9150}],"functions":[{"address":"127.0.0.1","family":"IPv4","port":5001}],"eventarc":[{"address":"127.0.0.1","family":"IPv4","port":9299}],"tasks":[{"address":"127.0.0.1","family":"IPv4","port":9499}]},"metadata":{"message":"late-assigned ports for functions and eventarc emulators"}}
 [warn] ⚠  functions: The following emulators are not running, calls to these services from the Functions emulator will affect production: apphosting, auth, database, hosting, pubsub, storage, dataconnect {"metadata":{"emulator":{"name":"functions"},"message":"The following emulators are not running, calls to these services from the Functions emulator will affect production: \u001b[1mapphosting, auth, database, hosting, pubsub, storage, dataconnect\u001b[22m"}}
-[debug] [2026-03-06T04:54:15.563Z] defaultcredentials: writing to file /Users/evelynzhu/.config/firebase/evelynzhuca_gmail_com_application_default_credentials.json
-[debug] [2026-03-06T04:54:15.565Z] Setting GAC to /Users/evelynzhu/.config/firebase/evelynzhuca_gmail_com_application_default_credentials.json {"metadata":{"emulator":{"name":"functions"},"message":"Setting GAC to /Users/evelynzhu/.config/firebase/evelynzhuca_gmail_com_application_default_credentials.json"}}
-[debug] [2026-03-06T04:54:15.565Z] Checked if tokens are valid: true, expires at: 1772776277379
-[debug] [2026-03-06T04:54:15.565Z] Checked if tokens are valid: true, expires at: 1772776277379
-[debug] [2026-03-06T04:54:15.565Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/her-route/adminSdkConfig [none]
-[debug] [2026-03-06T04:54:15.827Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/her-route/adminSdkConfig 200
-[debug] [2026-03-06T04:54:15.827Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/her-route/adminSdkConfig {"projectId":"her-route","storageBucket":"her-route.firebasestorage.app"}
-[debug] [2026-03-06T04:54:15.840Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"firestore"},"message":"Ignoring unsupported arg: auto_download"}}
-[debug] [2026-03-06T04:54:15.840Z] Ignoring unsupported arg: single_project_mode_error {"metadata":{"emulator":{"name":"firestore"},"message":"Ignoring unsupported arg: single_project_mode_error"}}
-[debug] [2026-03-06T04:54:15.840Z] Starting Firestore Emulator with command {"binary":"java","args":["-Dgoogle.cloud_firestore.debug_log_level=FINE","-Duser.language=en","-jar","/Users/evelynzhu/.cache/firebase/emulators/cloud-firestore-emulator-v1.20.2.jar","--host","127.0.0.1","--port",8080,"--websocket_port",9150,"--project_id","her-route","--rules","/Users/evelynzhu/her-route/her-route/firestore.rules","--single_project_mode",true,"--functions_emulator","127.0.0.1:5001"],"optionalArgs":["port","webchannel_port","host","rules","websocket_port","functions_emulator","seed_from_export","project_id","single_project_mode"],"joinArgs":false,"shell":false,"port":8080} {"metadata":{"emulator":{"name":"firestore"},"message":"Starting Firestore Emulator with command {\"binary\":\"java\",\"args\":[\"-Dgoogle.cloud_firestore.debug_log_level=FINE\",\"-Duser.language=en\",\"-jar\",\"/Users/evelynzhu/.cache/firebase/emulators/cloud-firestore-emulator-v1.20.2.jar\",\"--host\",\"127.0.0.1\",\"--port\",8080,\"--websocket_port\",9150,\"--project_id\",\"her-route\",\"--rules\",\"/Users/evelynzhu/her-route/her-route/firestore.rules\",\"--single_project_mode\",true,\"--functions_emulator\",\"127.0.0.1:5001\"],\"optionalArgs\":[\"port\",\"webchannel_port\",\"host\",\"rules\",\"websocket_port\",\"functions_emulator\",\"seed_from_export\",\"project_id\",\"single_project_mode\"],\"joinArgs\":false,\"shell\":false,\"port\":8080}"}}
+[debug] [2026-03-12T03:28:24.597Z] defaultcredentials: writing to file /Users/evelynzhu/.config/firebase/evelynzhuca_gmail_com_application_default_credentials.json
+[debug] [2026-03-12T03:28:24.598Z] Setting GAC to /Users/evelynzhu/.config/firebase/evelynzhuca_gmail_com_application_default_credentials.json {"metadata":{"emulator":{"name":"functions"},"message":"Setting GAC to /Users/evelynzhu/.config/firebase/evelynzhuca_gmail_com_application_default_credentials.json"}}
+[debug] [2026-03-12T03:28:24.599Z] Checked if tokens are valid: true, expires at: 1773288587540
+[debug] [2026-03-12T03:28:24.599Z] Checked if tokens are valid: true, expires at: 1773288587540
+[debug] [2026-03-12T03:28:24.599Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/her-route/adminSdkConfig [none]
+[debug] [2026-03-12T03:28:24.863Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/her-route/adminSdkConfig 200
+[debug] [2026-03-12T03:28:24.863Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/her-route/adminSdkConfig {"projectId":"her-route","storageBucket":"her-route.firebasestorage.app"}
+[debug] [2026-03-12T03:28:24.881Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"firestore"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2026-03-12T03:28:24.881Z] Ignoring unsupported arg: single_project_mode_error {"metadata":{"emulator":{"name":"firestore"},"message":"Ignoring unsupported arg: single_project_mode_error"}}
+[debug] [2026-03-12T03:28:24.881Z] Starting Firestore Emulator with command {"binary":"java","args":["-Dgoogle.cloud_firestore.debug_log_level=FINE","-Duser.language=en","-jar","/Users/evelynzhu/.cache/firebase/emulators/cloud-firestore-emulator-v1.20.2.jar","--host","127.0.0.1","--port",8080,"--websocket_port",9150,"--project_id","her-route","--rules","/Users/evelynzhu/her-route/her-route/firestore.rules","--single_project_mode",true,"--functions_emulator","127.0.0.1:5001"],"optionalArgs":["port","webchannel_port","host","rules","websocket_port","functions_emulator","seed_from_export","project_id","single_project_mode"],"joinArgs":false,"shell":false,"port":8080} {"metadata":{"emulator":{"name":"firestore"},"message":"Starting Firestore Emulator with command {\"binary\":\"java\",\"args\":[\"-Dgoogle.cloud_firestore.debug_log_level=FINE\",\"-Duser.language=en\",\"-jar\",\"/Users/evelynzhu/.cache/firebase/emulators/cloud-firestore-emulator-v1.20.2.jar\",\"--host\",\"127.0.0.1\",\"--port\",8080,\"--websocket_port\",9150,\"--project_id\",\"her-route\",\"--rules\",\"/Users/evelynzhu/her-route/her-route/firestore.rules\",\"--single_project_mode\",true,\"--functions_emulator\",\"127.0.0.1:5001\"],\"optionalArgs\":[\"port\",\"webchannel_port\",\"host\",\"rules\",\"websocket_port\",\"functions_emulator\",\"seed_from_export\",\"project_id\",\"single_project_mode\"],\"joinArgs\":false,\"shell\":false,\"port\":8080}"}}
 [info] i  firestore: Firestore Emulator logging to firestore-debug.log {"metadata":{"emulator":{"name":"firestore"},"message":"Firestore Emulator logging to \u001b[1mfirestore-debug.log\u001b[22m"}}
 [info] ✔  firestore: Firestore Emulator UI websocket is running on 9150. {"metadata":{"emulator":{"name":"firestore"},"message":"Firestore Emulator UI websocket is running on 9150."}}
-[debug] [2026-03-06T04:54:15.844Z] [Extensions] Connecting Extensions emulator, this is a noop.
+[debug] [2026-03-12T03:28:24.887Z] [Extensions] Connecting Extensions emulator, this is a noop.
 [info] i  functions: Watching "/Users/evelynzhu/her-route/her-route/functions" for Cloud Functions... {"metadata":{"emulator":{"name":"functions"},"message":"Watching \"/Users/evelynzhu/her-route/her-route/functions\" for Cloud Functions..."}}
-[debug] [2026-03-06T04:54:15.848Z] Validating nodejs source
+[debug] [2026-03-12T03:28:24.895Z] Validating nodejs source
 [warn] ⚠  functions: package.json indicates an outdated version of firebase-functions. Please upgrade using npm install --save firebase-functions@latest in your functions directory. 
-[debug] [2026-03-06T04:54:16.653Z] > [functions] package.json contents: {
+[debug] [2026-03-12T03:28:25.595Z] > [functions] package.json contents: {
   "name": "functions",
   "description": "Cloud Functions for Firebase",
   "scripts": {
@@ -76,21 +76,21 @@ OpenJDK 64-Bit Server VM Homebrew (build 23, mixed mode, sharing)
   },
   "private": true
 }
-[debug] [2026-03-06T04:54:16.653Z] Building nodejs source
-[debug] [2026-03-06T04:54:16.653Z] Failed to find version of module node: reached end of search path /Users/evelynzhu/her-route/her-route/functions/node_modules
+[debug] [2026-03-12T03:28:25.595Z] Building nodejs source
+[debug] [2026-03-12T03:28:25.595Z] Failed to find version of module node: reached end of search path /Users/evelynzhu/her-route/her-route/functions/node_modules
 [warn] ⚠  functions: Your requested "node" version "20" doesn't match your global version "24". Using node@24 from host. 
 [info] i  functions: Loaded environment variables from .env. 
-[debug] [2026-03-06T04:54:16.655Z] Could not find functions.yaml. Must use http discovery
-[debug] [2026-03-06T04:54:16.660Z] Found firebase-functions binary at '/Users/evelynzhu/her-route/her-route/functions/node_modules/.bin/firebase-functions'
-[info] Serving at port 8284
+[debug] [2026-03-12T03:28:25.599Z] Could not find functions.yaml. Must use http discovery
+[debug] [2026-03-12T03:28:25.605Z] Found firebase-functions binary at '/Users/evelynzhu/her-route/her-route/functions/node_modules/.bin/firebase-functions'
+[info] Serving at port 8315
 
-[info] [dotenv@17.2.4] injecting env (2) from .env -- tip: ⚙️  write to custom object with { processEnv: myObject }
+[info] [dotenv@17.2.4] injecting env (2) from .env -- tip: 🔑 add access controls to secrets: https://dotenvx.com/ops
 
-[debug] [2026-03-06T04:54:16.995Z] Mar 05, 2026 11:54:16 P.M. com.google.cloud.datastore.emulator.firestore.websocket.WebSocketServer start
+[debug] [2026-03-12T03:28:26.172Z] Mar 11, 2026 11:28:26 P.M. com.google.cloud.datastore.emulator.firestore.websocket.WebSocketServer start
 INFO: Started WebSocket server on ws://127.0.0.1:9150
- {"metadata":{"emulator":{"name":"firestore"},"message":"Mar 05, 2026 11:54:16 P.M. com.google.cloud.datastore.emulator.firestore.websocket.WebSocketServer start\nINFO: Started WebSocket server on ws://127.0.0.1:9150\n"}}
-[debug] [2026-03-06T04:54:17.016Z] API endpoint: http:// {"metadata":{"emulator":{"name":"firestore"},"message":"API endpoint: http://"}}
-[debug] [2026-03-06T04:54:17.017Z] 127.0.0.1:8080
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Mar 11, 2026 11:28:26 P.M. com.google.cloud.datastore.emulator.firestore.websocket.WebSocketServer start\nINFO: Started WebSocket server on ws://127.0.0.1:9150\n"}}
+[debug] [2026-03-12T03:28:26.199Z] API endpoint: http:// {"metadata":{"emulator":{"name":"firestore"},"message":"API endpoint: http://"}}
+[debug] [2026-03-12T03:28:26.199Z] 127.0.0.1:8080
 If you are using a library that supports the FIRESTORE_EMULATOR_HOST environment variable, run:
 
    export FIRESTORE_EMULATOR_HOST=127.0.0.1:8080
@@ -103,17 +103,15 @@ Note: Support for Datastore Mode is in preview. If you encounter any bugs please
 Dev App Server is now running.
 
  {"metadata":{"emulator":{"name":"firestore"},"message":"127.0.0.1:8080\nIf you are using a library that supports the FIRESTORE_EMULATOR_HOST environment variable, run:\n\n   export FIRESTORE_EMULATOR_HOST=127.0.0.1:8080\n\nIf you are running a Firestore in Datastore Mode project, run:\n\n   export DATASTORE_EMULATOR_HOST=127.0.0.1:8080\n\nNote: Support for Datastore Mode is in preview. If you encounter any bugs please file at https://github.com/firebase/firebase-tools/issues.\nDev App Server is now running.\n\n"}}
-[debug] [2026-03-06T04:54:17.174Z] Got response from /__/functions.yaml {"endpoints":{"getRoutes":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":10,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"getRoutes"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
-[debug] [2026-03-06T04:54:18.778Z] Mar 05, 2026 11:54:18 P.M. com.google.cloud.datastore.emulator.firestore.websocket.WebSocketChannelHandler initChannel
-INFO: Connected to new websocket client
- {"metadata":{"emulator":{"name":"firestore"},"message":"Mar 05, 2026 11:54:18 P.M. com.google.cloud.datastore.emulator.firestore.websocket.WebSocketChannelHandler initChannel\nINFO: Connected to new websocket client\n"}}
-[debug] [2026-03-06T04:54:21.200Z] defaultcredentials: writing to file /Users/evelynzhu/.config/firebase/evelynzhuca_gmail_com_application_default_credentials.json
-[debug] [2026-03-06T04:54:21.200Z] Setting GAC to /Users/evelynzhu/.config/firebase/evelynzhuca_gmail_com_application_default_credentials.json {"metadata":{"emulator":{"name":"functions"},"message":"Setting GAC to /Users/evelynzhu/.config/firebase/evelynzhuca_gmail_com_application_default_credentials.json"}}
+[debug] [2026-03-12T03:28:26.216Z] Got response from /__/functions.yaml {"endpoints":{"getRoutes":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":10,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"getRoutes"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[debug] [2026-03-12T03:28:30.243Z] defaultcredentials: writing to file /Users/evelynzhu/.config/firebase/evelynzhuca_gmail_com_application_default_credentials.json
+[debug] [2026-03-12T03:28:30.244Z] Setting GAC to /Users/evelynzhu/.config/firebase/evelynzhuca_gmail_com_application_default_credentials.json {"metadata":{"emulator":{"name":"functions"},"message":"Setting GAC to /Users/evelynzhu/.config/firebase/evelynzhuca_gmail_com_application_default_credentials.json"}}
 [info] ✔  functions: Loaded functions definitions from source: getRoutes. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: getRoutes."}}
 [info] ✔  functions[us-central1-getRoutes]: http function initialized (http://127.0.0.1:5001/her-route/us-central1/getRoutes). {"metadata":{"emulator":{"name":"functions"},"message":"\u001b[1mhttp\u001b[22m function initialized (http://127.0.0.1:5001/her-route/us-central1/getRoutes)."}}
 [info] i  functions: Watching "/Users/evelynzhu/her-route/her-route/bestroute" for Cloud Functions... {"metadata":{"emulator":{"name":"functions"},"message":"Watching \"/Users/evelynzhu/her-route/her-route/bestroute\" for Cloud Functions..."}}
-[debug] [2026-03-06T04:54:21.205Z] Validating nodejs source
-[debug] [2026-03-06T04:54:21.832Z] > [functions] package.json contents: {
+[debug] [2026-03-12T03:28:30.250Z] Validating nodejs source
+[warn] ⚠  functions: package.json indicates an outdated version of firebase-functions. Please upgrade using npm install --save firebase-functions@latest in your functions directory. 
+[debug] [2026-03-12T03:28:30.789Z] > [functions] package.json contents: {
   "name": "functions",
   "description": "Cloud Functions for Firebase",
   "scripts": {
@@ -142,22 +140,22 @@ INFO: Connected to new websocket client
   },
   "private": true
 }
-[debug] [2026-03-06T04:54:21.832Z] Building nodejs source
-[debug] [2026-03-06T04:54:21.833Z] Failed to find version of module node: reached end of search path /Users/evelynzhu/her-route/her-route/bestroute/node_modules
+[debug] [2026-03-12T03:28:30.789Z] Building nodejs source
+[debug] [2026-03-12T03:28:30.789Z] Failed to find version of module node: reached end of search path /Users/evelynzhu/her-route/her-route/bestroute/node_modules
 [info] ✔  functions: Using node@24 from host. 
 [info] i  functions: Loaded environment variables from .env. 
-[debug] [2026-03-06T04:54:21.835Z] Could not find functions.yaml. Must use http discovery
-[debug] [2026-03-06T04:54:21.836Z] Found firebase-functions binary at '/Users/evelynzhu/her-route/her-route/bestroute/node_modules/.bin/firebase-functions'
-[info] Serving at port 8790
+[debug] [2026-03-12T03:28:30.807Z] Could not find functions.yaml. Must use http discovery
+[debug] [2026-03-12T03:28:30.808Z] Found firebase-functions binary at '/Users/evelynzhu/her-route/her-route/bestroute/node_modules/.bin/firebase-functions'
+[info] Serving at port 8514
 
-[info] [dotenv@17.3.1] injecting env (2) from .env -- tip: 🤖 agentic secret storage: https://dotenvx.com/as2
+[info] [dotenv@17.3.1] injecting env (2) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
 
-[debug] [2026-03-06T04:54:22.327Z] Got response from /__/functions.yaml {"endpoints":{"getRoutes":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":10,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"getRoutes"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
-[debug] [2026-03-06T04:54:26.340Z] defaultcredentials: writing to file /Users/evelynzhu/.config/firebase/evelynzhuca_gmail_com_application_default_credentials.json
-[debug] [2026-03-06T04:54:26.342Z] Setting GAC to /Users/evelynzhu/.config/firebase/evelynzhuca_gmail_com_application_default_credentials.json {"metadata":{"emulator":{"name":"functions"},"message":"Setting GAC to /Users/evelynzhu/.config/firebase/evelynzhuca_gmail_com_application_default_credentials.json"}}
+[debug] [2026-03-12T03:28:31.365Z] Got response from /__/functions.yaml {"endpoints":{"getRoutes":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":10,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"getRoutes"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[debug] [2026-03-12T03:28:35.378Z] defaultcredentials: writing to file /Users/evelynzhu/.config/firebase/evelynzhuca_gmail_com_application_default_credentials.json
+[debug] [2026-03-12T03:28:35.378Z] Setting GAC to /Users/evelynzhu/.config/firebase/evelynzhuca_gmail_com_application_default_credentials.json {"metadata":{"emulator":{"name":"functions"},"message":"Setting GAC to /Users/evelynzhu/.config/firebase/evelynzhuca_gmail_com_application_default_credentials.json"}}
 [info] ✔  functions: Loaded functions definitions from source: getRoutes. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: getRoutes."}}
 [info] ✔  functions[us-central1-getRoutes]: http function initialized (http://127.0.0.1:5001/her-route/us-central1/getRoutes). {"metadata":{"emulator":{"name":"functions"},"message":"\u001b[1mhttp\u001b[22m function initialized (http://127.0.0.1:5001/her-route/us-central1/getRoutes)."}}
-[debug] [2026-03-06T04:54:26.344Z] Could not find VSCode notification endpoint: FetchError: request to http://localhost:40001/vscode/notify failed, reason: . If you are not running the Firebase Data Connect VSCode extension, this is expected and not an issue.
+[debug] [2026-03-12T03:28:35.381Z] Could not find VSCode notification endpoint: FetchError: request to http://localhost:40001/vscode/notify failed, reason: . If you are not running the Firebase Data Connect VSCode extension, this is expected and not an issue.
 [info] 
 ┌─────────────────────────────────────────────────────────────┐
 │ ✔  All emulators ready! It is now safe to connect your app. │
@@ -180,131 +178,589 @@ INFO: Connected to new websocket client
 └─────────────────────────┴───────────────┴─────────────────────┘
 Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
  
-[debug] [2026-03-06T04:54:30.677Z] [work-queue] {"queuedWork":["/her-route/us-central1/getRoutes-2026-03-06T04:54:30.676Z"],"queueLength":1,"runningWork":[],"workRunningCount":0}
-[debug] [2026-03-06T04:54:30.677Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":["/her-route/us-central1/getRoutes-2026-03-06T04:54:30.676Z"],"workRunningCount":1}
-[debug] [2026-03-06T04:54:30.678Z] Accepted request OPTIONS /her-route/us-central1/getRoutes --> us-central1-getRoutes
-[debug] [2026-03-06T04:54:30.678Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
-[debug] [2026-03-06T04:54:30.678Z] [functions] Got req.url=/her-route/us-central1/getRoutes, mapping to path=/ {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/her-route/us-central1/getRoutes, mapping to path=/"}}
+[debug] [2026-03-12T03:28:37.321Z] [work-queue] {"queuedWork":["/her-route/us-central1/getRoutes-2026-03-12T03:28:37.321Z"],"queueLength":1,"runningWork":[],"workRunningCount":0}
+[debug] [2026-03-12T03:28:37.322Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":["/her-route/us-central1/getRoutes-2026-03-12T03:28:37.321Z"],"workRunningCount":1}
+[debug] [2026-03-12T03:28:37.323Z] Accepted request OPTIONS /her-route/us-central1/getRoutes --> us-central1-getRoutes
+[debug] [2026-03-12T03:28:37.323Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2026-03-12T03:28:37.324Z] [functions] Got req.url=/her-route/us-central1/getRoutes, mapping to path=/ {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/her-route/us-central1/getRoutes, mapping to path=/"}}
 [info] i  functions: Loaded environment variables from .env. 
-[debug] [2026-03-06T04:54:30.685Z] [worker-pool] addWorker(us-central1-getRoutes) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] addWorker(us-central1-getRoutes)"}}
-[debug] [2026-03-06T04:54:30.685Z] [worker-pool] Adding worker with key us-central1-getRoutes, total=1 {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] Adding worker with key us-central1-getRoutes, total=1"}}
-[debug] [2026-03-06T04:54:31.335Z] [runtime-status] [76945] Resolved module firebase-admin {"declared":true,"installed":true,"version":"13.7.0","resolution":"/Users/evelynzhu/her-route/her-route/bestroute/node_modules/firebase-admin/lib/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"[runtime-status] [76945] Resolved module firebase-admin {\"declared\":true,\"installed\":true,\"version\":\"13.7.0\",\"resolution\":\"/Users/evelynzhu/her-route/her-route/bestroute/node_modules/firebase-admin/lib/index.js\"}"}}
-[debug] [2026-03-06T04:54:31.335Z] [runtime-status] [76945] Resolved module firebase-functions {"declared":true,"installed":true,"version":"7.1.0","resolution":"/Users/evelynzhu/her-route/her-route/bestroute/node_modules/firebase-functions/lib/v2/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"[runtime-status] [76945] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"7.1.0\",\"resolution\":\"/Users/evelynzhu/her-route/her-route/bestroute/node_modules/firebase-functions/lib/v2/index.js\"}"}}
-[debug] [2026-03-06T04:54:31.335Z] [runtime-status] [76945] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"}] {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"[runtime-status] [76945] Outgoing network have been stubbed. [{\"name\":\"http\",\"status\":\"mocked\"},{\"name\":\"http\",\"status\":\"mocked\"},{\"name\":\"https\",\"status\":\"mocked\"},{\"name\":\"https\",\"status\":\"mocked\"},{\"name\":\"net\",\"status\":\"mocked\"}]"}}
-[debug] [2026-03-06T04:54:31.335Z] [runtime-status] [76945] Resolved module firebase-functions {"declared":true,"installed":true,"version":"7.1.0","resolution":"/Users/evelynzhu/her-route/her-route/bestroute/node_modules/firebase-functions/lib/v2/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"[runtime-status] [76945] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"7.1.0\",\"resolution\":\"/Users/evelynzhu/her-route/her-route/bestroute/node_modules/firebase-functions/lib/v2/index.js\"}"}}
-[debug] [2026-03-06T04:54:31.335Z] [runtime-status] [76945] Detected firebase-functions v7+, skipping legacy stubs. {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"[runtime-status] [76945] Detected firebase-functions v7+, skipping legacy stubs."}}
-[debug] [2026-03-06T04:54:31.336Z] [runtime-status] [76945] Resolved module firebase-admin {"declared":true,"installed":true,"version":"13.7.0","resolution":"/Users/evelynzhu/her-route/her-route/bestroute/node_modules/firebase-admin/lib/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"[runtime-status] [76945] Resolved module firebase-admin {\"declared\":true,\"installed\":true,\"version\":\"13.7.0\",\"resolution\":\"/Users/evelynzhu/her-route/her-route/bestroute/node_modules/firebase-admin/lib/index.js\"}"}}
-[debug] [2026-03-06T04:54:31.370Z] [runtime-status] [76945] Resolved module firebase-functions {"declared":true,"installed":true,"version":"7.1.0","resolution":"/Users/evelynzhu/her-route/her-route/bestroute/node_modules/firebase-functions/lib/v2/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"[runtime-status] [76945] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"7.1.0\",\"resolution\":\"/Users/evelynzhu/her-route/her-route/bestroute/node_modules/firebase-functions/lib/v2/index.js\"}"}}
-[debug] [2026-03-06T04:54:31.538Z] [runtime-status] [76945] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"13.7.0","resolution":"/Users/evelynzhu/her-route/her-route/bestroute/node_modules/firebase-admin/lib/index.js"}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"[runtime-status] [76945] firebase-admin has been stubbed. {\"adminResolution\":{\"declared\":true,\"installed\":true,\"version\":\"13.7.0\",\"resolution\":\"/Users/evelynzhu/her-route/her-route/bestroute/node_modules/firebase-admin/lib/index.js\"}}"}}
-[info] >  [dotenv@17.3.1] injecting env (0) from .env -- tip: 🛡️ auth for agents: https://vestauth.com {"user":"[dotenv@17.3.1] injecting env (0) from .env -- tip: 🛡️ auth for agents: https://vestauth.com","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"\u001b[90m> \u001b[39m [dotenv@17.3.1] injecting env (0) from .env -- tip: 🛡️ auth for agents: https://vestauth.com"}}
-[debug] [2026-03-06T04:54:31.575Z] [runtime-status] [76945] Functions runtime initialized. {"cwd":"/Users/evelynzhu/her-route/her-route/bestroute","node_version":"24.12.0"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"[runtime-status] [76945] Functions runtime initialized. {\"cwd\":\"/Users/evelynzhu/her-route/her-route/bestroute\",\"node_version\":\"24.12.0\"}"}}
-[debug] [2026-03-06T04:54:31.575Z] [runtime-status] [76945] Listening to port: /var/folders/w0/4v2l2pwd40b111whw64s24vr0000gn/T/fire_emu_cec1bc53c2a56bf1.sock {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"[runtime-status] [76945] Listening to port: /var/folders/w0/4v2l2pwd40b111whw64s24vr0000gn/T/fire_emu_cec1bc53c2a56bf1.sock"}}
-[debug] [2026-03-06T04:54:31.606Z] [worker-us-central1-getRoutes-9f2f5d70-a27b-41f6-9fba-4ef80e1c0df4]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"[worker-us-central1-getRoutes-9f2f5d70-a27b-41f6-9fba-4ef80e1c0df4]: IDLE"}}
-[debug] [2026-03-06T04:54:31.606Z] [worker-pool] submitRequest(triggerId=us-central1-getRoutes) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-getRoutes)"}}
-[info] i  functions: Beginning execution of "us-central1-getRoutes" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"Beginning execution of \"us-central1-getRoutes\""}}
-[debug] [2026-03-06T04:54:31.606Z] [worker-us-central1-getRoutes-9f2f5d70-a27b-41f6-9fba-4ef80e1c0df4]: BUSY {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"[worker-us-central1-getRoutes-9f2f5d70-a27b-41f6-9fba-4ef80e1c0df4]: BUSY"}}
-[debug] [2026-03-06T04:54:31.609Z] Finishing up request with event=pause {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"Finishing up request with event=pause"}}
-[info] i  functions: Finished "us-central1-getRoutes" in 3.003459ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"Finished \"us-central1-getRoutes\" in 3.003459ms"}}
-[debug] [2026-03-06T04:54:31.609Z] [worker-us-central1-getRoutes-9f2f5d70-a27b-41f6-9fba-4ef80e1c0df4]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"[worker-us-central1-getRoutes-9f2f5d70-a27b-41f6-9fba-4ef80e1c0df4]: IDLE"}}
-[debug] [2026-03-06T04:54:31.610Z] Finishing up request with event=finish {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"Finishing up request with event=finish"}}
-[debug] [2026-03-06T04:54:31.610Z] Finishing up request with event=close {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"Finishing up request with event=close"}}
-[debug] [2026-03-06T04:54:31.610Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":[],"workRunningCount":0}
-[debug] [2026-03-06T04:54:31.617Z] [work-queue] {"queuedWork":["/her-route/us-central1/getRoutes-2026-03-06T04:54:31.617Z"],"queueLength":1,"runningWork":[],"workRunningCount":0}
-[debug] [2026-03-06T04:54:31.617Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":["/her-route/us-central1/getRoutes-2026-03-06T04:54:31.617Z"],"workRunningCount":1}
-[debug] [2026-03-06T04:54:31.617Z] Accepted request POST /her-route/us-central1/getRoutes --> us-central1-getRoutes
-[debug] [2026-03-06T04:54:31.618Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
-[debug] [2026-03-06T04:54:31.618Z] [functions] Got req.url=/her-route/us-central1/getRoutes, mapping to path=/ {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/her-route/us-central1/getRoutes, mapping to path=/"}}
-[debug] [2026-03-06T04:54:31.618Z] [worker-pool] submitRequest(triggerId=us-central1-getRoutes) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-getRoutes)"}}
-[info] i  functions: Beginning execution of "us-central1-getRoutes" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"Beginning execution of \"us-central1-getRoutes\""}}
-[debug] [2026-03-06T04:54:31.618Z] [worker-us-central1-getRoutes-9f2f5d70-a27b-41f6-9fba-4ef80e1c0df4]: BUSY {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"[worker-us-central1-getRoutes-9f2f5d70-a27b-41f6-9fba-4ef80e1c0df4]: BUSY"}}
-[info] >  { {"user":"{","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"\u001b[90m> \u001b[39m {"}}
-[info] >    origin: { lat: 43.2609, lng: -79.9192 }, {"user":"  origin: { lat: 43.2609, lng: -79.9192 },","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"\u001b[90m> \u001b[39m   origin: { lat: 43.2609, lng: -79.9192 },"}}
-[info] >    destination: { lat: 43.2629, lng: -79.9215 } {"user":"  destination: { lat: 43.2629, lng: -79.9215 }","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"\u001b[90m> \u001b[39m   destination: { lat: 43.2629, lng: -79.9215 }"}}
-[info] >  } {"user":"}","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"\u001b[90m> \u001b[39m }"}}
-[debug] [2026-03-06T04:54:34.225Z] [work-queue] {"queuedWork":["/her-route/us-central1/getRoutes-2026-03-06T04:54:34.225Z"],"queueLength":1,"runningWork":["/her-route/us-central1/getRoutes-2026-03-06T04:54:31.617Z"],"workRunningCount":1}
-[debug] [2026-03-06T04:54:34.226Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":["/her-route/us-central1/getRoutes-2026-03-06T04:54:31.617Z","/her-route/us-central1/getRoutes-2026-03-06T04:54:34.225Z"],"workRunningCount":2}
-[debug] [2026-03-06T04:54:34.227Z] Accepted request POST /her-route/us-central1/getRoutes --> us-central1-getRoutes
-[debug] [2026-03-06T04:54:34.227Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
-[debug] [2026-03-06T04:54:34.228Z] [functions] Got req.url=/her-route/us-central1/getRoutes, mapping to path=/ {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/her-route/us-central1/getRoutes, mapping to path=/"}}
-[info] i  functions: Loaded environment variables from .env. 
-[debug] [2026-03-06T04:54:34.232Z] [worker-pool] addWorker(us-central1-getRoutes) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] addWorker(us-central1-getRoutes)"}}
-[debug] [2026-03-06T04:54:34.232Z] [worker-pool] Adding worker with key us-central1-getRoutes, total=2 {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] Adding worker with key us-central1-getRoutes, total=2"}}
-[debug] [2026-03-06T04:54:34.623Z] [runtime-status] [76948] Resolved module firebase-admin {"declared":true,"installed":true,"version":"13.7.0","resolution":"/Users/evelynzhu/her-route/her-route/bestroute/node_modules/firebase-admin/lib/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"[runtime-status] [76948] Resolved module firebase-admin {\"declared\":true,\"installed\":true,\"version\":\"13.7.0\",\"resolution\":\"/Users/evelynzhu/her-route/her-route/bestroute/node_modules/firebase-admin/lib/index.js\"}"}}
-[debug] [2026-03-06T04:54:34.624Z] [runtime-status] [76948] Resolved module firebase-functions {"declared":true,"installed":true,"version":"7.1.0","resolution":"/Users/evelynzhu/her-route/her-route/bestroute/node_modules/firebase-functions/lib/v2/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"[runtime-status] [76948] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"7.1.0\",\"resolution\":\"/Users/evelynzhu/her-route/her-route/bestroute/node_modules/firebase-functions/lib/v2/index.js\"}"}}
-[debug] [2026-03-06T04:54:34.624Z] [runtime-status] [76948] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"}] {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"[runtime-status] [76948] Outgoing network have been stubbed. [{\"name\":\"http\",\"status\":\"mocked\"},{\"name\":\"http\",\"status\":\"mocked\"},{\"name\":\"https\",\"status\":\"mocked\"},{\"name\":\"https\",\"status\":\"mocked\"},{\"name\":\"net\",\"status\":\"mocked\"}]"}}
-[debug] [2026-03-06T04:54:34.624Z] [runtime-status] [76948] Resolved module firebase-functions {"declared":true,"installed":true,"version":"7.1.0","resolution":"/Users/evelynzhu/her-route/her-route/bestroute/node_modules/firebase-functions/lib/v2/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"[runtime-status] [76948] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"7.1.0\",\"resolution\":\"/Users/evelynzhu/her-route/her-route/bestroute/node_modules/firebase-functions/lib/v2/index.js\"}"}}
-[debug] [2026-03-06T04:54:34.624Z] [runtime-status] [76948] Detected firebase-functions v7+, skipping legacy stubs. {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"[runtime-status] [76948] Detected firebase-functions v7+, skipping legacy stubs."}}
-[debug] [2026-03-06T04:54:34.624Z] [runtime-status] [76948] Resolved module firebase-admin {"declared":true,"installed":true,"version":"13.7.0","resolution":"/Users/evelynzhu/her-route/her-route/bestroute/node_modules/firebase-admin/lib/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"[runtime-status] [76948] Resolved module firebase-admin {\"declared\":true,\"installed\":true,\"version\":\"13.7.0\",\"resolution\":\"/Users/evelynzhu/her-route/her-route/bestroute/node_modules/firebase-admin/lib/index.js\"}"}}
-[debug] [2026-03-06T04:54:34.643Z] [runtime-status] [76948] Resolved module firebase-functions {"declared":true,"installed":true,"version":"7.1.0","resolution":"/Users/evelynzhu/her-route/her-route/bestroute/node_modules/firebase-functions/lib/v2/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"[runtime-status] [76948] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"7.1.0\",\"resolution\":\"/Users/evelynzhu/her-route/her-route/bestroute/node_modules/firebase-functions/lib/v2/index.js\"}"}}
-[debug] [2026-03-06T04:54:34.745Z] [runtime-status] [76948] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"13.7.0","resolution":"/Users/evelynzhu/her-route/her-route/bestroute/node_modules/firebase-admin/lib/index.js"}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"[runtime-status] [76948] firebase-admin has been stubbed. {\"adminResolution\":{\"declared\":true,\"installed\":true,\"version\":\"13.7.0\",\"resolution\":\"/Users/evelynzhu/her-route/her-route/bestroute/node_modules/firebase-admin/lib/index.js\"}}"}}
+[debug] [2026-03-12T03:28:37.329Z] [worker-pool] addWorker(us-central1-getRoutes) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] addWorker(us-central1-getRoutes)"}}
+[debug] [2026-03-12T03:28:37.330Z] [worker-pool] Adding worker with key us-central1-getRoutes, total=1 {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] Adding worker with key us-central1-getRoutes, total=1"}}
+[debug] [2026-03-12T03:28:38.073Z] [runtime-status] [70149] Resolved module firebase-admin {"declared":true,"installed":true,"version":"13.7.0","resolution":"/Users/evelynzhu/her-route/her-route/bestroute/node_modules/firebase-admin/lib/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"[runtime-status] [70149] Resolved module firebase-admin {\"declared\":true,\"installed\":true,\"version\":\"13.7.0\",\"resolution\":\"/Users/evelynzhu/her-route/her-route/bestroute/node_modules/firebase-admin/lib/index.js\"}"}}
+[debug] [2026-03-12T03:28:38.074Z] [runtime-status] [70149] Resolved module firebase-functions {"declared":true,"installed":true,"version":"7.1.0","resolution":"/Users/evelynzhu/her-route/her-route/bestroute/node_modules/firebase-functions/lib/v2/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"[runtime-status] [70149] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"7.1.0\",\"resolution\":\"/Users/evelynzhu/her-route/her-route/bestroute/node_modules/firebase-functions/lib/v2/index.js\"}"}}
+[debug] [2026-03-12T03:28:38.074Z] [runtime-status] [70149] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"}] {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"[runtime-status] [70149] Outgoing network have been stubbed. [{\"name\":\"http\",\"status\":\"mocked\"},{\"name\":\"http\",\"status\":\"mocked\"},{\"name\":\"https\",\"status\":\"mocked\"},{\"name\":\"https\",\"status\":\"mocked\"},{\"name\":\"net\",\"status\":\"mocked\"}]"}}
+[debug] [2026-03-12T03:28:38.074Z] [runtime-status] [70149] Resolved module firebase-functions {"declared":true,"installed":true,"version":"7.1.0","resolution":"/Users/evelynzhu/her-route/her-route/bestroute/node_modules/firebase-functions/lib/v2/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"[runtime-status] [70149] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"7.1.0\",\"resolution\":\"/Users/evelynzhu/her-route/her-route/bestroute/node_modules/firebase-functions/lib/v2/index.js\"}"}}
+[debug] [2026-03-12T03:28:38.074Z] [runtime-status] [70149] Detected firebase-functions v7+, skipping legacy stubs. {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"[runtime-status] [70149] Detected firebase-functions v7+, skipping legacy stubs."}}
+[debug] [2026-03-12T03:28:38.075Z] [runtime-status] [70149] Resolved module firebase-admin {"declared":true,"installed":true,"version":"13.7.0","resolution":"/Users/evelynzhu/her-route/her-route/bestroute/node_modules/firebase-admin/lib/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"[runtime-status] [70149] Resolved module firebase-admin {\"declared\":true,\"installed\":true,\"version\":\"13.7.0\",\"resolution\":\"/Users/evelynzhu/her-route/her-route/bestroute/node_modules/firebase-admin/lib/index.js\"}"}}
+[debug] [2026-03-12T03:28:38.120Z] [runtime-status] [70149] Resolved module firebase-functions {"declared":true,"installed":true,"version":"7.1.0","resolution":"/Users/evelynzhu/her-route/her-route/bestroute/node_modules/firebase-functions/lib/v2/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"[runtime-status] [70149] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"7.1.0\",\"resolution\":\"/Users/evelynzhu/her-route/her-route/bestroute/node_modules/firebase-functions/lib/v2/index.js\"}"}}
+[debug] [2026-03-12T03:28:38.323Z] [runtime-status] [70149] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"13.7.0","resolution":"/Users/evelynzhu/her-route/her-route/bestroute/node_modules/firebase-admin/lib/index.js"}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"[runtime-status] [70149] firebase-admin has been stubbed. {\"adminResolution\":{\"declared\":true,\"installed\":true,\"version\":\"13.7.0\",\"resolution\":\"/Users/evelynzhu/her-route/her-route/bestroute/node_modules/firebase-admin/lib/index.js\"}}"}}
 [info] >  [dotenv@17.3.1] injecting env (0) from .env -- tip: 🤖 agentic secret storage: https://dotenvx.com/as2 {"user":"[dotenv@17.3.1] injecting env (0) from .env -- tip: 🤖 agentic secret storage: https://dotenvx.com/as2","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"\u001b[90m> \u001b[39m [dotenv@17.3.1] injecting env (0) from .env -- tip: 🤖 agentic secret storage: https://dotenvx.com/as2"}}
-[debug] [2026-03-06T04:54:34.775Z] [runtime-status] [76948] Functions runtime initialized. {"cwd":"/Users/evelynzhu/her-route/her-route/bestroute","node_version":"24.12.0"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"[runtime-status] [76948] Functions runtime initialized. {\"cwd\":\"/Users/evelynzhu/her-route/her-route/bestroute\",\"node_version\":\"24.12.0\"}"}}
-[debug] [2026-03-06T04:54:34.776Z] [runtime-status] [76948] Listening to port: /var/folders/w0/4v2l2pwd40b111whw64s24vr0000gn/T/fire_emu_1c58cca34ba41d54.sock {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"[runtime-status] [76948] Listening to port: /var/folders/w0/4v2l2pwd40b111whw64s24vr0000gn/T/fire_emu_1c58cca34ba41d54.sock"}}
-[debug] [2026-03-06T04:54:34.844Z] [worker-us-central1-getRoutes-be1a4342-2653-4eee-9bdd-1a9c06a8dcb8]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"[worker-us-central1-getRoutes-be1a4342-2653-4eee-9bdd-1a9c06a8dcb8]: IDLE"}}
-[debug] [2026-03-06T04:54:34.844Z] [worker-pool] submitRequest(triggerId=us-central1-getRoutes) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-getRoutes)"}}
+[debug] [2026-03-12T03:28:38.366Z] [runtime-status] [70149] Functions runtime initialized. {"cwd":"/Users/evelynzhu/her-route/her-route/bestroute","node_version":"24.12.0"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"[runtime-status] [70149] Functions runtime initialized. {\"cwd\":\"/Users/evelynzhu/her-route/her-route/bestroute\",\"node_version\":\"24.12.0\"}"}}
+[debug] [2026-03-12T03:28:38.366Z] [runtime-status] [70149] Listening to port: /var/folders/w0/4v2l2pwd40b111whw64s24vr0000gn/T/fire_emu_d92c0b23c3ae147d.sock {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"[runtime-status] [70149] Listening to port: /var/folders/w0/4v2l2pwd40b111whw64s24vr0000gn/T/fire_emu_d92c0b23c3ae147d.sock"}}
+[debug] [2026-03-12T03:28:38.453Z] [worker-us-central1-getRoutes-6066f5f2-02ad-4280-9278-a74a0a67e9f7]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"[worker-us-central1-getRoutes-6066f5f2-02ad-4280-9278-a74a0a67e9f7]: IDLE"}}
+[debug] [2026-03-12T03:28:38.453Z] [worker-pool] submitRequest(triggerId=us-central1-getRoutes) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-getRoutes)"}}
 [info] i  functions: Beginning execution of "us-central1-getRoutes" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"Beginning execution of \"us-central1-getRoutes\""}}
-[debug] [2026-03-06T04:54:34.845Z] [worker-us-central1-getRoutes-be1a4342-2653-4eee-9bdd-1a9c06a8dcb8]: BUSY {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"[worker-us-central1-getRoutes-be1a4342-2653-4eee-9bdd-1a9c06a8dcb8]: BUSY"}}
+[debug] [2026-03-12T03:28:38.454Z] [worker-us-central1-getRoutes-6066f5f2-02ad-4280-9278-a74a0a67e9f7]: BUSY {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"[worker-us-central1-getRoutes-6066f5f2-02ad-4280-9278-a74a0a67e9f7]: BUSY"}}
+[debug] [2026-03-12T03:28:38.456Z] Finishing up request with event=pause {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"Finishing up request with event=pause"}}
+[info] i  functions: Finished "us-central1-getRoutes" in 2.909166ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"Finished \"us-central1-getRoutes\" in 2.909166ms"}}
+[debug] [2026-03-12T03:28:38.457Z] [worker-us-central1-getRoutes-6066f5f2-02ad-4280-9278-a74a0a67e9f7]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"[worker-us-central1-getRoutes-6066f5f2-02ad-4280-9278-a74a0a67e9f7]: IDLE"}}
+[debug] [2026-03-12T03:28:38.457Z] Finishing up request with event=finish {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"Finishing up request with event=finish"}}
+[debug] [2026-03-12T03:28:38.457Z] Finishing up request with event=close {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"Finishing up request with event=close"}}
+[debug] [2026-03-12T03:28:38.457Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":[],"workRunningCount":0}
+[debug] [2026-03-12T03:28:38.459Z] [work-queue] {"queuedWork":["/her-route/us-central1/getRoutes-2026-03-12T03:28:38.459Z"],"queueLength":1,"runningWork":[],"workRunningCount":0}
+[debug] [2026-03-12T03:28:38.459Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":["/her-route/us-central1/getRoutes-2026-03-12T03:28:38.459Z"],"workRunningCount":1}
+[debug] [2026-03-12T03:28:38.459Z] Accepted request POST /her-route/us-central1/getRoutes --> us-central1-getRoutes
+[debug] [2026-03-12T03:28:38.459Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2026-03-12T03:28:38.459Z] [functions] Got req.url=/her-route/us-central1/getRoutes, mapping to path=/ {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/her-route/us-central1/getRoutes, mapping to path=/"}}
+[debug] [2026-03-12T03:28:38.459Z] [worker-pool] submitRequest(triggerId=us-central1-getRoutes) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-getRoutes)"}}
+[info] i  functions: Beginning execution of "us-central1-getRoutes" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"Beginning execution of \"us-central1-getRoutes\""}}
+[debug] [2026-03-12T03:28:38.460Z] [worker-us-central1-getRoutes-6066f5f2-02ad-4280-9278-a74a0a67e9f7]: BUSY {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"[worker-us-central1-getRoutes-6066f5f2-02ad-4280-9278-a74a0a67e9f7]: BUSY"}}
+[info] >  { origin: 'Waterloo Park', destination: 'University of Waterloo' } {"user":"{ origin: 'Waterloo Park', destination: 'University of Waterloo' }","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"\u001b[90m> \u001b[39m { origin: 'Waterloo Park', destination: 'University of Waterloo' }"}}
 [info] >  { {"user":"{","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"\u001b[90m> \u001b[39m {"}}
-[info] >    origin: { lat: 43.2609, lng: -79.9192 }, {"user":"  origin: { lat: 43.2609, lng: -79.9192 },","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"\u001b[90m> \u001b[39m   origin: { lat: 43.2609, lng: -79.9192 },"}}
-[info] >    destination: { lat: 43.2629, lng: -79.9215 } {"user":"  destination: { lat: 43.2629, lng: -79.9215 }","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"\u001b[90m> \u001b[39m   destination: { lat: 43.2629, lng: -79.9215 }"}}
+[info] >    results: [ {"user":"  results: [","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"\u001b[90m> \u001b[39m   results: ["}}
+[info] >      { {"user":"    {","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"\u001b[90m> \u001b[39m     {"}}
+[info] >        address_components: [Array], {"user":"      address_components: [Array],","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"\u001b[90m> \u001b[39m       address_components: [Array],"}}
+[info] >        formatted_address: 'Waterloo Park, 500 E 12th St, Austin, TX 78701, USA', {"user":"      formatted_address: 'Waterloo Park, 500 E 12th St, Austin, TX 78701, USA',","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"\u001b[90m> \u001b[39m       formatted_address: 'Waterloo Park, 500 E 12th St, Austin, TX 78701, USA',"}}
+[info] >        geometry: [Object], {"user":"      geometry: [Object],","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"\u001b[90m> \u001b[39m       geometry: [Object],"}}
+[info] >        navigation_points: [Array], {"user":"      navigation_points: [Array],","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"\u001b[90m> \u001b[39m       navigation_points: [Array],"}}
+[info] >        partial_match: true, {"user":"      partial_match: true,","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"\u001b[90m> \u001b[39m       partial_match: true,"}}
+[info] >        place_id: 'ChIJq6qqLqK1RIYRfiAnonnmouo', {"user":"      place_id: 'ChIJq6qqLqK1RIYRfiAnonnmouo',","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"\u001b[90m> \u001b[39m       place_id: 'ChIJq6qqLqK1RIYRfiAnonnmouo',"}}
+[info] >        plus_code: [Object], {"user":"      plus_code: [Object],","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"\u001b[90m> \u001b[39m       plus_code: [Object],"}}
+[info] >        types: [Array] {"user":"      types: [Array]","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"\u001b[90m> \u001b[39m       types: [Array]"}}
+[info] >      } {"user":"    }","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"\u001b[90m> \u001b[39m     }"}}
+[info] >    ], {"user":"  ],","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"\u001b[90m> \u001b[39m   ],"}}
+[info] >    status: 'OK' {"user":"  status: 'OK'","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"\u001b[90m> \u001b[39m   status: 'OK'"}}
 [info] >  } {"user":"}","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"\u001b[90m> \u001b[39m }"}}
-[debug] [2026-03-06T04:54:36.118Z] [work-queue] {"queuedWork":["/her-route/us-central1/getRoutes-2026-03-06T04:54:36.118Z"],"queueLength":1,"runningWork":["/her-route/us-central1/getRoutes-2026-03-06T04:54:31.617Z","/her-route/us-central1/getRoutes-2026-03-06T04:54:34.225Z"],"workRunningCount":2}
-[debug] [2026-03-06T04:54:36.119Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":["/her-route/us-central1/getRoutes-2026-03-06T04:54:31.617Z","/her-route/us-central1/getRoutes-2026-03-06T04:54:34.225Z","/her-route/us-central1/getRoutes-2026-03-06T04:54:36.118Z"],"workRunningCount":3}
-[debug] [2026-03-06T04:54:36.119Z] Accepted request POST /her-route/us-central1/getRoutes --> us-central1-getRoutes
-[debug] [2026-03-06T04:54:36.120Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
-[debug] [2026-03-06T04:54:36.121Z] [functions] Got req.url=/her-route/us-central1/getRoutes, mapping to path=/ {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/her-route/us-central1/getRoutes, mapping to path=/"}}
+[info] >  { {"user":"{","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"\u001b[90m> \u001b[39m {"}}
+[info] >    error_message: 'This API is not activated on your API project. You may need to enable this API in the Google Cloud Console: https://console.cloud.google.com/apis/library?filter=category:maps. Learn more at https://developers.google.com/maps/gmp-get-started#enable-api-sdk.', {"user":"  error_message: 'This API is not activated on your API project. You may need to enable this API in the Google Cloud Console: https://console.cloud.google.com/apis/library?filter=category:maps. Learn more at https://developers.google.com/maps/gmp-get-started#enable-api-sdk.',","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"\u001b[90m> \u001b[39m   error_message: 'This API is not activated on your API project. You may need to enable this API in the Google Cloud Console: https://console.cloud.google.com/apis/library?filter=category:maps. Learn more at https://developers.google.com/maps/gmp-get-started#enable-api-sdk.',"}}
+[info] >    results: [], {"user":"  results: [],","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"\u001b[90m> \u001b[39m   results: [],"}}
+[info] >    status: 'REQUEST_DENIED' {"user":"  status: 'REQUEST_DENIED'","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"\u001b[90m> \u001b[39m   status: 'REQUEST_DENIED'"}}
+[info] >  } {"user":"}","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"\u001b[90m> \u001b[39m }"}}
+[info] >  {"severity":"ERROR","message":"TypeError: Cannot read properties of undefined (reading 'geometry')\n    at exports.getCoordinates (/Users/evelynzhu/her-route/her-route/bestroute/index.js:40:45)\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async /Users/evelynzhu/her-route/her-route/bestroute/index.js:69:21\n    at async /Users/evelynzhu/her-route/her-route/bestroute/node_modules/firebase-functions/lib/common/providers/https.js:566:4\n    at async runFunction (/usr/local/lib/node_modules/firebase-tools/lib/emulator/functionsEmulatorRuntime.js:399:9)\n    at async runHTTPS (/usr/local/lib/node_modules/firebase-tools/lib/emulator/functionsEmulatorRuntime.js:424:5)\n    at async /usr/local/lib/node_modules/firebase-tools/lib/emulator/functionsEmulatorRuntime.js:585:21"} {"user":{"severity":"ERROR","message":"TypeError: Cannot read properties of undefined (reading 'geometry')\n    at exports.getCoordinates (/Users/evelynzhu/her-route/her-route/bestroute/index.js:40:45)\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async /Users/evelynzhu/her-route/her-route/bestroute/index.js:69:21\n    at async /Users/evelynzhu/her-route/her-route/bestroute/node_modules/firebase-functions/lib/common/providers/https.js:566:4\n    at async runFunction (/usr/local/lib/node_modules/firebase-tools/lib/emulator/functionsEmulatorRuntime.js:399:9)\n    at async runHTTPS (/usr/local/lib/node_modules/firebase-tools/lib/emulator/functionsEmulatorRuntime.js:424:5)\n    at async /usr/local/lib/node_modules/firebase-tools/lib/emulator/functionsEmulatorRuntime.js:585:21"},"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"\u001b[90m> \u001b[39m {\"severity\":\"ERROR\",\"message\":\"TypeError: Cannot read properties of undefined (reading 'geometry')\\n    at exports.getCoordinates (/Users/evelynzhu/her-route/her-route/bestroute/index.js:40:45)\\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\\n    at async /Users/evelynzhu/her-route/her-route/bestroute/index.js:69:21\\n    at async /Users/evelynzhu/her-route/her-route/bestroute/node_modules/firebase-functions/lib/common/providers/https.js:566:4\\n    at async runFunction (/usr/local/lib/node_modules/firebase-tools/lib/emulator/functionsEmulatorRuntime.js:399:9)\\n    at async runHTTPS (/usr/local/lib/node_modules/firebase-tools/lib/emulator/functionsEmulatorRuntime.js:424:5)\\n    at async /usr/local/lib/node_modules/firebase-tools/lib/emulator/functionsEmulatorRuntime.js:585:21\"}"}}
+[debug] [2026-03-12T03:28:38.724Z] Finishing up request with event=pause {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"Finishing up request with event=pause"}}
+[info] i  functions: Finished "us-central1-getRoutes" in 263.991083ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"Finished \"us-central1-getRoutes\" in 263.991083ms"}}
+[debug] [2026-03-12T03:28:38.724Z] [worker-us-central1-getRoutes-6066f5f2-02ad-4280-9278-a74a0a67e9f7]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"[worker-us-central1-getRoutes-6066f5f2-02ad-4280-9278-a74a0a67e9f7]: IDLE"}}
+[debug] [2026-03-12T03:28:38.724Z] Finishing up request with event=finish {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"Finishing up request with event=finish"}}
+[debug] [2026-03-12T03:28:38.724Z] Finishing up request with event=close {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"Finishing up request with event=close"}}
+[debug] [2026-03-12T03:28:38.724Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":[],"workRunningCount":0}
+[debug] [2026-03-12T03:28:52.905Z] Mar 11, 2026 11:28:52 P.M. com.google.cloud.datastore.emulator.firestore.websocket.WebSocketChannelHandler initChannel
+INFO: Connected to new websocket client
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Mar 11, 2026 11:28:52 P.M. com.google.cloud.datastore.emulator.firestore.websocket.WebSocketChannelHandler initChannel\nINFO: Connected to new websocket client\n"}}
+[debug] [2026-03-12T03:29:12.129Z] Mar 11, 2026 11:29:12 P.M. com.google.cloud.datastore.emulator.firestore.websocket.WebSocketChannelHandler initChannel
+INFO: Connected to new websocket client
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Mar 11, 2026 11:29:12 P.M. com.google.cloud.datastore.emulator.firestore.websocket.WebSocketChannelHandler initChannel\nINFO: Connected to new websocket client\n"}}
+[debug] [2026-03-12T03:29:12.135Z] Mar 11, 2026 11:29:12 P.M. com.google.cloud.datastore.emulator.firestore.websocket.WebSocketChannelHandler channelClosed
+INFO: Websocket client disconnected
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Mar 11, 2026 11:29:12 P.M. com.google.cloud.datastore.emulator.firestore.websocket.WebSocketChannelHandler channelClosed\nINFO: Websocket client disconnected\n"}}
+[debug] [2026-03-12T03:30:39.871Z] File /Users/evelynzhu/her-route/her-route/bestroute/index.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /Users/evelynzhu/her-route/her-route/bestroute/index.js changed, reloading triggers"}}
+[debug] [2026-03-12T03:30:40.876Z] Validating nodejs source
+[warn] ⚠  functions: package.json indicates an outdated version of firebase-functions. Please upgrade using npm install --save firebase-functions@latest in your functions directory. 
+[debug] [2026-03-12T03:30:41.591Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "24"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "@mapbox/polyline": "^1.2.1",
+    "axios": "^1.13.6",
+    "dotenv": "^17.3.1",
+    "firebase-admin": "^13.6.0",
+    "firebase-functions": "^7.1.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.15.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^3.4.1"
+  },
+  "private": true
+}
+[debug] [2026-03-12T03:30:41.591Z] Building nodejs source
+[debug] [2026-03-12T03:30:41.591Z] Failed to find version of module node: reached end of search path /Users/evelynzhu/her-route/her-route/bestroute/node_modules
+[info] ✔  functions: Using node@24 from host. 
 [info] i  functions: Loaded environment variables from .env. 
-[debug] [2026-03-06T04:54:36.124Z] [worker-pool] addWorker(us-central1-getRoutes) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] addWorker(us-central1-getRoutes)"}}
-[debug] [2026-03-06T04:54:36.125Z] [worker-pool] Adding worker with key us-central1-getRoutes, total=3 {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] Adding worker with key us-central1-getRoutes, total=3"}}
-[debug] [2026-03-06T04:54:36.536Z] [runtime-status] [76949] Resolved module firebase-admin {"declared":true,"installed":true,"version":"13.7.0","resolution":"/Users/evelynzhu/her-route/her-route/bestroute/node_modules/firebase-admin/lib/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"[runtime-status] [76949] Resolved module firebase-admin {\"declared\":true,\"installed\":true,\"version\":\"13.7.0\",\"resolution\":\"/Users/evelynzhu/her-route/her-route/bestroute/node_modules/firebase-admin/lib/index.js\"}"}}
-[debug] [2026-03-06T04:54:36.537Z] [runtime-status] [76949] Resolved module firebase-functions {"declared":true,"installed":true,"version":"7.1.0","resolution":"/Users/evelynzhu/her-route/her-route/bestroute/node_modules/firebase-functions/lib/v2/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"[runtime-status] [76949] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"7.1.0\",\"resolution\":\"/Users/evelynzhu/her-route/her-route/bestroute/node_modules/firebase-functions/lib/v2/index.js\"}"}}
-[debug] [2026-03-06T04:54:36.537Z] [runtime-status] [76949] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"}] {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"[runtime-status] [76949] Outgoing network have been stubbed. [{\"name\":\"http\",\"status\":\"mocked\"},{\"name\":\"http\",\"status\":\"mocked\"},{\"name\":\"https\",\"status\":\"mocked\"},{\"name\":\"https\",\"status\":\"mocked\"},{\"name\":\"net\",\"status\":\"mocked\"}]"}}
-[debug] [2026-03-06T04:54:36.538Z] [runtime-status] [76949] Resolved module firebase-functions {"declared":true,"installed":true,"version":"7.1.0","resolution":"/Users/evelynzhu/her-route/her-route/bestroute/node_modules/firebase-functions/lib/v2/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"[runtime-status] [76949] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"7.1.0\",\"resolution\":\"/Users/evelynzhu/her-route/her-route/bestroute/node_modules/firebase-functions/lib/v2/index.js\"}"}}
-[debug] [2026-03-06T04:54:36.538Z] [runtime-status] [76949] Detected firebase-functions v7+, skipping legacy stubs. {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"[runtime-status] [76949] Detected firebase-functions v7+, skipping legacy stubs."}}
-[debug] [2026-03-06T04:54:36.538Z] [runtime-status] [76949] Resolved module firebase-admin {"declared":true,"installed":true,"version":"13.7.0","resolution":"/Users/evelynzhu/her-route/her-route/bestroute/node_modules/firebase-admin/lib/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"[runtime-status] [76949] Resolved module firebase-admin {\"declared\":true,\"installed\":true,\"version\":\"13.7.0\",\"resolution\":\"/Users/evelynzhu/her-route/her-route/bestroute/node_modules/firebase-admin/lib/index.js\"}"}}
-[debug] [2026-03-06T04:54:36.557Z] [runtime-status] [76949] Resolved module firebase-functions {"declared":true,"installed":true,"version":"7.1.0","resolution":"/Users/evelynzhu/her-route/her-route/bestroute/node_modules/firebase-functions/lib/v2/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"[runtime-status] [76949] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"7.1.0\",\"resolution\":\"/Users/evelynzhu/her-route/her-route/bestroute/node_modules/firebase-functions/lib/v2/index.js\"}"}}
-[debug] [2026-03-06T04:54:36.652Z] [runtime-status] [76949] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"13.7.0","resolution":"/Users/evelynzhu/her-route/her-route/bestroute/node_modules/firebase-admin/lib/index.js"}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"[runtime-status] [76949] firebase-admin has been stubbed. {\"adminResolution\":{\"declared\":true,\"installed\":true,\"version\":\"13.7.0\",\"resolution\":\"/Users/evelynzhu/her-route/her-route/bestroute/node_modules/firebase-admin/lib/index.js\"}}"}}
-[info] >  [dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 encrypt with Dotenvx: https://dotenvx.com {"user":"[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 encrypt with Dotenvx: https://dotenvx.com","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"\u001b[90m> \u001b[39m [dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 encrypt with Dotenvx: https://dotenvx.com"}}
-[debug] [2026-03-06T04:54:36.678Z] [runtime-status] [76949] Functions runtime initialized. {"cwd":"/Users/evelynzhu/her-route/her-route/bestroute","node_version":"24.12.0"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"[runtime-status] [76949] Functions runtime initialized. {\"cwd\":\"/Users/evelynzhu/her-route/her-route/bestroute\",\"node_version\":\"24.12.0\"}"}}
-[debug] [2026-03-06T04:54:36.678Z] [runtime-status] [76949] Listening to port: /var/folders/w0/4v2l2pwd40b111whw64s24vr0000gn/T/fire_emu_3936d28fa83bdfe0.sock {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"[runtime-status] [76949] Listening to port: /var/folders/w0/4v2l2pwd40b111whw64s24vr0000gn/T/fire_emu_3936d28fa83bdfe0.sock"}}
-[debug] [2026-03-06T04:54:36.738Z] [worker-us-central1-getRoutes-b63bfc69-0084-45d8-ac34-6e7e6e0c4d99]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"[worker-us-central1-getRoutes-b63bfc69-0084-45d8-ac34-6e7e6e0c4d99]: IDLE"}}
-[debug] [2026-03-06T04:54:36.739Z] [worker-pool] submitRequest(triggerId=us-central1-getRoutes) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-getRoutes)"}}
+[debug] [2026-03-12T03:30:41.592Z] Could not find functions.yaml. Must use http discovery
+[debug] [2026-03-12T03:30:41.593Z] Found firebase-functions binary at '/Users/evelynzhu/her-route/her-route/bestroute/node_modules/.bin/firebase-functions'
+[info] Serving at port 8124
+
+[error] /Users/evelynzhu/her-route/her-route/bestroute/index.js:39
+  console.log(response.data[]);
+                            ^
+
+SyntaxError: Unexpected token ']'
+    at wrapSafe (node:internal/modules/cjs/loader:1692:18)
+    at Module._compile (node:internal/modules/cjs/loader:1735:20)
+    at Object..js (node:internal/modules/cjs/loader:1893:10)
+    at Module.load (node:internal/modules/cjs/loader:1481:32)
+    at Module._load (node:internal/modules/cjs/loader:1300:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)
+    at Module.require (node:internal/modules/cjs/loader:1504:12)
+    at require (node:internal/modules/helpers:152:16)
+    at loadModule (/Users/evelynzhu/her-route/her-route/bestroute/node_modules/firebase-functions/lib/runtime/loader.js:20:10)
+
+[debug] [2026-03-12T03:30:41.822Z] Got response code 400; body Failed to generate manifest from function source: Unexpected token ']'
+[debug] [2026-03-12T03:30:42.094Z] File /Users/evelynzhu/her-route/her-route/bestroute/index.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /Users/evelynzhu/her-route/her-route/bestroute/index.js changed, reloading triggers"}}
+[debug] [2026-03-12T03:30:43.096Z] Validating nodejs source
+[warn] ⚠  functions: package.json indicates an outdated version of firebase-functions. Please upgrade using npm install --save firebase-functions@latest in your functions directory. 
+[debug] [2026-03-12T03:30:43.511Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "24"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "@mapbox/polyline": "^1.2.1",
+    "axios": "^1.13.6",
+    "dotenv": "^17.3.1",
+    "firebase-admin": "^13.6.0",
+    "firebase-functions": "^7.1.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.15.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^3.4.1"
+  },
+  "private": true
+}
+[debug] [2026-03-12T03:30:43.511Z] Building nodejs source
+[debug] [2026-03-12T03:30:43.512Z] Failed to find version of module node: reached end of search path /Users/evelynzhu/her-route/her-route/bestroute/node_modules
+[info] ✔  functions: Using node@24 from host. 
+[info] i  functions: Loaded environment variables from .env. 
+[debug] [2026-03-12T03:30:43.513Z] Could not find functions.yaml. Must use http discovery
+[debug] [2026-03-12T03:30:43.514Z] Found firebase-functions binary at '/Users/evelynzhu/her-route/her-route/bestroute/node_modules/.bin/firebase-functions'
+[info] Serving at port 8182
+
+[error] /Users/evelynzhu/her-route/her-route/bestroute/index.js:39
+  console.log(response.data[]);
+                            ^
+
+SyntaxError: Unexpected token ']'
+    at wrapSafe (node:internal/modules/cjs/loader:1692:18)
+    at Module._compile (node:internal/modules/cjs/loader:1735:20)
+    at Object..js (node:internal/modules/cjs/loader:1893:10)
+    at Module.load (node:internal/modules/cjs/loader:1481:32)
+    at Module._load (node:internal/modules/cjs/loader:1300:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)
+    at Module.require (node:internal/modules/cjs/loader:1504:12)
+    at require (node:internal/modules/helpers:152:16)
+    at loadModule (/Users/evelynzhu/her-route/her-route/bestroute/node_modules/firebase-functions/lib/runtime/loader.js:20:10)
+
+[debug] [2026-03-12T03:30:43.659Z] Got response code 400; body Failed to generate manifest from function source: Unexpected token ']'
+[error] ⬢  functions: Failed to load function definition from source: FirebaseError: Functions codebase could not be analyzed successfully. It may have a syntax or runtime error {"metadata":{"emulator":{"name":"functions"},"message":"Failed to load function definition from source: FirebaseError: Functions codebase could not be analyzed successfully. It may have a syntax or runtime error"}}
+[debug] [2026-03-12T03:30:47.651Z] File /Users/evelynzhu/her-route/her-route/bestroute/index.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /Users/evelynzhu/her-route/her-route/bestroute/index.js changed, reloading triggers"}}
+[error] ⬢  functions: Failed to load function definition from source: FirebaseError: Functions codebase could not be analyzed successfully. It may have a syntax or runtime error {"metadata":{"emulator":{"name":"functions"},"message":"Failed to load function definition from source: FirebaseError: Functions codebase could not be analyzed successfully. It may have a syntax or runtime error"}}
+[debug] [2026-03-12T03:30:48.654Z] Validating nodejs source
+[warn] ⚠  functions: package.json indicates an outdated version of firebase-functions. Please upgrade using npm install --save firebase-functions@latest in your functions directory. 
+[debug] [2026-03-12T03:30:49.105Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "24"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "@mapbox/polyline": "^1.2.1",
+    "axios": "^1.13.6",
+    "dotenv": "^17.3.1",
+    "firebase-admin": "^13.6.0",
+    "firebase-functions": "^7.1.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.15.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^3.4.1"
+  },
+  "private": true
+}
+[debug] [2026-03-12T03:30:49.105Z] Building nodejs source
+[debug] [2026-03-12T03:30:49.105Z] Failed to find version of module node: reached end of search path /Users/evelynzhu/her-route/her-route/bestroute/node_modules
+[info] ✔  functions: Using node@24 from host. 
+[info] i  functions: Loaded environment variables from .env. 
+[debug] [2026-03-12T03:30:49.106Z] Could not find functions.yaml. Must use http discovery
+[debug] [2026-03-12T03:30:49.108Z] Found firebase-functions binary at '/Users/evelynzhu/her-route/her-route/bestroute/node_modules/.bin/firebase-functions'
+[debug] [2026-03-12T03:30:49.109Z] File /Users/evelynzhu/her-route/her-route/bestroute/index.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /Users/evelynzhu/her-route/her-route/bestroute/index.js changed, reloading triggers"}}
+[info] Serving at port 8077
+
+[info] [dotenv@17.3.1] injecting env (2) from .env -- tip: 🛡️ auth for agents: https://vestauth.com
+
+[debug] [2026-03-12T03:30:49.603Z] Got response from /__/functions.yaml {"endpoints":{"getRoutes":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":10,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"getRoutes"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[debug] [2026-03-12T03:30:50.112Z] Validating nodejs source
+[warn] ⚠  functions: package.json indicates an outdated version of firebase-functions. Please upgrade using npm install --save firebase-functions@latest in your functions directory. 
+[debug] [2026-03-12T03:30:50.557Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "24"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "@mapbox/polyline": "^1.2.1",
+    "axios": "^1.13.6",
+    "dotenv": "^17.3.1",
+    "firebase-admin": "^13.6.0",
+    "firebase-functions": "^7.1.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.15.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^3.4.1"
+  },
+  "private": true
+}
+[debug] [2026-03-12T03:30:50.557Z] Building nodejs source
+[debug] [2026-03-12T03:30:50.558Z] Failed to find version of module node: reached end of search path /Users/evelynzhu/her-route/her-route/bestroute/node_modules
+[info] ✔  functions: Using node@24 from host. 
+[info] i  functions: Loaded environment variables from .env. 
+[debug] [2026-03-12T03:30:50.558Z] Could not find functions.yaml. Must use http discovery
+[debug] [2026-03-12T03:30:50.559Z] Found firebase-functions binary at '/Users/evelynzhu/her-route/her-route/bestroute/node_modules/.bin/firebase-functions'
+[debug] [2026-03-12T03:30:50.560Z] File /Users/evelynzhu/her-route/her-route/bestroute/index.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /Users/evelynzhu/her-route/her-route/bestroute/index.js changed, reloading triggers"}}
+[info] Serving at port 8376
+
+[info] [dotenv@17.3.1] injecting env (2) from .env -- tip: ⚙️  write to custom object with { processEnv: myObject }
+
+[debug] [2026-03-12T03:30:50.979Z] Got response from /__/functions.yaml {"endpoints":{"getRoutes":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":10,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"getRoutes"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[debug] [2026-03-12T03:30:51.562Z] Validating nodejs source
+[warn] ⚠  functions: package.json indicates an outdated version of firebase-functions. Please upgrade using npm install --save firebase-functions@latest in your functions directory. 
+[debug] [2026-03-12T03:30:52.049Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "24"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "@mapbox/polyline": "^1.2.1",
+    "axios": "^1.13.6",
+    "dotenv": "^17.3.1",
+    "firebase-admin": "^13.6.0",
+    "firebase-functions": "^7.1.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.15.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^3.4.1"
+  },
+  "private": true
+}
+[debug] [2026-03-12T03:30:52.049Z] Building nodejs source
+[debug] [2026-03-12T03:30:52.049Z] Failed to find version of module node: reached end of search path /Users/evelynzhu/her-route/her-route/bestroute/node_modules
+[info] ✔  functions: Using node@24 from host. 
+[info] i  functions: Loaded environment variables from .env. 
+[debug] [2026-03-12T03:30:52.056Z] Could not find functions.yaml. Must use http discovery
+[debug] [2026-03-12T03:30:52.057Z] Found firebase-functions binary at '/Users/evelynzhu/her-route/her-route/bestroute/node_modules/.bin/firebase-functions'
+[info] Serving at port 8824
+
+[info] [dotenv@17.3.1] injecting env (2) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+
+[debug] [2026-03-12T03:30:52.362Z] Got response from /__/functions.yaml {"endpoints":{"getRoutes":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":10,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"getRoutes"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[debug] [2026-03-12T03:30:53.623Z] defaultcredentials: writing to file /Users/evelynzhu/.config/firebase/evelynzhuca_gmail_com_application_default_credentials.json
+[debug] [2026-03-12T03:30:53.624Z] Setting GAC to /Users/evelynzhu/.config/firebase/evelynzhuca_gmail_com_application_default_credentials.json {"metadata":{"emulator":{"name":"functions"},"message":"Setting GAC to /Users/evelynzhu/.config/firebase/evelynzhuca_gmail_com_application_default_credentials.json"}}
+[info] ✔  functions: Loaded functions definitions from source: getRoutes. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: getRoutes."}}
+[debug] [2026-03-12T03:30:53.625Z] [worker-pool] Shutting down IDLE worker (us-central1-getRoutes) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] Shutting down IDLE worker (us-central1-getRoutes)"}}
+[debug] [2026-03-12T03:30:53.625Z] [worker-us-central1-getRoutes-6066f5f2-02ad-4280-9278-a74a0a67e9f7]: FINISHING {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"[worker-us-central1-getRoutes-6066f5f2-02ad-4280-9278-a74a0a67e9f7]: FINISHING"}}
+[debug] [2026-03-12T03:30:53.632Z] [worker-us-central1-getRoutes-6066f5f2-02ad-4280-9278-a74a0a67e9f7]: exited {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"[worker-us-central1-getRoutes-6066f5f2-02ad-4280-9278-a74a0a67e9f7]: exited"}}
+[debug] [2026-03-12T03:30:53.633Z] [worker-us-central1-getRoutes-6066f5f2-02ad-4280-9278-a74a0a67e9f7]: FINISHED {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"[worker-us-central1-getRoutes-6066f5f2-02ad-4280-9278-a74a0a67e9f7]: FINISHED"}}
+[debug] [2026-03-12T03:30:54.996Z] defaultcredentials: writing to file /Users/evelynzhu/.config/firebase/evelynzhuca_gmail_com_application_default_credentials.json
+[debug] [2026-03-12T03:30:54.997Z] Setting GAC to /Users/evelynzhu/.config/firebase/evelynzhuca_gmail_com_application_default_credentials.json {"metadata":{"emulator":{"name":"functions"},"message":"Setting GAC to /Users/evelynzhu/.config/firebase/evelynzhuca_gmail_com_application_default_credentials.json"}}
+[info] ✔  functions: Loaded functions definitions from source: getRoutes. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: getRoutes."}}
+[debug] [2026-03-12T03:30:56.388Z] defaultcredentials: writing to file /Users/evelynzhu/.config/firebase/evelynzhuca_gmail_com_application_default_credentials.json
+[debug] [2026-03-12T03:30:56.389Z] Setting GAC to /Users/evelynzhu/.config/firebase/evelynzhuca_gmail_com_application_default_credentials.json {"metadata":{"emulator":{"name":"functions"},"message":"Setting GAC to /Users/evelynzhu/.config/firebase/evelynzhuca_gmail_com_application_default_credentials.json"}}
+[info] ✔  functions: Loaded functions definitions from source: getRoutes. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: getRoutes."}}
+[debug] [2026-03-12T03:30:56.391Z] File /Users/evelynzhu/her-route/her-route/bestroute/index.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /Users/evelynzhu/her-route/her-route/bestroute/index.js changed, reloading triggers"}}
+[debug] [2026-03-12T03:30:57.391Z] Validating nodejs source
+[warn] ⚠  functions: package.json indicates an outdated version of firebase-functions. Please upgrade using npm install --save firebase-functions@latest in your functions directory. 
+[debug] [2026-03-12T03:30:57.895Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "24"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "@mapbox/polyline": "^1.2.1",
+    "axios": "^1.13.6",
+    "dotenv": "^17.3.1",
+    "firebase-admin": "^13.6.0",
+    "firebase-functions": "^7.1.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.15.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^3.4.1"
+  },
+  "private": true
+}
+[debug] [2026-03-12T03:30:57.895Z] Building nodejs source
+[debug] [2026-03-12T03:30:57.895Z] Failed to find version of module node: reached end of search path /Users/evelynzhu/her-route/her-route/bestroute/node_modules
+[info] ✔  functions: Using node@24 from host. 
+[info] i  functions: Loaded environment variables from .env. 
+[debug] [2026-03-12T03:30:57.896Z] Could not find functions.yaml. Must use http discovery
+[debug] [2026-03-12T03:30:57.897Z] Found firebase-functions binary at '/Users/evelynzhu/her-route/her-route/bestroute/node_modules/.bin/firebase-functions'
+[info] Serving at port 8788
+
+[info] [dotenv@17.3.1] injecting env (2) from .env -- tip: 🔐 encrypt with Dotenvx: https://dotenvx.com
+
+[debug] [2026-03-12T03:30:58.236Z] Got response from /__/functions.yaml {"endpoints":{"getRoutes":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":10,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"getRoutes"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[debug] [2026-03-12T03:30:59.335Z] File /Users/evelynzhu/her-route/her-route/bestroute/index.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /Users/evelynzhu/her-route/her-route/bestroute/index.js changed, reloading triggers"}}
+[debug] [2026-03-12T03:31:00.337Z] Validating nodejs source
+[warn] ⚠  functions: package.json indicates an outdated version of firebase-functions. Please upgrade using npm install --save firebase-functions@latest in your functions directory. 
+[debug] [2026-03-12T03:31:00.829Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "24"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "@mapbox/polyline": "^1.2.1",
+    "axios": "^1.13.6",
+    "dotenv": "^17.3.1",
+    "firebase-admin": "^13.6.0",
+    "firebase-functions": "^7.1.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.15.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^3.4.1"
+  },
+  "private": true
+}
+[debug] [2026-03-12T03:31:00.829Z] Building nodejs source
+[debug] [2026-03-12T03:31:00.829Z] Failed to find version of module node: reached end of search path /Users/evelynzhu/her-route/her-route/bestroute/node_modules
+[info] ✔  functions: Using node@24 from host. 
+[info] i  functions: Loaded environment variables from .env. 
+[debug] [2026-03-12T03:31:00.832Z] Could not find functions.yaml. Must use http discovery
+[debug] [2026-03-12T03:31:00.834Z] Found firebase-functions binary at '/Users/evelynzhu/her-route/her-route/bestroute/node_modules/.bin/firebase-functions'
+[info] Serving at port 8486
+
+[info] [dotenv@17.3.1] injecting env (2) from .env -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+
+[debug] [2026-03-12T03:31:01.266Z] File /Users/evelynzhu/her-route/her-route/bestroute/index.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /Users/evelynzhu/her-route/her-route/bestroute/index.js changed, reloading triggers"}}
+[debug] [2026-03-12T03:31:01.312Z] Got response from /__/functions.yaml {"endpoints":{"getRoutes":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":10,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"getRoutes"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[debug] [2026-03-12T03:31:01.366Z] File /Users/evelynzhu/her-route/her-route/bestroute/index.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /Users/evelynzhu/her-route/her-route/bestroute/index.js changed, reloading triggers"}}
+[debug] [2026-03-12T03:31:02.271Z] defaultcredentials: writing to file /Users/evelynzhu/.config/firebase/evelynzhuca_gmail_com_application_default_credentials.json
+[debug] [2026-03-12T03:31:02.272Z] Setting GAC to /Users/evelynzhu/.config/firebase/evelynzhuca_gmail_com_application_default_credentials.json {"metadata":{"emulator":{"name":"functions"},"message":"Setting GAC to /Users/evelynzhu/.config/firebase/evelynzhuca_gmail_com_application_default_credentials.json"}}
+[info] ✔  functions: Loaded functions definitions from source: getRoutes. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: getRoutes."}}
+[debug] [2026-03-12T03:31:02.367Z] Validating nodejs source
+[warn] ⚠  functions: package.json indicates an outdated version of firebase-functions. Please upgrade using npm install --save firebase-functions@latest in your functions directory. 
+[debug] [2026-03-12T03:31:02.873Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "24"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "@mapbox/polyline": "^1.2.1",
+    "axios": "^1.13.6",
+    "dotenv": "^17.3.1",
+    "firebase-admin": "^13.6.0",
+    "firebase-functions": "^7.1.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.15.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^3.4.1"
+  },
+  "private": true
+}
+[debug] [2026-03-12T03:31:02.873Z] Building nodejs source
+[debug] [2026-03-12T03:31:02.873Z] Failed to find version of module node: reached end of search path /Users/evelynzhu/her-route/her-route/bestroute/node_modules
+[info] ✔  functions: Using node@24 from host. 
+[info] i  functions: Loaded environment variables from .env. 
+[debug] [2026-03-12T03:31:02.875Z] Could not find functions.yaml. Must use http discovery
+[debug] [2026-03-12T03:31:02.876Z] Found firebase-functions binary at '/Users/evelynzhu/her-route/her-route/bestroute/node_modules/.bin/firebase-functions'
+[info] Serving at port 8907
+
+[info] [dotenv@17.3.1] injecting env (2) from .env -- tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`
+
+[debug] [2026-03-12T03:31:03.369Z] Got response from /__/functions.yaml {"endpoints":{"getRoutes":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":10,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"getRoutes"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[debug] [2026-03-12T03:31:05.343Z] defaultcredentials: writing to file /Users/evelynzhu/.config/firebase/evelynzhuca_gmail_com_application_default_credentials.json
+[debug] [2026-03-12T03:31:05.345Z] Setting GAC to /Users/evelynzhu/.config/firebase/evelynzhuca_gmail_com_application_default_credentials.json {"metadata":{"emulator":{"name":"functions"},"message":"Setting GAC to /Users/evelynzhu/.config/firebase/evelynzhuca_gmail_com_application_default_credentials.json"}}
+[info] ✔  functions: Loaded functions definitions from source: getRoutes. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: getRoutes."}}
+[debug] [2026-03-12T03:31:06.161Z] [work-queue] {"queuedWork":["/her-route/us-central1/getRoutes-2026-03-12T03:31:06.161Z"],"queueLength":1,"runningWork":[],"workRunningCount":0}
+[debug] [2026-03-12T03:31:06.162Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":["/her-route/us-central1/getRoutes-2026-03-12T03:31:06.161Z"],"workRunningCount":1}
+[debug] [2026-03-12T03:31:06.162Z] Accepted request OPTIONS /her-route/us-central1/getRoutes --> us-central1-getRoutes
+[debug] [2026-03-12T03:31:06.163Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2026-03-12T03:31:06.164Z] [functions] Got req.url=/her-route/us-central1/getRoutes, mapping to path=/ {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/her-route/us-central1/getRoutes, mapping to path=/"}}
+[debug] [2026-03-12T03:31:06.164Z] [worker-pool] Cleaned up workers for us-central1-getRoutes: 1 --> 0 {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] Cleaned up workers for us-central1-getRoutes: 1 --> 0"}}
+[info] i  functions: Loaded environment variables from .env. 
+[debug] [2026-03-12T03:31:06.177Z] [worker-pool] addWorker(us-central1-getRoutes) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] addWorker(us-central1-getRoutes)"}}
+[debug] [2026-03-12T03:31:06.177Z] [worker-pool] Adding worker with key us-central1-getRoutes, total=1 {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] Adding worker with key us-central1-getRoutes, total=1"}}
+[debug] [2026-03-12T03:31:07.108Z] [runtime-status] [70303] Resolved module firebase-admin {"declared":true,"installed":true,"version":"13.7.0","resolution":"/Users/evelynzhu/her-route/her-route/bestroute/node_modules/firebase-admin/lib/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"[runtime-status] [70303] Resolved module firebase-admin {\"declared\":true,\"installed\":true,\"version\":\"13.7.0\",\"resolution\":\"/Users/evelynzhu/her-route/her-route/bestroute/node_modules/firebase-admin/lib/index.js\"}"}}
+[debug] [2026-03-12T03:31:07.109Z] [runtime-status] [70303] Resolved module firebase-functions {"declared":true,"installed":true,"version":"7.1.0","resolution":"/Users/evelynzhu/her-route/her-route/bestroute/node_modules/firebase-functions/lib/v2/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"[runtime-status] [70303] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"7.1.0\",\"resolution\":\"/Users/evelynzhu/her-route/her-route/bestroute/node_modules/firebase-functions/lib/v2/index.js\"}"}}
+[debug] [2026-03-12T03:31:07.110Z] [runtime-status] [70303] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"}] {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"[runtime-status] [70303] Outgoing network have been stubbed. [{\"name\":\"http\",\"status\":\"mocked\"},{\"name\":\"http\",\"status\":\"mocked\"},{\"name\":\"https\",\"status\":\"mocked\"},{\"name\":\"https\",\"status\":\"mocked\"},{\"name\":\"net\",\"status\":\"mocked\"}]"}}
+[debug] [2026-03-12T03:31:07.110Z] [runtime-status] [70303] Resolved module firebase-functions {"declared":true,"installed":true,"version":"7.1.0","resolution":"/Users/evelynzhu/her-route/her-route/bestroute/node_modules/firebase-functions/lib/v2/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"[runtime-status] [70303] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"7.1.0\",\"resolution\":\"/Users/evelynzhu/her-route/her-route/bestroute/node_modules/firebase-functions/lib/v2/index.js\"}"}}
+[debug] [2026-03-12T03:31:07.110Z] [runtime-status] [70303] Detected firebase-functions v7+, skipping legacy stubs. {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"[runtime-status] [70303] Detected firebase-functions v7+, skipping legacy stubs."}}
+[debug] [2026-03-12T03:31:07.111Z] [runtime-status] [70303] Resolved module firebase-admin {"declared":true,"installed":true,"version":"13.7.0","resolution":"/Users/evelynzhu/her-route/her-route/bestroute/node_modules/firebase-admin/lib/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"[runtime-status] [70303] Resolved module firebase-admin {\"declared\":true,\"installed\":true,\"version\":\"13.7.0\",\"resolution\":\"/Users/evelynzhu/her-route/her-route/bestroute/node_modules/firebase-admin/lib/index.js\"}"}}
+[debug] [2026-03-12T03:31:07.139Z] [runtime-status] [70303] Resolved module firebase-functions {"declared":true,"installed":true,"version":"7.1.0","resolution":"/Users/evelynzhu/her-route/her-route/bestroute/node_modules/firebase-functions/lib/v2/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"[runtime-status] [70303] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"7.1.0\",\"resolution\":\"/Users/evelynzhu/her-route/her-route/bestroute/node_modules/firebase-functions/lib/v2/index.js\"}"}}
+[debug] [2026-03-12T03:31:07.255Z] [runtime-status] [70303] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"13.7.0","resolution":"/Users/evelynzhu/her-route/her-route/bestroute/node_modules/firebase-admin/lib/index.js"}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"[runtime-status] [70303] firebase-admin has been stubbed. {\"adminResolution\":{\"declared\":true,\"installed\":true,\"version\":\"13.7.0\",\"resolution\":\"/Users/evelynzhu/her-route/her-route/bestroute/node_modules/firebase-admin/lib/index.js\"}}"}}
+[info] >  [dotenv@17.3.1] injecting env (0) from .env -- tip: 🛡️ auth for agents: https://vestauth.com {"user":"[dotenv@17.3.1] injecting env (0) from .env -- tip: 🛡️ auth for agents: https://vestauth.com","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"\u001b[90m> \u001b[39m [dotenv@17.3.1] injecting env (0) from .env -- tip: 🛡️ auth for agents: https://vestauth.com"}}
+[debug] [2026-03-12T03:31:07.299Z] [runtime-status] [70303] Functions runtime initialized. {"cwd":"/Users/evelynzhu/her-route/her-route/bestroute","node_version":"24.12.0"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"[runtime-status] [70303] Functions runtime initialized. {\"cwd\":\"/Users/evelynzhu/her-route/her-route/bestroute\",\"node_version\":\"24.12.0\"}"}}
+[debug] [2026-03-12T03:31:07.300Z] [runtime-status] [70303] Listening to port: /var/folders/w0/4v2l2pwd40b111whw64s24vr0000gn/T/fire_emu_39cfd78d3d56566b.sock {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"[runtime-status] [70303] Listening to port: /var/folders/w0/4v2l2pwd40b111whw64s24vr0000gn/T/fire_emu_39cfd78d3d56566b.sock"}}
+[debug] [2026-03-12T03:31:07.390Z] defaultcredentials: writing to file /Users/evelynzhu/.config/firebase/evelynzhuca_gmail_com_application_default_credentials.json
+[debug] [2026-03-12T03:31:07.391Z] Setting GAC to /Users/evelynzhu/.config/firebase/evelynzhuca_gmail_com_application_default_credentials.json {"metadata":{"emulator":{"name":"functions"},"message":"Setting GAC to /Users/evelynzhu/.config/firebase/evelynzhuca_gmail_com_application_default_credentials.json"}}
+[info] ✔  functions: Loaded functions definitions from source: getRoutes. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: getRoutes."}}
+[debug] [2026-03-12T03:31:07.401Z] [worker-us-central1-getRoutes-42632b8e-6335-4327-b048-295db0150a19]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"[worker-us-central1-getRoutes-42632b8e-6335-4327-b048-295db0150a19]: IDLE"}}
+[debug] [2026-03-12T03:31:07.402Z] [worker-pool] submitRequest(triggerId=us-central1-getRoutes) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-getRoutes)"}}
 [info] i  functions: Beginning execution of "us-central1-getRoutes" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"Beginning execution of \"us-central1-getRoutes\""}}
-[debug] [2026-03-06T04:54:36.739Z] [worker-us-central1-getRoutes-b63bfc69-0084-45d8-ac34-6e7e6e0c4d99]: BUSY {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"[worker-us-central1-getRoutes-b63bfc69-0084-45d8-ac34-6e7e6e0c4d99]: BUSY"}}
+[debug] [2026-03-12T03:31:07.402Z] [worker-us-central1-getRoutes-42632b8e-6335-4327-b048-295db0150a19]: BUSY {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"[worker-us-central1-getRoutes-42632b8e-6335-4327-b048-295db0150a19]: BUSY"}}
+[debug] [2026-03-12T03:31:07.406Z] Finishing up request with event=pause {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"Finishing up request with event=pause"}}
+[info] i  functions: Finished "us-central1-getRoutes" in 3.951583ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"Finished \"us-central1-getRoutes\" in 3.951583ms"}}
+[debug] [2026-03-12T03:31:07.406Z] [worker-us-central1-getRoutes-42632b8e-6335-4327-b048-295db0150a19]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"[worker-us-central1-getRoutes-42632b8e-6335-4327-b048-295db0150a19]: IDLE"}}
+[debug] [2026-03-12T03:31:07.406Z] Finishing up request with event=finish {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"Finishing up request with event=finish"}}
+[debug] [2026-03-12T03:31:07.406Z] Finishing up request with event=close {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"Finishing up request with event=close"}}
+[debug] [2026-03-12T03:31:07.406Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":[],"workRunningCount":0}
+[debug] [2026-03-12T03:31:07.409Z] [work-queue] {"queuedWork":["/her-route/us-central1/getRoutes-2026-03-12T03:31:07.409Z"],"queueLength":1,"runningWork":[],"workRunningCount":0}
+[debug] [2026-03-12T03:31:07.409Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":["/her-route/us-central1/getRoutes-2026-03-12T03:31:07.409Z"],"workRunningCount":1}
+[debug] [2026-03-12T03:31:07.409Z] Accepted request POST /her-route/us-central1/getRoutes --> us-central1-getRoutes
+[debug] [2026-03-12T03:31:07.409Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2026-03-12T03:31:07.409Z] [functions] Got req.url=/her-route/us-central1/getRoutes, mapping to path=/ {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/her-route/us-central1/getRoutes, mapping to path=/"}}
+[debug] [2026-03-12T03:31:07.410Z] [worker-pool] submitRequest(triggerId=us-central1-getRoutes) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-getRoutes)"}}
+[info] i  functions: Beginning execution of "us-central1-getRoutes" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"Beginning execution of \"us-central1-getRoutes\""}}
+[debug] [2026-03-12T03:31:07.410Z] [worker-us-central1-getRoutes-42632b8e-6335-4327-b048-295db0150a19]: BUSY {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"[worker-us-central1-getRoutes-42632b8e-6335-4327-b048-295db0150a19]: BUSY"}}
+[info] >  { origin: 'Waterloo Park', destination: 'University of Waterloo' } {"user":"{ origin: 'Waterloo Park', destination: 'University of Waterloo' }","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"\u001b[90m> \u001b[39m { origin: 'Waterloo Park', destination: 'University of Waterloo' }"}}
+[info] >  { lat: 30.2737382, lng: -97.73600309999999 } {"user":"{ lat: 30.2737382, lng: -97.73600309999999 }","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"\u001b[90m> \u001b[39m { lat: 30.2737382, lng: -97.73600309999999 }"}}
+[info] >  {"severity":"ERROR","message":"TypeError: Cannot read properties of undefined (reading 'geometry')\n    at exports.getCoordinates (/Users/evelynzhu/her-route/her-route/bestroute/index.js:39:45)\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async /Users/evelynzhu/her-route/her-route/bestroute/index.js:68:21\n    at async /Users/evelynzhu/her-route/her-route/bestroute/node_modules/firebase-functions/lib/common/providers/https.js:566:4\n    at async runFunction (/usr/local/lib/node_modules/firebase-tools/lib/emulator/functionsEmulatorRuntime.js:399:9)\n    at async runHTTPS (/usr/local/lib/node_modules/firebase-tools/lib/emulator/functionsEmulatorRuntime.js:424:5)\n    at async /usr/local/lib/node_modules/firebase-tools/lib/emulator/functionsEmulatorRuntime.js:585:21"} {"user":{"severity":"ERROR","message":"TypeError: Cannot read properties of undefined (reading 'geometry')\n    at exports.getCoordinates (/Users/evelynzhu/her-route/her-route/bestroute/index.js:39:45)\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async /Users/evelynzhu/her-route/her-route/bestroute/index.js:68:21\n    at async /Users/evelynzhu/her-route/her-route/bestroute/node_modules/firebase-functions/lib/common/providers/https.js:566:4\n    at async runFunction (/usr/local/lib/node_modules/firebase-tools/lib/emulator/functionsEmulatorRuntime.js:399:9)\n    at async runHTTPS (/usr/local/lib/node_modules/firebase-tools/lib/emulator/functionsEmulatorRuntime.js:424:5)\n    at async /usr/local/lib/node_modules/firebase-tools/lib/emulator/functionsEmulatorRuntime.js:585:21"},"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"\u001b[90m> \u001b[39m {\"severity\":\"ERROR\",\"message\":\"TypeError: Cannot read properties of undefined (reading 'geometry')\\n    at exports.getCoordinates (/Users/evelynzhu/her-route/her-route/bestroute/index.js:39:45)\\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\\n    at async /Users/evelynzhu/her-route/her-route/bestroute/index.js:68:21\\n    at async /Users/evelynzhu/her-route/her-route/bestroute/node_modules/firebase-functions/lib/common/providers/https.js:566:4\\n    at async runFunction (/usr/local/lib/node_modules/firebase-tools/lib/emulator/functionsEmulatorRuntime.js:399:9)\\n    at async runHTTPS (/usr/local/lib/node_modules/firebase-tools/lib/emulator/functionsEmulatorRuntime.js:424:5)\\n    at async /usr/local/lib/node_modules/firebase-tools/lib/emulator/functionsEmulatorRuntime.js:585:21\"}"}}
+[debug] [2026-03-12T03:31:07.628Z] Finishing up request with event=pause {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"Finishing up request with event=pause"}}
+[info] i  functions: Finished "us-central1-getRoutes" in 218.521459ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"Finished \"us-central1-getRoutes\" in 218.521459ms"}}
+[debug] [2026-03-12T03:31:07.628Z] [worker-us-central1-getRoutes-42632b8e-6335-4327-b048-295db0150a19]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"[worker-us-central1-getRoutes-42632b8e-6335-4327-b048-295db0150a19]: IDLE"}}
+[debug] [2026-03-12T03:31:07.628Z] Finishing up request with event=finish {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"Finishing up request with event=finish"}}
+[debug] [2026-03-12T03:31:07.629Z] Finishing up request with event=close {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"Finishing up request with event=close"}}
+[debug] [2026-03-12T03:31:07.629Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":[],"workRunningCount":0}
+[debug] [2026-03-12T03:33:28.893Z] [work-queue] {"queuedWork":["/her-route/us-central1/getRoutes-2026-03-12T03:33:28.893Z"],"queueLength":1,"runningWork":[],"workRunningCount":0}
+[debug] [2026-03-12T03:33:28.894Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":["/her-route/us-central1/getRoutes-2026-03-12T03:33:28.893Z"],"workRunningCount":1}
+[debug] [2026-03-12T03:33:28.895Z] Accepted request OPTIONS /her-route/us-central1/getRoutes --> us-central1-getRoutes
+[debug] [2026-03-12T03:33:28.896Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2026-03-12T03:33:28.897Z] [functions] Got req.url=/her-route/us-central1/getRoutes, mapping to path=/ {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/her-route/us-central1/getRoutes, mapping to path=/"}}
+[debug] [2026-03-12T03:33:28.897Z] [worker-pool] submitRequest(triggerId=us-central1-getRoutes) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-getRoutes)"}}
+[info] i  functions: Beginning execution of "us-central1-getRoutes" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"Beginning execution of \"us-central1-getRoutes\""}}
+[debug] [2026-03-12T03:33:28.898Z] [worker-us-central1-getRoutes-42632b8e-6335-4327-b048-295db0150a19]: BUSY {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"[worker-us-central1-getRoutes-42632b8e-6335-4327-b048-295db0150a19]: BUSY"}}
+[debug] [2026-03-12T03:33:28.914Z] Finishing up request with event=pause {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"Finishing up request with event=pause"}}
+[info] i  functions: Finished "us-central1-getRoutes" in 16.737916ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"Finished \"us-central1-getRoutes\" in 16.737916ms"}}
+[debug] [2026-03-12T03:33:28.916Z] [worker-us-central1-getRoutes-42632b8e-6335-4327-b048-295db0150a19]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"[worker-us-central1-getRoutes-42632b8e-6335-4327-b048-295db0150a19]: IDLE"}}
+[debug] [2026-03-12T03:33:28.916Z] Finishing up request with event=finish {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"Finishing up request with event=finish"}}
+[debug] [2026-03-12T03:33:28.916Z] Finishing up request with event=close {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"Finishing up request with event=close"}}
+[debug] [2026-03-12T03:33:28.916Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":[],"workRunningCount":0}
+[debug] [2026-03-12T03:33:28.917Z] [work-queue] {"queuedWork":["/her-route/us-central1/getRoutes-2026-03-12T03:33:28.917Z"],"queueLength":1,"runningWork":[],"workRunningCount":0}
+[debug] [2026-03-12T03:33:28.917Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":["/her-route/us-central1/getRoutes-2026-03-12T03:33:28.917Z"],"workRunningCount":1}
+[debug] [2026-03-12T03:33:28.917Z] Accepted request POST /her-route/us-central1/getRoutes --> us-central1-getRoutes
+[debug] [2026-03-12T03:33:28.918Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2026-03-12T03:33:28.918Z] [functions] Got req.url=/her-route/us-central1/getRoutes, mapping to path=/ {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/her-route/us-central1/getRoutes, mapping to path=/"}}
+[debug] [2026-03-12T03:33:28.918Z] [worker-pool] submitRequest(triggerId=us-central1-getRoutes) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-getRoutes)"}}
+[info] i  functions: Beginning execution of "us-central1-getRoutes" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"Beginning execution of \"us-central1-getRoutes\""}}
+[debug] [2026-03-12T03:33:28.919Z] [worker-us-central1-getRoutes-42632b8e-6335-4327-b048-295db0150a19]: BUSY {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"[worker-us-central1-getRoutes-42632b8e-6335-4327-b048-295db0150a19]: BUSY"}}
 [info] >  { {"user":"{","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"\u001b[90m> \u001b[39m {"}}
-[info] >    origin: { lat: 43.2609, lng: -79.9192 }, {"user":"  origin: { lat: 43.2609, lng: -79.9192 },","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"\u001b[90m> \u001b[39m   origin: { lat: 43.2609, lng: -79.9192 },"}}
-[info] >    destination: { lat: 43.2629, lng: -79.9215 } {"user":"  destination: { lat: 43.2629, lng: -79.9215 }","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"\u001b[90m> \u001b[39m   destination: { lat: 43.2629, lng: -79.9215 }"}}
+[info] >    origin: 'Waterloo Park, Waterloo, ON, Canada', {"user":"  origin: 'Waterloo Park, Waterloo, ON, Canada',","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"\u001b[90m> \u001b[39m   origin: 'Waterloo Park, Waterloo, ON, Canada',"}}
+[info] >    destination: 'University of Waterloo, Waterloo, ON, Canada' {"user":"  destination: 'University of Waterloo, Waterloo, ON, Canada'","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"\u001b[90m> \u001b[39m   destination: 'University of Waterloo, Waterloo, ON, Canada'"}}
 [info] >  } {"user":"}","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"\u001b[90m> \u001b[39m }"}}
-[info] >  [ {"user":"[","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"\u001b[90m> \u001b[39m ["}}
-[info] >    { route_id: 'route_0', duration: 285, safety: 0.3319857804232803 }, {"user":"  { route_id: 'route_0', duration: 285, safety: 0.3319857804232803 },","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"\u001b[90m> \u001b[39m   { route_id: 'route_0', duration: 285, safety: 0.3319857804232803 },"}}
-[info] >    { route_id: 'route_1', duration: 297, safety: 0.3332609953703703 }, {"user":"  { route_id: 'route_1', duration: 297, safety: 0.3332609953703703 },","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"\u001b[90m> \u001b[39m   { route_id: 'route_1', duration: 297, safety: 0.3332609953703703 },"}}
-[info] >    { route_id: 'route_2', duration: 300, safety: 0.36944784858387797 } {"user":"  { route_id: 'route_2', duration: 300, safety: 0.36944784858387797 }","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"\u001b[90m> \u001b[39m   { route_id: 'route_2', duration: 300, safety: 0.36944784858387797 }"}}
-[info] >  ] {"user":"]","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"\u001b[90m> \u001b[39m ]"}}
-[debug] [2026-03-06T04:54:36.990Z] Finishing up request with event=pause {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"Finishing up request with event=pause"}}
-[info] i  functions: Finished "us-central1-getRoutes" in 5372.462125ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"Finished \"us-central1-getRoutes\" in 5372.462125ms"}}
-[debug] [2026-03-06T04:54:36.992Z] [worker-us-central1-getRoutes-9f2f5d70-a27b-41f6-9fba-4ef80e1c0df4]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"[worker-us-central1-getRoutes-9f2f5d70-a27b-41f6-9fba-4ef80e1c0df4]: IDLE"}}
-[debug] [2026-03-06T04:54:36.992Z] Finishing up request with event=finish {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"Finishing up request with event=finish"}}
-[debug] [2026-03-06T04:54:36.992Z] Finishing up request with event=close {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"Finishing up request with event=close"}}
-[debug] [2026-03-06T04:54:36.992Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":["/her-route/us-central1/getRoutes-2026-03-06T04:54:34.225Z","/her-route/us-central1/getRoutes-2026-03-06T04:54:36.118Z"],"workRunningCount":2}
-[info] >  [ {"user":"[","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"\u001b[90m> \u001b[39m ["}}
-[info] >    { route_id: 'route_0', duration: 285, safety: 0.3319857804232803 }, {"user":"  { route_id: 'route_0', duration: 285, safety: 0.3319857804232803 },","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"\u001b[90m> \u001b[39m   { route_id: 'route_0', duration: 285, safety: 0.3319857804232803 },"}}
-[info] >    { route_id: 'route_1', duration: 297, safety: 0.3332609953703703 }, {"user":"  { route_id: 'route_1', duration: 297, safety: 0.3332609953703703 },","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"\u001b[90m> \u001b[39m   { route_id: 'route_1', duration: 297, safety: 0.3332609953703703 },"}}
-[info] >    { route_id: 'route_2', duration: 300, safety: 0.36944784858387797 } {"user":"  { route_id: 'route_2', duration: 300, safety: 0.36944784858387797 }","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"\u001b[90m> \u001b[39m   { route_id: 'route_2', duration: 300, safety: 0.36944784858387797 }"}}
-[info] >  ] {"user":"]","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"\u001b[90m> \u001b[39m ]"}}
-[debug] [2026-03-06T04:54:39.824Z] Finishing up request with event=pause {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"Finishing up request with event=pause"}}
-[info] i  functions: Finished "us-central1-getRoutes" in 4979.086083ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"Finished \"us-central1-getRoutes\" in 4979.086083ms"}}
-[debug] [2026-03-06T04:54:39.824Z] [worker-us-central1-getRoutes-be1a4342-2653-4eee-9bdd-1a9c06a8dcb8]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"[worker-us-central1-getRoutes-be1a4342-2653-4eee-9bdd-1a9c06a8dcb8]: IDLE"}}
-[debug] [2026-03-06T04:54:39.824Z] Finishing up request with event=finish {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"Finishing up request with event=finish"}}
-[debug] [2026-03-06T04:54:39.824Z] Finishing up request with event=close {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"Finishing up request with event=close"}}
-[debug] [2026-03-06T04:54:39.825Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":["/her-route/us-central1/getRoutes-2026-03-06T04:54:36.118Z"],"workRunningCount":1}
-[info] >  [ {"user":"[","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"\u001b[90m> \u001b[39m ["}}
-[info] >    { route_id: 'route_0', duration: 285, safety: 0.3319857804232803 }, {"user":"  { route_id: 'route_0', duration: 285, safety: 0.3319857804232803 },","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"\u001b[90m> \u001b[39m   { route_id: 'route_0', duration: 285, safety: 0.3319857804232803 },"}}
-[info] >    { route_id: 'route_1', duration: 297, safety: 0.3332609953703703 }, {"user":"  { route_id: 'route_1', duration: 297, safety: 0.3332609953703703 },","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"\u001b[90m> \u001b[39m   { route_id: 'route_1', duration: 297, safety: 0.3332609953703703 },"}}
-[info] >    { route_id: 'route_2', duration: 300, safety: 0.36944784858387797 } {"user":"  { route_id: 'route_2', duration: 300, safety: 0.36944784858387797 }","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"\u001b[90m> \u001b[39m   { route_id: 'route_2', duration: 300, safety: 0.36944784858387797 }"}}
-[info] >  ] {"user":"]","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"\u001b[90m> \u001b[39m ]"}}
-[debug] [2026-03-06T04:54:42.019Z] Finishing up request with event=pause {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"Finishing up request with event=pause"}}
-[info] i  functions: Finished "us-central1-getRoutes" in 5279.992375ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"Finished \"us-central1-getRoutes\" in 5279.992375ms"}}
-[debug] [2026-03-06T04:54:42.019Z] [worker-us-central1-getRoutes-b63bfc69-0084-45d8-ac34-6e7e6e0c4d99]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"[worker-us-central1-getRoutes-b63bfc69-0084-45d8-ac34-6e7e6e0c4d99]: IDLE"}}
-[debug] [2026-03-06T04:54:42.019Z] Finishing up request with event=finish {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"Finishing up request with event=finish"}}
-[debug] [2026-03-06T04:54:42.019Z] Finishing up request with event=close {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"Finishing up request with event=close"}}
-[debug] [2026-03-06T04:54:42.019Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":[],"workRunningCount":0}
+[info] >  { lat: 43.4675513, lng: -80.52717299999999 } {"user":"{ lat: 43.4675513, lng: -80.52717299999999 }","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"\u001b[90m> \u001b[39m { lat: 43.4675513, lng: -80.52717299999999 }"}}
+[info] >  {"severity":"ERROR","message":"TypeError: Cannot read properties of undefined (reading 'geometry')\n    at exports.getCoordinates (/Users/evelynzhu/her-route/her-route/bestroute/index.js:39:45)\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async /Users/evelynzhu/her-route/her-route/bestroute/index.js:68:21\n    at async /Users/evelynzhu/her-route/her-route/bestroute/node_modules/firebase-functions/lib/common/providers/https.js:566:4\n    at async runFunction (/usr/local/lib/node_modules/firebase-tools/lib/emulator/functionsEmulatorRuntime.js:399:9)\n    at async runHTTPS (/usr/local/lib/node_modules/firebase-tools/lib/emulator/functionsEmulatorRuntime.js:424:5)\n    at async /usr/local/lib/node_modules/firebase-tools/lib/emulator/functionsEmulatorRuntime.js:585:21"} {"user":{"severity":"ERROR","message":"TypeError: Cannot read properties of undefined (reading 'geometry')\n    at exports.getCoordinates (/Users/evelynzhu/her-route/her-route/bestroute/index.js:39:45)\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async /Users/evelynzhu/her-route/her-route/bestroute/index.js:68:21\n    at async /Users/evelynzhu/her-route/her-route/bestroute/node_modules/firebase-functions/lib/common/providers/https.js:566:4\n    at async runFunction (/usr/local/lib/node_modules/firebase-tools/lib/emulator/functionsEmulatorRuntime.js:399:9)\n    at async runHTTPS (/usr/local/lib/node_modules/firebase-tools/lib/emulator/functionsEmulatorRuntime.js:424:5)\n    at async /usr/local/lib/node_modules/firebase-tools/lib/emulator/functionsEmulatorRuntime.js:585:21"},"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"\u001b[90m> \u001b[39m {\"severity\":\"ERROR\",\"message\":\"TypeError: Cannot read properties of undefined (reading 'geometry')\\n    at exports.getCoordinates (/Users/evelynzhu/her-route/her-route/bestroute/index.js:39:45)\\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\\n    at async /Users/evelynzhu/her-route/her-route/bestroute/index.js:68:21\\n    at async /Users/evelynzhu/her-route/her-route/bestroute/node_modules/firebase-functions/lib/common/providers/https.js:566:4\\n    at async runFunction (/usr/local/lib/node_modules/firebase-tools/lib/emulator/functionsEmulatorRuntime.js:399:9)\\n    at async runHTTPS (/usr/local/lib/node_modules/firebase-tools/lib/emulator/functionsEmulatorRuntime.js:424:5)\\n    at async /usr/local/lib/node_modules/firebase-tools/lib/emulator/functionsEmulatorRuntime.js:585:21\"}"}}
+[debug] [2026-03-12T03:33:29.138Z] Finishing up request with event=pause {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"Finishing up request with event=pause"}}
+[info] i  functions: Finished "us-central1-getRoutes" in 218.642ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"Finished \"us-central1-getRoutes\" in 218.642ms"}}
+[debug] [2026-03-12T03:33:29.139Z] [worker-us-central1-getRoutes-42632b8e-6335-4327-b048-295db0150a19]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"[worker-us-central1-getRoutes-42632b8e-6335-4327-b048-295db0150a19]: IDLE"}}
+[debug] [2026-03-12T03:33:29.139Z] Finishing up request with event=finish {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"Finishing up request with event=finish"}}
+[debug] [2026-03-12T03:33:29.139Z] Finishing up request with event=close {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"Finishing up request with event=close"}}
+[debug] [2026-03-12T03:33:29.139Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":[],"workRunningCount":0}
+[debug] [2026-03-12T03:33:35.764Z] [work-queue] {"queuedWork":["/her-route/us-central1/getRoutes-2026-03-12T03:33:35.763Z"],"queueLength":1,"runningWork":[],"workRunningCount":0}
+[debug] [2026-03-12T03:33:35.765Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":["/her-route/us-central1/getRoutes-2026-03-12T03:33:35.763Z"],"workRunningCount":1}
+[debug] [2026-03-12T03:33:35.765Z] Accepted request OPTIONS /her-route/us-central1/getRoutes --> us-central1-getRoutes
+[debug] [2026-03-12T03:33:35.766Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2026-03-12T03:33:35.766Z] [functions] Got req.url=/her-route/us-central1/getRoutes, mapping to path=/ {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/her-route/us-central1/getRoutes, mapping to path=/"}}
+[debug] [2026-03-12T03:33:35.766Z] [worker-pool] submitRequest(triggerId=us-central1-getRoutes) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-getRoutes)"}}
+[info] i  functions: Beginning execution of "us-central1-getRoutes" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"Beginning execution of \"us-central1-getRoutes\""}}
+[debug] [2026-03-12T03:33:35.768Z] [worker-us-central1-getRoutes-42632b8e-6335-4327-b048-295db0150a19]: BUSY {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"[worker-us-central1-getRoutes-42632b8e-6335-4327-b048-295db0150a19]: BUSY"}}
+[debug] [2026-03-12T03:33:35.772Z] Finishing up request with event=pause {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"Finishing up request with event=pause"}}
+[info] i  functions: Finished "us-central1-getRoutes" in 4.692459ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"Finished \"us-central1-getRoutes\" in 4.692459ms"}}
+[debug] [2026-03-12T03:33:35.773Z] [worker-us-central1-getRoutes-42632b8e-6335-4327-b048-295db0150a19]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"[worker-us-central1-getRoutes-42632b8e-6335-4327-b048-295db0150a19]: IDLE"}}
+[debug] [2026-03-12T03:33:35.773Z] Finishing up request with event=finish {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"Finishing up request with event=finish"}}
+[debug] [2026-03-12T03:33:35.773Z] Finishing up request with event=close {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"Finishing up request with event=close"}}
+[debug] [2026-03-12T03:33:35.773Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":[],"workRunningCount":0}
+[debug] [2026-03-12T03:33:35.778Z] [work-queue] {"queuedWork":["/her-route/us-central1/getRoutes-2026-03-12T03:33:35.778Z"],"queueLength":1,"runningWork":[],"workRunningCount":0}
+[debug] [2026-03-12T03:33:35.779Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":["/her-route/us-central1/getRoutes-2026-03-12T03:33:35.778Z"],"workRunningCount":1}
+[debug] [2026-03-12T03:33:35.779Z] Accepted request POST /her-route/us-central1/getRoutes --> us-central1-getRoutes
+[debug] [2026-03-12T03:33:35.779Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2026-03-12T03:33:35.779Z] [functions] Got req.url=/her-route/us-central1/getRoutes, mapping to path=/ {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/her-route/us-central1/getRoutes, mapping to path=/"}}
+[debug] [2026-03-12T03:33:35.779Z] [worker-pool] submitRequest(triggerId=us-central1-getRoutes) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-getRoutes)"}}
+[info] i  functions: Beginning execution of "us-central1-getRoutes" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"Beginning execution of \"us-central1-getRoutes\""}}
+[debug] [2026-03-12T03:33:35.780Z] [worker-us-central1-getRoutes-42632b8e-6335-4327-b048-295db0150a19]: BUSY {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"[worker-us-central1-getRoutes-42632b8e-6335-4327-b048-295db0150a19]: BUSY"}}
+[info] >  { {"user":"{","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"\u001b[90m> \u001b[39m {"}}
+[info] >    origin: 'Waterloo Park, Waterloo, ON, Canada', {"user":"  origin: 'Waterloo Park, Waterloo, ON, Canada',","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"\u001b[90m> \u001b[39m   origin: 'Waterloo Park, Waterloo, ON, Canada',"}}
+[info] >    destination: 'University of Waterloo, Waterloo, ON, Canada' {"user":"  destination: 'University of Waterloo, Waterloo, ON, Canada'","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"\u001b[90m> \u001b[39m   destination: 'University of Waterloo, Waterloo, ON, Canada'"}}
+[info] >  } {"user":"}","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"\u001b[90m> \u001b[39m }"}}
+[info] >  { lat: 43.4675513, lng: -80.52717299999999 } {"user":"{ lat: 43.4675513, lng: -80.52717299999999 }","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"\u001b[90m> \u001b[39m { lat: 43.4675513, lng: -80.52717299999999 }"}}
+[info] >  { lat: 43.4722854, lng: -80.5448576 } {"user":"{ lat: 43.4722854, lng: -80.5448576 }","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"\u001b[90m> \u001b[39m { lat: 43.4722854, lng: -80.5448576 }"}}
+[debug] [2026-03-12T03:33:36.077Z] Finishing up request with event=pause {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"Finishing up request with event=pause"}}
+[info] i  functions: Finished "us-central1-getRoutes" in 297.676ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"Finished \"us-central1-getRoutes\" in 297.676ms"}}
+[debug] [2026-03-12T03:33:36.078Z] [worker-us-central1-getRoutes-42632b8e-6335-4327-b048-295db0150a19]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"[worker-us-central1-getRoutes-42632b8e-6335-4327-b048-295db0150a19]: IDLE"}}
+[debug] [2026-03-12T03:33:36.078Z] Finishing up request with event=finish {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"Finishing up request with event=finish"}}
+[debug] [2026-03-12T03:33:36.078Z] Finishing up request with event=close {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRoutes"},"extension":{},"message":"Finishing up request with event=close"}}
+[debug] [2026-03-12T03:33:36.079Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":[],"workRunningCount":0}

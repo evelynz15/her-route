@@ -6,6 +6,7 @@ interface MapSectionProps {
   nightMode: boolean;
   routeGenerated: boolean;
   onDestinationSelect: (destination: string) => void;
+  onDestinationChanged: (destination: string) => void;
   onClearRoute: () => void;
   onNodeClick: (nodeId: number) => void;
   onResetView: (resetFn: () => void) => void;
@@ -15,13 +16,14 @@ export function MapSection({
   nightMode,
   routeGenerated,
   onDestinationSelect,
+  onDestinationChanged,
   onClearRoute,
   onNodeClick,
   onResetView,
 }: MapSectionProps) {
   const [searchValue, setSearchValue] = useState("");
   const [showSuggestions, setShowSuggestions] = useState(false);
-  const [selectedDestination, setSelectedDestination] = useState<string>("87 Dalewood Crescent");
+  //const [selectedDestination, setSelectedDestination] = useState<string>("87 Dalewood Crescent");
 
   // Removed icons from here
   const suggestions = [
@@ -33,7 +35,7 @@ export function MapSection({
 
   const handleDestinationClick = (destinationName: string) => {
     setSearchValue(destinationName);
-    setSelectedDestination(destinationName);
+    //setSelectedDestination(destinationName);
     onDestinationSelect(destinationName);
     setShowSuggestions(false);
   };
@@ -60,7 +62,11 @@ export function MapSection({
             <input
               type="text"
               value={searchValue}
-              onChange={(e) => setSearchValue(e.target.value)}
+              onChange={(e) => {
+                setSearchValue(e.target.value)
+                if (!e.target.value.trim()) return;
+                onDestinationChanged(e.target.value)
+              }}
               onFocus={() => setShowSuggestions(true)}
               onKeyDown={(e) => {
                 if (e.key === 'Enter' && searchValue.trim()) {

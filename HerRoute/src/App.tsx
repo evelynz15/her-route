@@ -18,18 +18,18 @@ export default function App() {
 
   const handleDestinationSelect = async (destination: string) => {
     const response = await fetch(
-    "http://127.0.0.1:5001/her-route/us-central1/getRoutes",
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        origin: "Waterloo Park, Waterloo, ON, Canada",
-        destination: "University of Waterloo, Waterloo, ON, Canada",
-      }),
-    }
-  );
+      "http://127.0.0.1:5001/her-route/us-central1/getRoutes",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          origin: "Waterloo Park, Waterloo, ON, Canada",
+          destination: destination,
+        }),
+      }
+    );
 
     const data = await response.json();
     console.log("Best route:", data);
@@ -38,6 +38,19 @@ export default function App() {
     setSidebarView('overview');
     setSidebarCollapsed(false);
   };
+
+  const handleDestinationChange = async (destination: string) => {
+    const response = await fetch(
+      `http://127.0.0.1:5001/her-route/us-central1/getSuggestions?address=${encodeURIComponent(destination)}`
+    );
+
+    const data = await response.json();
+    console.log("Destination suggestions:", data);
+
+    setRouteGenerated(true);
+    setSidebarView('overview');
+    setSidebarCollapsed(false);
+  }
 
   const handleClearRoute = () => {
     setRouteGenerated(false);
@@ -55,17 +68,18 @@ export default function App() {
 
   return (
     <div className={`h-screen flex flex-col ${nightMode ? 'bg-gray-900' : 'bg-white'}`}>
-      <Header 
-        nightMode={nightMode} 
+      <Header
+        nightMode={nightMode}
         onToggleNightMode={() => setNightMode(!nightMode)}
         onSettings={() => setShowSettings(!showSettings)}
       />
-      
+
       <div className="flex-1 flex overflow-hidden relative">
-        <MapSection 
+        <MapSection
           nightMode={nightMode}
           routeGenerated={routeGenerated}
           onDestinationSelect={handleDestinationSelect}
+          onDestinationChanged={handleDestinationChange}
           onClearRoute={handleClearRoute}
           onNodeClick={(nodeId) => {
             setSelectedSegment(nodeId);
@@ -76,9 +90,9 @@ export default function App() {
             return resetMapViewRef.current = resetFn;
           }}
         />
-        
+
         {routeGenerated && (
-          <Sidebar 
+          <Sidebar
             nightMode={nightMode}
             view={sidebarView}
             selectedSegment={selectedSegment}

@@ -24,6 +24,23 @@ setGlobalOptions({ maxInstances: 10 });
 // Storing the Directions in mapsKey
 const mapsKey = process.env.GOOGLE_MAPS_KEY;
 
+exports.getSuggestions = onRequest(async (req, res) => {
+  const address = req.query.address;
+  console.log("successful call to getSuggestions, address", address);
+
+  const response = await axios.get(
+    "https://maps.googleapis.com/maps/api/place/autocomplete/json",
+    {
+      params: {
+        input: address,
+        key: mapsKey
+      }
+    }
+  );
+
+  return res.json(response.data.predictions);
+});
+
 exports.getCoordinates = async (address) => {
 
   const response = await axios.get(
@@ -36,6 +53,7 @@ exports.getCoordinates = async (address) => {
     }
   );
 
+  //console.log(response.data.results[0].geometry)
   const location = response.data.results[0].geometry.location;
   console.log(location);
 

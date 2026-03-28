@@ -74,7 +74,7 @@ exports.getRoutes = onRequest(async (req, res) => {
         .status(500)
         .json({ ok: false, error: "Missing GOOGLE_MAPS_KEY" });
 
-    console.log(req.body);
+    console.log("in get routes:", req.body);
     // Pulls request (user tells to go from HERE to THERE)
     let { origin, destination } = req.body || {};
 
@@ -87,11 +87,13 @@ exports.getRoutes = onRequest(async (req, res) => {
     }
 
     // Reject something if it is wrong
+    console.log("origin before return in get routes: ", origin);
+    console.log("dest before return in get routes: ", destination);
     if (
-      !origin?.lat ||
-      !origin?.lng ||
-      !destination?.lat ||
-      !destination?.lng
+      !origin?.latitude ||
+      !origin?.longitude ||
+      !destination?.latitude ||
+      !destination?.longitude
     ) {
       return res.status(400).json({
         ok: false,
@@ -104,8 +106,8 @@ exports.getRoutes = onRequest(async (req, res) => {
       "https://maps.googleapis.com/maps/api/directions/json",
       {
         params: {
-          origin: `${origin.lat},${origin.lng}`,
-          destination: `${destination.lat},${destination.lng}`,
+          origin: `${origin.latitude},${origin.longitude}`,
+          destination: `${destination.latitude},${destination.longitude}`,
           mode: "walking",
           alternatives: true,
           key: mapsKey,

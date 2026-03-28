@@ -17,6 +17,12 @@ interface HerRouteMapProps {
     routeGenerated: boolean;
     onSegmentClick: (segmentId: number) => void;
     onMapReady: (resetFn: () => void) => void;
+    route: {
+        coords: { lat: number; lng: number }[];
+        polyline?: string;
+        distance_m?: number;
+        duration_s?: number;
+    } | null;
 }
 
 // Map Constants
@@ -83,10 +89,11 @@ export default function HerRouteMap({
     nightMode,
     routeGenerated,
     onMapReady,
+    route,
 }: HerRouteMapProps) {
     const mapRef = useRef<LeafletMap | null>(null);
     const [allRoads, setAllRoads] = useState<any[]>([]);
-
+    console.log("in herroutemap:", route)
     useEffect(() => {
         fetch('/roads_simplified.json')
             .then(res => res.json())
@@ -105,9 +112,9 @@ export default function HerRouteMap({
             <style>{`
                 .leaflet-tile-pane {
                     /* 👇 HERE'S WHERE YOU EDIT MAP TILE SATURATION & OVERLAY */
-                    filter: ${nightMode 
-                        ? 'brightness(0.3) contrast(1.1) saturate(3.8) hue-rotate(120deg)' 
-                        : 'saturate(2.0) brightness(1.02)'};
+                    filter: ${nightMode
+                    ? 'brightness(0.3) contrast(1.1) saturate(3.8) hue-rotate(120deg)'
+                    : 'saturate(2.0) brightness(1.02)'};
                     /* 
                     ☝️ EDIT THESE VALUES:
                     - brightness(): 0-1 = darker, 1+ = brighter
@@ -128,7 +135,7 @@ export default function HerRouteMap({
                     filter: none !important;
                 }
             `}</style>
-            
+
             <MapContainer
                 center={MCMASTER_CENTER}
                 zoom={15}
@@ -152,29 +159,34 @@ export default function HerRouteMap({
                     />
                 ))}
 
-                {routeGenerated && (
+                {route && (
                     <>
-                        {/* The Pink Route to the Trail */}
+                        {/* Glow layer */}
                         <Polyline
-                            positions={HARDCODED_WALK_PATH}
-                            pathOptions={{ color: '#ec4899', weight: 12, opacity: 0.2 }} // Outer Glow
-                        />
-                        <Polyline
-                            positions={HARDCODED_WALK_PATH}
-                            pathOptions={{ color: '#ec4899', weight: 6, opacity: 1, lineCap: 'round' }} // Main Line
+                            positions={route.coords.map(c => [c.lat, c.lng])}
+                            pathOptions={{ color: '#ec4899', weight: 12, opacity: 0.2 }}
                         />
 
-                        {/* End Point near Bruce Trail - Pink Dot */}
-                        <Marker position={BRUCE_TRAIL_DESTINATION} icon={createPinkDot()}>
-                            <Popup>
-                                <div className="text-center p-1">
-                                    <strong className="text-pink-600">Route End</strong><br />
-                                    <span className="text-gray-500 text-xs">Ainslie Wood Area</span>
-                                </div>
-                            </Popup>
-                        </Marker>
+                        {/* Main line */}
+                        <Polyline
+                            positions={route.coords.map(c => [c.lat, c.lng])}
+                            pathOptions={{
+                                color: '#ec4899',
+                                weight: 6,
+                                opacity: 1,
+                                lineCap: 'round',
+                            }}
+                        />
                     </>
                 )}
+
+                <Polyline
+                    positions={[
+                        [43.2609, -79.9192],
+                        [43.2623, -79.9170],
+                    ]}
+                    pathOptions={{ color: 'red', weight: 6, opacity: 1 }}
+                />
 
                 {/* Current location marker - Custom Pin - Always Visible */}
                 <Marker position={MCMASTER_CENTER} icon={createCustomPin()}>

@@ -10,6 +10,13 @@ interface MapSectionProps {
   onClearRoute: () => void;
   onNodeClick: (nodeId: number) => void;
   onResetView: (resetFn: () => void) => void;
+  suggestions: any[];
+  route: {
+    coords: { lat: number; lng: number }[];
+    polyline?: string;
+    distance_m?: number;
+    duration_s?: number;
+  } | null;
 }
 
 export function MapSection({
@@ -20,18 +27,21 @@ export function MapSection({
   onClearRoute,
   onNodeClick,
   onResetView,
+  suggestions,
+  route,
 }: MapSectionProps) {
+  console.log("in map section:", suggestions)
   const [searchValue, setSearchValue] = useState("");
   const [showSuggestions, setShowSuggestions] = useState(false);
   //const [selectedDestination, setSelectedDestination] = useState<string>("87 Dalewood Crescent");
 
   // Removed icons from here
-  const suggestions = [
+  /*const suggestions = [
     { name: '87 Dalewood Crescent', distance: '1.2 km' },
     { name: 'Wilson Hall', distance: '0 km' },
     { name: 'Mills Library', distance: '0.3 km' },
     { name: 'Tim Hortons - Campus', distance: '0.2 km' },
-  ];
+  ];*/
 
   const handleDestinationClick = (destinationName: string) => {
     setSearchValue(destinationName);
@@ -90,11 +100,11 @@ export function MapSection({
               {suggestions.map((suggestion, idx) => (
                 <button
                   key={idx}
-                  onClick={() => handleDestinationClick(suggestion.name)}
+                  onClick={() => handleDestinationClick(suggestion.description)}
                   className={`w-full text-left px-5 py-3 flex flex-col transition-colors ${nightMode ? 'hover:bg-gray-700' : 'hover:bg-gray-50'} ${idx === suggestions.length - 1 ? '' : `border-b ${nightMode ? 'border-gray-700' : 'border-gray-100'}`}`}
                 >
-                  <div className={`text-sm font-medium ${nightMode ? 'text-white' : 'text-gray-900'}`}>{suggestion.name}</div>
-                  <div className="text-xs text-gray-500">{suggestion.distance}</div>
+                  <div className={`text-sm font-medium ${nightMode ? 'text-white' : 'text-gray-900'}`}>{suggestion.description}</div>
+                  {/*<div className="text-xs text-gray-500">{suggestion.distance}</div>*/}
                 </button>
               ))}
             </div>
@@ -106,6 +116,7 @@ export function MapSection({
         <HerRouteMap
           nightMode={nightMode}
           routeGenerated={routeGenerated}
+          route={route}
           onSegmentClick={(segmentId) => onNodeClick(segmentId)}
           onMapReady={(resetFn) => onResetView(resetFn)}
         />

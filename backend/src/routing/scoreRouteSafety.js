@@ -7,7 +7,9 @@ function average(arr) {
 }
 
 export async function scoreRouteSafety(coords) {
-  let scores = [];
+  let safetyScores = [];
+  let lightingScores = [];
+  let activityScores = [];
 
   for (const point of coords) {
     const hash = ngeohash.encode(point.lat, point.lng, 7);
@@ -18,11 +20,19 @@ export async function scoreRouteSafety(coords) {
     }).lean();
 
     if (!nodes.length) {
-      scores.push(0.3); // fallback if no data
+      safetyScores.push(0.3);
+      lightingScores.push(0.3);
+      activityScores.push(0.3);
     } else {
-      scores.push(average(nodes.map(n => n.safetyScore)));
+      safetyScores.push(average(nodes.map(n => n.safetyScore)));
+      lightingScores.push(average(nodes.map(n => n.lightingScore)));
+      activityScores.push(average(nodes.map(n => n.activityScore)));
     }
   }
 
-  return average(scores);
+  return {
+    safetyScore: average(safetyScores),
+    lightingScore: average(lightingScores),
+    activityScore: average(activityScores),
+  };
 }

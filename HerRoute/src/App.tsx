@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useCallback } from 'react';
 import { Header } from './components/Header';
 import { MapSection } from './components/MapSection';
 import { Sidebar } from './components/Sidebar';
@@ -22,7 +22,7 @@ export default function App() {
   const [route, setRoute] = useState(null);
   const [routeLoading, setRouteLoading] = useState(false);
 
-  const DEFAULT_ORIGIN = "McMaster Children's Hospital - Hamilton Health Sciences, Main Street West, Hamilton, ON, Canada";
+  const DEFAULT_ORIGIN = "University of Waterloo, Waterloo, ON, Canada";
 
   const handleDestinationSelect = async (destination: string) => {
     const origin = selectedOrigin || DEFAULT_ORIGIN;
@@ -30,7 +30,7 @@ export default function App() {
     setRouteLoading(true);
     try {
       const response = await fetch(
-        "http://127.0.0.1:5001/her-route/us-central1/getRoutes",
+        `${import.meta.env.VITE_BACKEND_URL}/api/routes`,
         {
           method: "POST",
           headers: {
@@ -51,23 +51,32 @@ export default function App() {
     }
   };
 
-  const handleDestinationChange = async (destination: string) => {
-    const response = await fetch(
-      `http://127.0.0.1:5001/her-route/us-central1/getSuggestions?address=${encodeURIComponent(destination)}`
-    );
+  const destinationDebounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const originDebounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-    const data = await response.json();
-    setSuggestions(data);
-  };
+  const handleDestinationChange = useCallback((destination: string) => {
+    if (destinationDebounceRef.current) clearTimeout(destinationDebounceRef.current);
+    destinationDebounceRef.current = setTimeout(async () => {
+      if (!destination.trim()) return;
+      const response = await fetch(
+        `${import.meta.env.VITE_BACKEND_URL}/api/suggestions?address=${encodeURIComponent(destination)}`
+      );
+      const data = await response.json();
+      setSuggestions(data);
+    }, 400);
+  }, []);
 
-  const handleOriginChange = async (origin: string) => {
-    const response = await fetch(
-      `http://127.0.0.1:5001/her-route/us-central1/getSuggestions?address=${encodeURIComponent(origin)}`
-    );
-
-    const data = await response.json();
-    setOriginSuggestions(data);
-  };
+  const handleOriginChange = useCallback((origin: string) => {
+    if (originDebounceRef.current) clearTimeout(originDebounceRef.current);
+    originDebounceRef.current = setTimeout(async () => {
+      if (!origin.trim()) return;
+      const response = await fetch(
+        `${import.meta.env.VITE_BACKEND_URL}/api/suggestions?address=${encodeURIComponent(origin)}`
+      );
+      const data = await response.json();
+      setOriginSuggestions(data);
+    }, 400);
+  }, []);
 
   const handleClearRoute = () => {
     setRouteGenerated(false);

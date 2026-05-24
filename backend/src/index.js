@@ -1,16 +1,27 @@
 import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
+import rateLimit from "express-rate-limit";
 import connectDB from "./db.js";
-import { scoreRouteSafety } from "./routing/scoreRouteSafety.js";
 import internalSafety from "./routes/internalSafety.js";
+import api from "./routes/api.js";
 
 dotenv.config();
 
 const app = express();
 app.use(cors());
 app.use(express.json());
-app.use("/internal/safety", internalSafety);
+
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 50,
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: { ok: false, error: "Too many requests, please try again later." },
+});
+
+app.use("/internal/safety", limiter, internalSafety);
+app.use("/api", limiter, api);
 
 connectDB();
 

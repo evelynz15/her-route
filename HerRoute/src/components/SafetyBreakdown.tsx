@@ -1,18 +1,28 @@
-import { Lightbulb, Camera, AlertCircle, Star } from 'lucide-react';
+import { Lightbulb, Activity } from 'lucide-react';
+// import { Camera, Star } from 'lucide-react';
 
 interface SafetyBreakdownProps {
   isSegment?: boolean;
   nightMode: boolean;
+  lightingScore?: number;
+  activityScore?: number;
 }
 
-export function SafetyBreakdown({ isSegment = false, nightMode }: SafetyBreakdownProps) {
-  const lightingScore = isSegment ? 68 : 85;
-  const cameraCount = isSegment ? 2 : 12;
-  const crimeRating = isSegment ? 'Medium' : 'Low';
-  const crimeScore = isSegment ? 65 : 85;
-  const incidents = isSegment ? 1 : 2;
-  const userRating = isSegment ? 3.8 : 4.2;
-  const reviewCount = isSegment ? 12 : 47;
+function scoreColor(pct: number) {
+  if (pct >= 75) return 'bg-green-500';
+  if (pct >= 50) return 'bg-yellow-500';
+  return 'bg-orange-500';
+}
+
+function scoreDot(pct: number) {
+  if (pct >= 75) return 'bg-green-500';
+  if (pct >= 50) return 'bg-yellow-500';
+  return 'bg-orange-500';
+}
+
+export function SafetyBreakdown({ isSegment = false, nightMode, lightingScore, activityScore }: SafetyBreakdownProps) {
+  const lightingPct = lightingScore != null ? Math.round(lightingScore * 100) : null;
+  const activityPct = activityScore != null ? Math.round(activityScore * 100) : null;
 
   return (
     <div className="space-y-4">
@@ -24,22 +34,43 @@ export function SafetyBreakdown({ isSegment = false, nightMode }: SafetyBreakdow
             <span className={`font-medium ${nightMode ? 'text-white' : 'text-gray-900'}`}>Lighting</span>
           </div>
           <div className="flex items-center gap-2">
-            <span className={`font-bold ${nightMode ? 'text-white' : 'text-gray-900'}`}>{lightingScore}/100</span>
-            <div className={`w-3 h-3 rounded-full ${lightingScore >= 75 ? 'bg-green-500' : lightingScore >= 60 ? 'bg-yellow-500' : 'bg-orange-500'}`} />
+            <span className={`font-bold ${nightMode ? 'text-white' : 'text-gray-900'}`}>
+              {lightingPct != null ? `${lightingPct}/100` : '—'}
+            </span>
+            {lightingPct != null && <div className={`w-3 h-3 rounded-full ${scoreDot(lightingPct)}`} />}
           </div>
         </div>
-        <div className={`w-full ${nightMode ? 'bg-gray-600' : 'bg-gray-200'} rounded-full h-2 mb-2`}>
+        <div className={`w-full ${nightMode ? 'bg-gray-600' : 'bg-gray-200'} rounded-full h-2`}>
           <div
-            className={`h-2 rounded-full ${lightingScore >= 75 ? 'bg-green-500' : lightingScore >= 60 ? 'bg-yellow-500' : 'bg-orange-500'}`}
-            style={{ width: `${lightingScore}%` }}
+            className={`h-2 rounded-full transition-all ${lightingPct != null ? scoreColor(lightingPct) : 'bg-gray-400'}`}
+            style={{ width: `${lightingPct ?? 0}%` }}
           />
-        </div>
-        <div className={`text-sm ${nightMode ? 'text-gray-400' : 'text-gray-600'}`}>
-          {isSegment ? '3 street lamps' : '12 street lamps'}
         </div>
       </div>
 
-      {/* Cameras */}
+      {/* Activity */}
+      <div className={`${nightMode ? 'border-gray-600 bg-gray-700' : 'border-gray-200 bg-white'} border rounded-lg p-4`}>
+        <div className="flex items-center justify-between mb-2">
+          <div className="flex items-center gap-2">
+            <Activity className="w-5 h-5 text-blue-500" />
+            <span className={`font-medium ${nightMode ? 'text-white' : 'text-gray-900'}`}>Activity</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <span className={`font-bold ${nightMode ? 'text-white' : 'text-gray-900'}`}>
+              {activityPct != null ? `${activityPct}/100` : '—'}
+            </span>
+            {activityPct != null && <div className={`w-3 h-3 rounded-full ${scoreDot(activityPct)}`} />}
+          </div>
+        </div>
+        <div className={`w-full ${nightMode ? 'bg-gray-600' : 'bg-gray-200'} rounded-full h-2`}>
+          <div
+            className={`h-2 rounded-full transition-all ${activityPct != null ? scoreColor(activityPct) : 'bg-gray-400'}`}
+            style={{ width: `${activityPct ?? 0}%` }}
+          />
+        </div>
+      </div>
+
+      {/* Cameras — commented out until data is available
       <div className={`${nightMode ? 'border-gray-600 bg-gray-700' : 'border-gray-200 bg-white'} border rounded-lg p-4`}>
         <div className="flex items-center justify-between mb-2">
           <div className="flex items-center gap-2">
@@ -54,32 +85,9 @@ export function SafetyBreakdown({ isSegment = false, nightMode }: SafetyBreakdow
         <div className={`text-sm ${nightMode ? 'text-gray-400' : 'text-gray-600'}`}>
           {cameraCount} cameras on {isSegment ? 'segment' : 'route'}
         </div>
-      </div>
+      </div> */}
 
-      {/* Crime Risk */}
-      <div className={`${nightMode ? 'border-gray-600 bg-gray-700' : 'border-gray-200 bg-white'} border rounded-lg p-4`}>
-        <div className="flex items-center justify-between mb-2">
-          <div className="flex items-center gap-2">
-            <AlertCircle className="w-5 h-5 text-red-500" />
-            <span className={`font-medium ${nightMode ? 'text-white' : 'text-gray-900'}`}>Crime Risk</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <span className={`font-bold ${nightMode ? 'text-white' : 'text-gray-900'}`}>{crimeRating}</span>
-            <div className={`w-3 h-3 rounded-full ${crimeRating === 'Low' ? 'bg-green-500' : crimeRating === 'Medium' ? 'bg-yellow-500' : 'bg-orange-500'}`} />
-          </div>
-        </div>
-        <div className={`w-full ${nightMode ? 'bg-gray-600' : 'bg-gray-200'} rounded-full h-2 mb-2`}>
-          <div
-            className={`h-2 rounded-full ${crimeRating === 'Low' ? 'bg-green-500' : crimeRating === 'Medium' ? 'bg-yellow-500' : 'bg-orange-500'}`}
-            style={{ width: `${crimeScore}%` }}
-          />
-        </div>
-        <div className={`text-sm ${nightMode ? 'text-gray-400' : 'text-gray-600'}`}>
-          {incidents} incident{incidents !== 1 ? 's' : ''} (6 months)
-        </div>
-      </div>
-
-      {/* User Reviews */}
+      {/* User Reviews — commented out until data is available
       <div className={`${nightMode ? 'border-gray-600 bg-gray-700' : 'border-gray-200 bg-white'} border rounded-lg p-4`}>
         <div className="flex items-center justify-between mb-2">
           <div className="flex items-center gap-2">
@@ -106,7 +114,7 @@ export function SafetyBreakdown({ isSegment = false, nightMode }: SafetyBreakdow
         <div className={`text-sm ${nightMode ? 'text-gray-400' : 'text-gray-600'}`}>
           Based on {reviewCount} reviews
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }

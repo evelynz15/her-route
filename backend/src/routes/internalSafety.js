@@ -11,8 +11,8 @@ router.post("/score-route", async (req, res) => {
       return res.status(400).json({ error: "coords must be array" });
     }
 
-    const safetyScore = await scoreRouteSafety(coords);
-    res.json({ safetyScore });
+    const scores = await scoreRouteSafety(coords);
+    res.json(scores);
   } catch (e) {
     res.status(500).json({ error: e.message });
   }

@@ -26,24 +26,7 @@ interface HerRouteMapProps {
 }
 
 // Map Constants
-const MCMASTER_CENTER: [number, number] = [43.2609, -79.9192];
-const WILSON_HALL: [number, number] = [43.262303, -79.917060];
-const BRUCE_TRAIL_DESTINATION: [number, number] = [43.2543, -79.9142]; // Near Ainslie Ave
-
-/**
- * UPDATED ROAD PATH
- * Starts from McMaster Center (where the custom pin is!) -> Sterling -> Emerson -> Ainslie Ave.
- * This creates that "L" shape near the Bruce Trail without crossing grass.
- */
-const HARDCODED_WALK_PATH: [number, number][] = [
-    MCMASTER_CENTER, // Starting from your custom pin location! 📍
-    [43.2622, -79.9192], // Corner of Sterling & Forsyth
-    [43.2595, -79.9195], // Intersection at Main St W & Emerson
-    [43.2580, -79.9190], // Emerson St & Whitney Ave
-    [43.2555, -79.9180], // Emerson St & Ainslie Ave
-    [43.2548, -79.9155], // Ainslie Ave heading East
-    BRUCE_TRAIL_DESTINATION // Destination near the Trail
-];
+const DEFAULT_CENTER: [number, number] = [43.4723, -80.5449]; // University of Waterloo
 
 const getSafetyColor = (score: number): string => {
     if (score >= 80) return '#ec4899';
@@ -92,7 +75,7 @@ function MapViewHandler({ routeGenerated, routeCoords }: { routeGenerated: boole
             const bounds = L.latLngBounds(routeCoords);
             map.flyToBounds(bounds, { padding: [60, 60], duration: 1.5, maxZoom: 17 });
         } else if (!routeGenerated) {
-            map.setView(MCMASTER_CENTER, 15);
+            map.setView(DEFAULT_CENTER, 15);
         }
     }, [routeGenerated, routeCoords, map]);
     return null;
@@ -132,7 +115,7 @@ export default function HerRouteMap({
             `}</style>
 
             <MapContainer
-                center={MCMASTER_CENTER}
+                center={DEFAULT_CENTER}
                 zoom={15}
                 ref={mapRef}
                 style={{ height: '100%', width: '100%' }}

@@ -96,7 +96,7 @@ export default function HerRouteMap({
                     /* 👇 HERE'S WHERE YOU EDIT MAP TILE SATURATION & OVERLAY */
                     filter: ${nightMode
                     ? 'brightness(0.3) contrast(1.1) saturate(3.8) hue-rotate(120deg)'
-                    : 'saturate(2.0) brightness(1.02)'};
+                    : 'grayscale(1) brightness(1.05)'};
                     /* 
                     ☝️ EDIT THESE VALUES:
                     - brightness(): 0-1 = darker, 1+ = brighter
@@ -121,7 +121,10 @@ export default function HerRouteMap({
                 style={{ height: '100%', width: '100%' }}
                 zoomControl={false}
             >
-                <TileLayer url="https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png" />
+                <TileLayer
+                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                    attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                />
                 <MapViewHandler
                     routeGenerated={routeGenerated}
                     routeCoords={route ? route.coords.map(c => [c.lat, c.lng] as [number, number]) : []}

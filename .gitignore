@@ -1,1 +1,26 @@
-node_modules
+# Dependencies
+node_modules/
+
+# Build output / caches
+dist/
+dist-ssr/
+.vite/
+.firebase/
+
+# Environment variables (commit .env.example only)
+.env
+.env.*
+!.env.example
+*.local
+
+# Logs
+logs/
+*.log
+
+# OS / editor
+.DS_Store
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.suo
+*.sw?

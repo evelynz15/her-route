@@ -2,8 +2,6 @@ import { useState, useRef, useCallback } from 'react';
 import { Header } from './components/Header';
 import { MapSection } from './components/MapSection';
 import { Sidebar } from './components/Sidebar';
-import "leaflet/dist/leaflet.css";
-import "leaflet-routing-machine/dist/leaflet-routing-machine.css";
 
 
 

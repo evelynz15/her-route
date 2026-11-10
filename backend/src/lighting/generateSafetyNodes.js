@@ -18,30 +18,6 @@ function countNearby(point, features, radius = 90) {
   ).length;
 }
 
-/*
-export function generateSafetyNodes(grid, lamps) {
-    console.log("Grid sample:", grid.slice(0, 5));
-  return grid.map(point => {
-    const lampCount = lamps.filter(l =>
-      distanceMeters(point, { lat: l.lat, lng: l.lon }) < 90
-    ).length;
-
-    const lightingScore = Math.min(lampCount / 5, 1);
-    const safetyScore = lampCount === 0 ? 0.1 : lightingScore; // lighting-only MVP
-
-    return {
-      lat: point.lat,
-      lng: point.lng,
-      geohash: ngeohash.encode(point.lat, point.lng, 7), // ~150m precision
-      lampCount,
-      lightingScore,
-      userVoteSum: 0,
-      userVoteCount: 0,
-      safetyScore
-    };
-  });
-} */
-
 // normalize count into [0,1]
 function normalize(count, max) {
   return Math.min(count / max, 1);

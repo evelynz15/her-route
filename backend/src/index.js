@@ -6,10 +6,19 @@ import connectDB from "./db.js";
 import api from "./routes/api.js";
 
 const app = express();
-// Trust the first proxy hop so req.ip (used by the rate limiter) is the real client IP.
-// Increase if there are multiple proxies in front of the app (e.g. CDN + load balancer).
-app.set("trust proxy", 1);
-app.use(cors());
+// Only trust X-Forwarded-For when a reverse proxy actually sits in front of the app;
+// otherwise clients can spoof it and bypass the rate limiter. Set TRUST_PROXY to the
+// number of proxy hops (e.g. 1 behind a single load balancer). Defaults to off.
+const trustProxyHops = Number.parseInt(process.env.TRUST_PROXY, 10);
+app.set("trust proxy", Number.isInteger(trustProxyHops) && trustProxyHops > 0 ? trustProxyHops : false);
+
+// Only allow browser requests from own frontend(s). Comma-separated list.
+// Trailing slashes are stripped: browsers send Origin without one, and cors matches exactly.
+const allowedOrigins = (process.env.FRONTEND_URL || "http://localhost:5173")
+  .split(",")
+  .map((o) => o.trim().replace(/\/+$/, ""))
+  .filter(Boolean);
+app.use(cors({ origin: allowedOrigins }));
 app.use(express.json());
 
 const limiter = rateLimit({

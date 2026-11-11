@@ -1,5 +1,5 @@
+import "dotenv/config"; // must be first: loads .env before other modules read process.env
 import mongoose from "mongoose";
-import dotenv from "dotenv";
 import SafetyNode from "../models/safetyNode.js";
 import {
   fetchStreetLights,
@@ -7,15 +7,17 @@ import {
   fetchCafes,
   fetchTransitStops,
   fetchConvenienceStores
-} from "./fetchLighting.js";
+} from "./overpass.js";
 import { generateSafetyNodes } from "./generateSafetyNodes.js";
+import { SERVICE_AREA } from "../config/areas.js";
 
-dotenv.config();
+const GRID_STEP_DEG = 0.0005; // ~55m north-south, ~40m east-west at this latitude
 
 function generateGrid() {
+  const { south, west, north, east } = SERVICE_AREA;
   const points = [];
-  for (let lat = 43.464; lat <= 43.480; lat += 0.0005) {
-    for (let lng = -80.554; lng <= -80.535; lng += 0.0005) {
+  for (let lat = south; lat <= north; lat += GRID_STEP_DEG) {
+    for (let lng = west; lng <= east; lng += GRID_STEP_DEG) {
       points.push({ lat, lng });
     }
   }
@@ -31,8 +33,6 @@ async function seedDatabase() {
 
   console.log("Connected DB:", mongoose.connection.name);
   console.log("Connected Collection:", SafetyNode.collection.name);
-
-  await SafetyNode.deleteMany({});
 
   const lamps = await fetchStreetLights();
   console.log("Street lamps:", lamps.length);
@@ -58,6 +58,9 @@ async function seedDatabase() {
     convenienceStores
   });
 
+  // Replace old data only once the new nodes are ready, so a failed fetch or
+  // generation step leaves the existing collection intact.
+  await SafetyNode.deleteMany({});
   await SafetyNode.insertMany(nodes);
 
   console.log("Database seeded:", nodes.length);

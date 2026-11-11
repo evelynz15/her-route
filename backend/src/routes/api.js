@@ -2,6 +2,7 @@ import express from "express";
 import axios from "axios";
 import polyline from "@mapbox/polyline";
 import { scoreRouteSafety } from "../routing/scoreRouteSafety.js";
+import { isInServiceArea } from "../config/areas.js";
 
 const router = express.Router();
 const SAFETY_WEIGHT = 0.7;
@@ -25,6 +26,32 @@ const FOCUS = {
   "boundary.country": "CA",
 };
 
+// Only route within SERVICE_AREA (UW / Laurier area): bounds the work per request,
+// keeps traffic to the free OSRM server reasonable, and matches the seeded safety data.
+// Returns {latitude, longitude} as finite numbers inside SERVICE_AREA, or null.
+function toServiceAreaPoint(p) {
+  const latitude = Number(p?.latitude);
+  const longitude = Number(p?.longitude);
+  if (!Number.isFinite(latitude) || !Number.isFinite(longitude)) return null;
+  if (!isInServiceArea(latitude, longitude)) return null;
+  return { latitude, longitude };
+}
+
+const MAX_ADDRESS_LENGTH = 200;
+
+// True for a non-empty string short enough to send to the (paid) geocoder.
+function isValidAddress(a) {
+  return typeof a === "string" && a.trim().length > 0 && a.length <= MAX_ADDRESS_LENGTH;
+}
+
+// Log upstream failures without the request config
+function logError(context, e) {
+  console.error(`[${context}]`, e?.message || String(e), {
+    code: e?.code,
+    status: e?.response?.status,
+  });
+}
+
 async function getCoordinates(address) {
   const { data } = await pelias.get("/search", {
     params: { text: address, size: 1, ...FOCUS },
@@ -38,7 +65,13 @@ async function getCoordinates(address) {
 router.get("/suggestions", async (req, res) => {
   try {
     const { address } = req.query;
-    if (!address) return res.json([]);
+    if (address === undefined || address === "") return res.json([]);
+    if (!isValidAddress(address)) {
+      return res.status(400).json({
+        ok: false,
+        error: `address must be a single string of at most ${MAX_ADDRESS_LENGTH} characters`,
+      });
+    }
     const { data } = await pelias.get("/autocomplete", {
       params: { text: address, ...FOCUS },
     });
@@ -51,7 +84,7 @@ router.get("/suggestions", async (req, res) => {
       }))
     );
   } catch (e) {
-    console.error(e);
+    logError("suggestions", e);
     res.status(500).json({ ok: false, error: String(e.message || e) });
   }
 });
@@ -60,6 +93,15 @@ router.post("/routes", async (req, res) => {
   try {
     let { origin, destination } = req.body || {};
 
+    for (const value of [origin, destination]) {
+      if (typeof value === "string" && !isValidAddress(value)) {
+        return res.status(400).json({
+          ok: false,
+          error: `Address strings must be non-empty and at most ${MAX_ADDRESS_LENGTH} characters`,
+        });
+      }
+    }
+
     if (typeof origin === "string") {
       origin = await getCoordinates(origin);
     }
@@ -67,15 +109,14 @@ router.post("/routes", async (req, res) => {
       destination = await getCoordinates(destination);
     }
 
-    if (
-      !origin?.latitude ||
-      !origin?.longitude ||
-      !destination?.latitude ||
-      !destination?.longitude
-    ) {
+    origin = toServiceAreaPoint(origin);
+    destination = toServiceAreaPoint(destination);
+    if (!origin || !destination) {
       return res.status(400).json({
         ok: false,
-        error: "Send origin and destination as {latitude, longitude} or an address string",
+        error:
+          "Send origin and destination as {latitude, longitude} or an address string, " +
+          "both within the University of Waterloo / Wilfrid Laurier service area",
       });
     }
 
@@ -135,7 +176,7 @@ router.post("/routes", async (req, res) => {
       },
     });
   } catch (e) {
-    console.error(e);
+    logError("routes", e);
     res.status(500).json({ ok: false, error: String(e.message || e) });
   }
 });

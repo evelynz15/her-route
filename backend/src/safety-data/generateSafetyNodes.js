@@ -1,21 +1,32 @@
 import ngeohash from "ngeohash";
 
+// Approximate distance in metres (equirectangular; accurate at city scale).
+// Longitude degrees shrink with latitude, so scale them by cos(lat).
 function distanceMeters(a, b) {
-  const METERS_PER_DEGREE = 111_000; // approx
-
-  return Math.sqrt(
-    Math.pow((a.lat - b.lat) * METERS_PER_DEGREE, 2) +
-    Math.pow((a.lng - b.lng) * METERS_PER_DEGREE, 2)
-  );
+  const R = 6371000;
+  const toRad = Math.PI / 180;
+  const x = (b.lng - a.lng) * toRad * Math.cos(((a.lat + b.lat) / 2) * toRad);
+  const y = (b.lat - a.lat) * toRad;
+  return Math.sqrt(x * x + y * y) * R;
 }
 
-function countNearby(point, features, radius = 90) {
-  return features.filter(feature =>
-    distanceMeters(point, {
-      lat: feature.lat,
-      lng: feature.lon || feature.lng
-    }) < radius
-  ).length;
+// Overpass returns nodes with top-level lat/lon, but ways (e.g. a restaurant mapped
+// as a building outline) only have a `center` when queried with `out center`.
+// Returns {lat, lng}, or null if the element has no usable position.
+function toPoint(feature) {
+  const src = feature.lat !== undefined ? feature : feature.center;
+  if (!src) return null;
+  const lat = src.lat;
+  const lng = src.lon ?? src.lng;
+  return Number.isFinite(lat) && Number.isFinite(lng) ? { lat, lng } : null;
+}
+
+function toPoints(features) {
+  return features.map(toPoint).filter(Boolean);
+}
+
+function countNearby(point, points, radius = 90) {
+  return points.filter(p => distanceMeters(point, p) < radius).length;
 }
 
 // normalize count into [0,1]
@@ -32,7 +43,7 @@ export function generateSafetyNodes(grid, data) {
     cafes,
     transitStops,
     convenienceStores
-  } = data;
+  } = Object.fromEntries(Object.entries(data).map(([k, v]) => [k, toPoints(v)]));
 
   // First pass: compute raw counts for every point
   const raw = grid.map(point => {
@@ -53,7 +64,7 @@ export function generateSafetyNodes(grid, data) {
   // Fixed max for lamps — nodes with 3+ lamps score 1.0
   const maxLamps = 3;
   // Dynamic max for activity so the busiest node in the dataset scores 1.0
-  const maxActivity = Math.max(...raw.map(r => r.rawActivity), 1);
+  const maxActivity = raw.reduce((max, r) => Math.max(max, r.rawActivity), 1);
 
   // Second pass: normalize and score
   return raw.map(({ point, lampCount, restaurantCount, cafeCount, transitStopCount, convenienceStoreCount, rawActivity }) => {

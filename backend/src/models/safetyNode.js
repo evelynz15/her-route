@@ -33,6 +33,11 @@ const safetyNodeSchema = new mongoose.Schema({
     default: 0
   },
 
+  convenienceStoreCount: {
+    type: Number,
+    default: 0
+  },
+
   openLateCount: {
     type: Number,
     default: 0

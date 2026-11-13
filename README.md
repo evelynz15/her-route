@@ -6,7 +6,7 @@ Maps apps find the quickest way from A to B. At night, the quickest way is often
 
 It currently covers the University of Waterloo and Wilfrid Laurier campuses and the streets between them.
 
-**Stack:** React · TypeScript · Vite · Node.js · Express · MongoDB · OpenStreetMap (Overpass, OSRM, Pelias)
+**Stack:** React · TypeScript · Vite · Node.js · Express · MongoDB · OpenStreetMap (Overpass, OSRM, Photon)
 
 ---
 

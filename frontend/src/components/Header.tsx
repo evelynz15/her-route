@@ -1,12 +1,11 @@
-import { Moon, Sun, Settings } from 'lucide-react';
+import { Moon, Sun } from 'lucide-react';
 
 interface HeaderProps {
   nightMode: boolean;
   onToggleNightMode: () => void;
-  onSettings: () => void;
 }
 
-export function Header({ nightMode, onToggleNightMode, onSettings }: HeaderProps) {
+export function Header({ nightMode, onToggleNightMode }: HeaderProps) {
   return (
     <header className={`h-14 sm:h-16 ${nightMode ? 'bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 border-gray-700' : 'bg-gradient-to-r from-pink-50 via-white to-orange-50 border-pink-100'} border-b flex items-center justify-between px-4 sm:px-6 z-20 shadow-sm`}>
       <div className="flex items-center gap-2 sm:gap-3">
@@ -52,17 +51,6 @@ export function Header({ nightMode, onToggleNightMode, onSettings }: HeaderProps
               <span className="text-xs sm:text-sm font-medium hidden sm:inline">Night</span>
             </>
           )}
-        </button>
-        {/* Settings Button */}
-        <button
-          onClick={onSettings}
-          className={`p-2 sm:p-2.5 rounded-lg border ${
-            nightMode 
-              ? 'bg-gray-700 border-gray-600 hover:bg-gray-600' 
-              : 'bg-white border-gray-200 hover:border-pink-300 hover:bg-pink-50'
-          } transition-all shadow-sm`}
-        >
-          <Settings className={`w-4 h-4 sm:w-4.5 sm:h-4.5 ${nightMode ? 'text-gray-300' : 'text-gray-700'}`} />
         </button>
       </div>
     </header>

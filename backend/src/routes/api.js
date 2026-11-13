@@ -2,28 +2,30 @@ import express from "express";
 import axios from "axios";
 import polyline from "@mapbox/polyline";
 import { scoreRouteSafety } from "../routing/scoreRouteSafety.js";
-import { isInServiceArea } from "../config/areas.js";
+import { isInServiceArea, SERVICE_AREA } from "../config/areas.js";
 
 const router = express.Router();
 const SAFETY_WEIGHT = 0.7;
 const TIME_WEIGHT = 0.3;
 
-const pelias = axios.create({
-  baseURL: process.env.PELIAS_URL,
-  params: process.env.PELIAS_KEY ? { api_key: process.env.PELIAS_KEY } : {},
+const photon = axios.create({
+  baseURL: process.env.PHOTON_URL || "https://photon.komoot.io",
+  timeout: 10000,
+  headers: { "User-Agent": process.env.PHOTON_USER_AGENT || "herroute/1.0" },
 });
 
-// Free FOSSGIS OSRM server (walking profile). Fair-use / non-commercial; self-host for production.
 const osrm = axios.create({
   baseURL: process.env.OSRM_URL || "https://routing.openstreetmap.de/routed-foot",
   timeout: 15000,
 });
 
-// Bias results toward University of Waterloo / Wilfrid Laurier so local matches rank first
-const FOCUS = {
-  "focus.point.lat": 43.473,
-  "focus.point.lon": -80.536,
-  "boundary.country": "CA",
+// Rank results near University of Waterloo / Wilfrid Laurier first, and only return
+// places inside SERVICE_AREA.
+const PHOTON_PARAMS = {
+  lat: 43.473,
+  lon: -80.536,
+  bbox: [SERVICE_AREA.west, SERVICE_AREA.south, SERVICE_AREA.east, SERVICE_AREA.north].join(","),
+  lang: "en",
 };
 
 // Only route within SERVICE_AREA (UW / Laurier area): bounds the work per request,
@@ -39,7 +41,7 @@ function toServiceAreaPoint(p) {
 
 const MAX_ADDRESS_LENGTH = 200;
 
-// True for a non-empty string short enough to send to the (paid) geocoder.
+// True for a non-empty string short enough to send to the geocoder.
 function isValidAddress(a) {
   return typeof a === "string" && a.trim().length > 0 && a.length <= MAX_ADDRESS_LENGTH;
 }
@@ -52,11 +54,23 @@ function logError(context, e) {
   });
 }
 
-async function getCoordinates(address) {
-  const { data } = await pelias.get("/search", {
-    params: { text: address, size: 1, ...FOCUS },
+// Photon has no ready-made display label, so build one like
+// "Dana Porter Library, Arts Quad, Waterloo" from the parts it returns.
+function photonLabel(p = {}) {
+  const street = [p.housenumber, p.street].filter(Boolean).join(" ");
+  const parts = [p.name, street, p.city || p.locality || p.district];
+  return [...new Set(parts.filter(Boolean))].join(", ");
+}
+
+async function photonSearch(text, limit) {
+  const { data } = await photon.get("/api", {
+    params: { q: text, limit, ...PHOTON_PARAMS },
   });
-  const feature = data.features?.[0];
+  return data.features || [];
+}
+
+async function getCoordinates(address) {
+  const [feature] = await photonSearch(address, 1);
   if (!feature) throw new Error(`No geocoding result for "${address}"`);
   const [lng, lat] = feature.geometry.coordinates; // GeoJSON order is [lon, lat]
   return { latitude: lat, longitude: lng };
@@ -72,13 +86,11 @@ router.get("/suggestions", async (req, res) => {
         error: `address must be a single string of at most ${MAX_ADDRESS_LENGTH} characters`,
       });
     }
-    const { data } = await pelias.get("/autocomplete", {
-      params: { text: address, ...FOCUS },
-    });
+    const features = await photonSearch(address, 5);
     res.json(
-      (data.features || []).map((f) => ({
-        description: f.properties.label,
-        place_id: f.properties.gid,
+      features.map((f) => ({
+        description: photonLabel(f.properties),
+        place_id: `${f.properties.osm_type}${f.properties.osm_id}`,
         latitude: f.geometry.coordinates[1],
         longitude: f.geometry.coordinates[0],
       }))

@@ -7,7 +7,6 @@ import { Sidebar } from './components/Sidebar';
 
 export default function App() {
   const [nightMode, setNightMode] = useState(false);
-  const [showSettings, setShowSettings] = useState(false);
   const [sidebarView, setSidebarView] = useState<'overview' | 'segment'>('overview');
   const [selectedSegment, setSelectedSegment] = useState<number | null>(null);
   const [routeGenerated, setRouteGenerated] = useState(false);
@@ -102,7 +101,6 @@ export default function App() {
       <Header
         nightMode={nightMode}
         onToggleNightMode={() => setNightMode(!nightMode)}
-        onSettings={() => setShowSettings(!showSettings)}
       />
 
       <div className="flex-1 flex overflow-hidden relative">
